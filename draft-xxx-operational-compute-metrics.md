@@ -1,5 +1,5 @@
 ---
-title: "TODO - Your title"
+title: "Joint Exposure of Network and Compute Information for Infrastructure-Aware Application Placement and Selection"
 abbrev: "TODO - Abbreviation"
 category: info
 
@@ -25,8 +25,18 @@ venue:
 
 author:
  -
+    fullname: "S. Randriamasy"
+    organization: Nokia Bell Labs
+    email: "sabine.randriamasy@nokia-bell-labs.com"
+
+ -
+    fullname: "L. M. Contreras"
+    organization: Telefonica
+    email: "luismiguel.contrerasmurillo@telefonica.com"
+
+ -
     fullname: "Jordi Ros-Giralt"
-    organization: Your Organization Here
+    organization: Qualcomm Europe, Inc.
     email: "jros@qti.qualcomm.com"
 
 normative:
@@ -49,6 +59,27 @@ TODO Introduction
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
+
+# Motivations
+
+TODO
+
+
+#  Guiding Principles
+
+TODO
+
+# Needs
+
+TODO
+
+# Related Work
+
+TODO
+
+# GAP Analysis
+
+TODO
 
 
 # Security Considerations
