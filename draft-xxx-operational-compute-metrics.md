@@ -70,12 +70,22 @@ TODO
 Visibility and exposure to the application of both (1) network and (2) compute
 resources is critical to
 enable the proper functioning of the new class of services
-arising at the edge (distributed AI, driverless vehicles,
+arising at the edge (e.g., distributed AI, driverless vehicles,
 AR/VR, etc.). To understand the problem space and the capabilities
-that are lacking in today's protocol interfaces necessary to
-properly enable these new services, we focus on the simple life cycle of
-service deployment and selection ({{lifecycle}}).
+that are lacking in today's protocol interfaces necessary to enable
+these new services, we focus on the life cycle of
+a service.
 
+At the edge, compute nodes
+are deployed near communication nodes (e.g., co-located
+in a 5G base station) to provide computing services that are
+close to users with the goal to (1) reduce latency, (2) increase
+communication bandwidth, (3) enable privacy/personalization
+(e.g., federated AI learning), and (4) reduce cloud costs and
+energy. Services are deployed on the communication and compute
+infrastructure through a two-phase life cycle that involves first a
+service *deployment stage* and then a *service selection* stage
+({{lifecycle}}).
 
      +-------------+      +--------------+      +-------------+
      |             |      |              |      |             |
@@ -92,15 +102,7 @@ service as a simple framework to understand the capabilities
 that are lacking in today's protocol interfaces and that are necessary for
 these new services. -->
 
-Compute nodes are deployed at the edge (e.g., co-located
-in a 5G base station) to provide computing services that are
-close to users with the goal to (1) reduce latency, (2) increase
-communication bandwidth, (3) enable privacy/personalization
-(e.g., federated AI learning), and (4) reduce cloud costs and
-energy. Services are deployed on the communication and compute
-infrastructure through a two-phase life cycle that involves first a
-service *deployment stage* and then a *service selection* stage
-({{lifecycle}}).
+
 
 **Service deployment.** This phase is carried out by the service
 provider, and consists in the deployment of a new service
@@ -121,7 +123,30 @@ an interface to query the infrastructure, extract the available compute
 and communication resources, and decide which subset of resources are
 needed to run the service.
 
-**Service selection.**
+**Service selection.** This phase is initiated by the user, through
+a client application that connects to the deployed service. There
+are two main decisions that must be performed in the service selection
+stage: compute node selection and path selection. In the compute node selection
+step, as the service is generally replicated in
+N locations (e.g., by leveraging a microservices architecture),
+the application must decide which of the service replicas
+it connects to. Similar to the service deployment stage, this
+decision requires knowledge about communication and compute
+resources available in each replica. On the other hand, in the path selection decision,
+the application must decide which path it chooses to connect to the service.
+This decision depends on the communication properties (e.g., bandwidth and latency)
+of the available paths. Similar to the service deployment case,
+the service provider needs an interface to query the infrastructure and extract the available compute
+and communication resources, with the goal to make an informed node and path selection decision.
+It is also important to note that, ideally, the node and path selection
+decisions should be jointly optimized, since in general the best end-to-end performance
+is achieved by jointly taking into account both decisions. In some cases, however,
+such decisions may be owned by different players. For instance, in some network
+environments, the path selection may be decided by the network operator,
+wheres the node selection may be decided by the application. Even in these cases,
+it is crucial to have a proper interface (for both the network operator and the service
+provider) to query the available compute and communication resources from the system.
+
 
 
 
