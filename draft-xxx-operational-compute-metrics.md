@@ -1,5 +1,5 @@
 ---
-title: "Joint Exposure of Network and Compute Information for Infrastructure-Aware Application Placement and Selection"
+title: "Joint Exposure of Network and Compute Information for Infrastructure-Aware Service Deployment"
 abbrev: "TODO - Abbreviation"
 category: info
 
