@@ -67,12 +67,12 @@ TODO
 
 # Problem Space and Needs
 
-Visibility and exposure to the application of both (1) network and (2) compute
-resources is critical to
+Visibility and exposure of both (1) network and (2) compute
+resources to the application is critical to
 enable the proper functioning of the new class of services
 arising at the edge (e.g., distributed AI, driverless vehicles,
 AR/VR, etc.). To understand the problem space and the capabilities
-that are lacking in today's protocol interfaces necessary to enable
+that are lacking in today's protocol interfaces needed to enable
 these new services, we focus on the life cycle of
 a service.
 
@@ -137,7 +137,7 @@ the application must decide which path it chooses to connect to the service.
 This decision depends on the communication properties (e.g., bandwidth and latency)
 of the available paths. Similar to the service deployment case,
 the service provider needs an interface to query the infrastructure and extract the available compute
-and communication resources, with the goal to make an informed node and path selection decision.
+and communication resources, with the goal to make informed node and path selection decisions.
 It is also important to note that, ideally, the node and path selection
 decisions should be jointly optimized, since in general the best end-to-end performance
 is achieved by jointly taking into account both decisions. In some cases, however,
@@ -147,12 +147,21 @@ wheres the node selection may be decided by the application. Even in these cases
 it is crucial to have a proper interface (for both the network operator and the service
 provider) to query the available compute and communication resources from the system.
 
+{{prob_space}} summarizes the problem space, the information that needs to be exposed, and the stakeholders that need this information.
+
+| Action to take | Information needed | Who needs it |
+|-----------:|:----------------------:|:----------------------|
+| Service placement | Compute and communication | Service provider |
+| Service selection/node selection | Compute | Network/service provider and/or application |
+| Service selection/path selection | Communication | Network/service and/or application |
+{: #prob_space title="Problem space, needs, and stakeholders." }
 
 
 
 #  Guiding Principles
 
-TODO
+The driving principles for designing an API to jointly extract network and compute information are as follows:
+
 
 
 
