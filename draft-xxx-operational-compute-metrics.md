@@ -64,8 +64,6 @@ and exposure scheme for metrics reflecting compute capabilities.
 
 # Introduction
 
-TODO Introduction
-
 Operators are starting to deploy distributed computing environments
  in different parts of the network with the objective of addressing
  different service needs including latency, bandwidth, processing
