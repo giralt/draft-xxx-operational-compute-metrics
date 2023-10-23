@@ -92,7 +92,7 @@ However, deployments may reach out to data centers running different implementat
 This document proposes an initial approach towards  a common understanding 
 and exposure scheme for metrics reflecting compute capabilities. 
 It aims at building on existing work in the IETF on compute metrics definitions to build synergies.
-It also aims at reaching out to working or research groups in the IETF that would consume such information and have particular requirements.
+It also aims at reaching out to working or research groups in the IETF that would consume such information and have particular requirements. 
 
 
 # Conventions and Definitions
