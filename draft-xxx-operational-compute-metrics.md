@@ -66,6 +66,37 @@ and exposure scheme for metrics reflecting compute capabilities.
 
 TODO Introduction
 
+Operators are starting to deploy distributed computing environments
+ in different parts of the network with the objective of addressing
+ different service needs including latency, bandwidth, processing
+ capabilities, storage, etc.
+This translates in the emergence of a
+ number of data centers (both in the cloud and at the edge) of
+ different sizes (e.g., large, medium, small) characterized by
+ distinct dimension of CPUs, memory, and storage capabilities, as well
+ as bandwidth capacity for forwarding the traffic generated in and out
+ of the corresponding data center.
+
+ The proliferation of the edge computing paradigm further increases
+ the potential footprint and heterogeneity of the environments where a
+ function or application can be deployed, resulting in different
+ unitary cost per CPU, memory, and storage. This increases the
+ complexity of deciding the location where a given function or
+ application should be best deployed or executed.
+ This decision should be jointly 
+ influenced on the one hand by the available resources in a given computing
+ environment, and on the other hand by the capabilities of the network path connecting
+ the traffic source with the destination.
+
+Network and compute aware function placement and selection has become of utmost importance in the last decade.  
+The availability of such information is taken for granted by the numerous service providers and bodies that are specifying them. 
+However, deployments may reach out to data centers running different implementations with different understandings and representations of compute capabilities and smooth operation is a challenge. While standardization efforts on network capabilities representation and exposure are well-advanced, similar efforts on compute capabilitites are in their infancy. 
+
+This document proposes an initial approach towards  a common understanding 
+and exposure scheme for metrics reflecting compute capabilities. 
+It aims at building on existing work in the IETF on compute metrics definitions to build synergies.
+It also aims at reaching out to working or research groups in the IETF that would consume such information and have particular requirements.
+
 
 # Conventions and Definitions
 
