@@ -40,6 +40,9 @@ author:
     email: "jros@qti.qualcomm.com"
 
 normative:
+  RFC7285:
+  I-D.ietf-alto-performance-metrics:
+  I-D.du-cats-computing-modeling-description:
 
 informative:
 
@@ -160,10 +163,23 @@ provider) to query the available compute and communication resources from the sy
 
 #  Guiding Principles
 
-The driving principles for designing an API to jointly extract network and compute information are as follows:
+The driving principles for designing an interface to jointly extract network and compute information are as follows:
 
+P1. Leverage metrics across working groups to avoid reinventing the wheel. For instance:
 
+- RFC-to-be 9439 {{I-D.ietf-alto-performance-metrics}} leverages IPPM metrics from RFC 7679.
+- Section 5.2 of {{I-D.du-cats-computing-modeling-description}} considers delay as a good metric, since it is easy to use in both compute and communication domains. RFC-to-be 9439 also defines delay as part of the performance metrics.
+- Section 6 of {{I-D.du-cats-computing-modeling-description}} proposes to represent the network structure as graphs, which is similar to the ALTO map services in {{RFC7285}}.
 
+P2. Aim for simplicity, while ensuring the combined efforts
+don’t leave technical gaps in supporting the full life cycle
+of service deployment and selection. For instance, the CATS working
+group is covering path selection from a network standpoint, while
+ALTO (e.g., {{RFC7285}}) covers exposing of network information
+to the service provider and the client application. However,
+there is currently no effort being pursued to expose compute information
+to the service provider and the client application for
+service placement or selection.
 
 # Related Work
 
