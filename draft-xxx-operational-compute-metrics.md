@@ -48,6 +48,7 @@ informative:
 
 
 --- abstract
+
 Service providers are starting to deploy computing capabilities
  across the network for hosting applications such as AR/VR, vehicle
  networks, IoT, and AI training, among others. In these distributed
