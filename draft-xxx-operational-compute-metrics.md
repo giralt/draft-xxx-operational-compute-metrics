@@ -99,7 +99,7 @@ However, deployments may reach out to data centers running different implementat
 
 This document proposes an initial approach towards  a common understanding
 and exposure scheme for metrics reflecting compute capabilities.
-It aims at building on existing work in the IETF on compute metrics definitions to build synergies.
+It aims at leveraging on existing work in the IETF on compute metrics definitions to build synergies.
 It also aims at reaching out to working or research groups in the IETF that would consume such information and have particular requirements.
 
 
@@ -107,11 +107,11 @@ It also aims at reaching out to working or research groups in the IETF that woul
 
 {::boilerplate bcp14-tagged}
 
-# Motivations
+<!-- # Motivations
 
 TODO TEST
 ANOTHE CHANGE + COMMENTS
-CHANGE 2
+CHANGE 2 -->
 
 
 # Problem Space and Needs
@@ -214,7 +214,7 @@ The driving principles for designing an interface to jointly extract network and
 P1. Leverage metrics across working groups to avoid reinventing the wheel. For instance:
 
 - RFC 9439 {{I-D.ietf-alto-performance-metrics}} leverages IPPM metrics from RFC 7679.
-- Section 5.2 of {{I-D.du-cats-computing-modeling-description}} considers delay as a good metric, since it is easy to use in both compute and communication domains. RFC-to-be 9439 also defines delay as part of the performance metrics.
+- Section 5.2 of {{I-D.du-cats-computing-modeling-description}} considers delay as a good metric, since it is easy to use in both compute and communication domains. RFC 9439 also defines delay as part of the performance metrics.
 - Section 6 of {{I-D.du-cats-computing-modeling-description}} proposes to represent the network structure as graphs, which is similar to the ALTO map services in {{RFC7285}}.
 
 P2. Aim for simplicity, while ensuring the combined efforts
@@ -231,7 +231,7 @@ service placement or selection.
 
 Some existing work has explored compute-related metrics. They can be categorized as follows:
 
-* References providing raw compute infrastructure metrics: {{?I-D.contreras-alto-service-edge}} includes references to cloud management solutions (i.e., OpenStack, Kubernetes, etc) which administer the virtualization infrastructure, providing information about raw compute infrastructure metrics. Furthermore, {{NFV-TST}} describes processor, memmory and network interface usage metrics.
+* References providing raw compute infrastructure metrics: {{?I-D.contreras-alto-service-edge}} includes references to cloud management solutions (i.e., OpenStack, Kubernetes, etc) which administer the virtualization infrastructure, providing information about raw compute infrastructure metrics. Furthermore, {{NFV-TST}} describes processor, memory and network interface usage metrics.
 * References providing compute virtualization metrics: {{?RFC7666}} provides several metrics as part of the Management Information Base (MIB) definition for managing virtual machines controlled by a hypervisor. The objects there defined make reference to the resources consumed by a particluar virtual machine serving as host for services or applications. Moreover, {{NFV-INF}} provides metrics associated to virtualized network functions.
 * References providing service metrics including compute-related information: {{?I-D.dunbar-cats-edge-service-metrics}} proposes metrics associated to services running in compute infrastructures. Some of these metrics do not depend on the infrastructure behavior itself but from where such compute infrastructure is topologically located.
 
