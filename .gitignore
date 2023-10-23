@@ -17,7 +17,7 @@
 /versioned/
 Gemfile.lock
 archive.json
-draft-xxx-operational-compute-metrics.xml
+draft-rcr-opsawg-operational-compute-metrics.xml
 package-lock.json
 report.xml
 !requirements.txt

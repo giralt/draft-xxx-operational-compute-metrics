@@ -3,7 +3,7 @@ title: "Joint Exposure of Network and Compute Information for Infrastructure-Awa
 abbrev: "TODO - Abbreviation"
 category: info
 
-docname: draft-xxx-operational-compute-metrics-latest
+docname: draft-rcr-opsawg-operational-compute-metrics-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
@@ -20,8 +20,8 @@ venue:
 #  type: Working Group
 #  mail: WG@example.com
 #  arch: https://example.com/WG
-  github: "giralt/draft-xxx-operational-compute-metrics"
-  latest: "https://giralt.github.io/draft-xxx-operational-compute-metrics/draft-xxx-operational-compute-metrics.html"
+  github: "giralt/draft-rcr-opsawg-operational-compute-metrics"
+  latest: "https://giralt.github.io/draft-rcr-opsawg-operational-compute-metrics/draft-rcr-opsawg-operational-compute-metrics.html"
 
 author:
  -
