@@ -48,7 +48,7 @@ informative:
    NFV-TST:
               title: "ETSI GS NFV-TST 008 V3.3.1, NFVI Compute and Network Metrics Specification"
               date: 2020-06-01
-              target: https://ieeexplore.ieee.org/document/8766229
+              target: https://www.etsi.org/deliver/etsi_gs/NFV-TST/001_099/008/03.03.01_60/gs_NFV-TST008v030301p.pdf
 
    NFV-INF:
               title: "ETSI GS NFV-INF 010, v1.1.1, Service Quality Metrics"
