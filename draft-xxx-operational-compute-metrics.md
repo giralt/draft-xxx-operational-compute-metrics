@@ -48,8 +48,15 @@ informative:
 
 
 --- abstract
-
-TODO Abstract
+Service providers are starting to deploy computing capabilities
+ across the network for hosting applications such as AR/VR, vehicle
+ networks, IoT, and AI training, among others. In these distributed
+ computing environments, information about computing and communication
+ resources is necessary to determine both the proper deployment location of
+ each application and the best server location on which to run it. 
+This information is used by numerous different implementations with different interpretations.
+This document proposes an initial approach towards a common understanding 
+and exposure scheme for metrics reflecting compute capabilities. 
 
 
 --- middle
