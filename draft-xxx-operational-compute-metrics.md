@@ -213,7 +213,7 @@ The driving principles for designing an interface to jointly extract network and
 
 P1. Leverage metrics across working groups to avoid reinventing the wheel. For instance:
 
-- RFC-to-be 9439 {{I-D.ietf-alto-performance-metrics}} leverages IPPM metrics from RFC 7679.
+- RFC 9439 {{I-D.ietf-alto-performance-metrics}} leverages IPPM metrics from RFC 7679.
 - Section 5.2 of {{I-D.du-cats-computing-modeling-description}} considers delay as a good metric, since it is easy to use in both compute and communication domains. RFC-to-be 9439 also defines delay as part of the performance metrics.
 - Section 6 of {{I-D.du-cats-computing-modeling-description}} proposes to represent the network structure as graphs, which is similar to the ALTO map services in {{RFC7285}}.
 
