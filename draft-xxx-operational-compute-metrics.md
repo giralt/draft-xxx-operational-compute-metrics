@@ -88,8 +88,7 @@ This translates in the emergence of a
  environment, and on the other hand by the capabilities of the network path connecting
  the traffic source with the destination.
 
-Network and compute aware function placement and selection has become of utmost importance in the last decade.  
-The availability of such information is taken for granted by the numerous service providers and bodies that are specifying them. 
+Network and compute aware function placement and selection has become of utmost importance in the last decade. The availability of such information is taken for granted by the numerous service providers and bodies that are specifying them. 
 However, deployments may reach out to data centers running different implementations with different understandings and representations of compute capabilities and smooth operation is a challenge. While standardization efforts on network capabilities representation and exposure are well-advanced, similar efforts on compute capabilitites are in their infancy. 
 
 This document proposes an initial approach towards  a common understanding 
