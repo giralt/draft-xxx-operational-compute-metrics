@@ -1,6 +1,6 @@
-# TODO - Your title
+# Joint Exposure of Network and Compute Information for Infrastructure-Aware Service Deployment 
 
-This is the working area for the individual Internet-Draft, "TODO - Your title".
+This is the working area for the individual Internet-Draft, "Joint Exposure of Network and Compute Information for Infrastructure-Aware Service Deployment".
 
 * [Editor's Copy](https://giralt.github.io/draft-rcr-opsawg-operational-compute-metrics/#go.draft-rcr-opsawg-operational-compute-metrics.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-rcr-opsawg-operational-compute-metrics)
