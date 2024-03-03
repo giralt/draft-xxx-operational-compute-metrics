@@ -48,6 +48,7 @@ normative:
   RFC7285:
   I-D.ietf-alto-performance-metrics:
   I-D.du-cats-computing-modeling-description:
+  I-D.ldbc-cats-framework:
 
 informative:
    NFV-TST:
@@ -353,6 +354,25 @@ the exposure of compute resources would allow applications to make optimized dec
 on selecting the right computational resource, supporting the efficient execution of hybrid
 AI workloads.
 
+# Production and Consumption Scenarios of Compute-related Information
+
+It is important to understand the scenarios of production and consumption of compute-related information in combination with information related to communication. Leveraging such combination enables the possibility of resource and workload placement optimization, leading to both operational cost reductions to the operator and service provider as well as an improvement on the service level experienced by the users.
+
+## Producers of compute-related information
+
+The information relative to compute (i.e., processing capabilities, memory, and storage capacity) can be structured in two ways. On one hand, the information corresponding to the raw compute resources; on the other hand, the information of resources allocated or in use by a specific application or service function.
+
+The former is typically provided by the management systems enabling the virtualization of the physical resources for a later assignment to processes running on top. Cloud Managers or Virtual Infrastructure Managers are the entities which manage those resources. These management systems offer APIs from where to retrieve the available resources in a compute facility. Thus, it can be expected that these APIs can be used for the consumption of such information. Once the raw resources are retrieved from the various compute facilities, it could be possible to generate topological network views of them, as being proposed in {{?I-D.llc-teas-dc-aware-topo-model}}.
+
+Regarding the resources allocated or in use by a specific application or service function, two situations apply. The total allocation and the allocation per service or application. In the first case, the information can be supplied by the virtualization management systems described before. For the specific allocation per service, it can be expected that the specific management systems of the service or application is capable to provide the resources being used at run time typically as part of the allocated ones. In this last scenario, it is also reasonable to expect the availability of APIs offering such information, even though it can be particular to a service or application.
+
+## Consumers of compute-related information
+
+The consumption of compute-related information is relative to the different phases of the service lifecycle. This means that such information can be consumed in different points of time and for different purposes.
+
+The expected consumers can be both external or internal to the network. As external consumers it is possible to consider external application management systems requiring resource availability information for service function placement decision, workload migration in the case of consuming raw resources, or requiring information on the usage of resources for service assurance or service scaling, among others.
+
+As internal consumers it is possible to consider network management entities requiring view on the level of resource usage for traffic steering (as the Path Selector in {{I-D.ldbc-cats-framework}}), load balance, or analytics, among others.
 
 #  Guiding Principles
 
