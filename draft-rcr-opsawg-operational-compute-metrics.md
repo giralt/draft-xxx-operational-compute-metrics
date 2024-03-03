@@ -39,6 +39,11 @@ author:
     organization: Qualcomm Europe, Inc.
     email: "jros@qti.qualcomm.com"
 
+ -
+    fullname: "Roland Schott"
+    organization: Deutsche Telekom
+    email: "Roland.Schott@telekom.de"
+
 normative:
   RFC7285:
   I-D.ietf-alto-performance-metrics:
@@ -55,18 +60,31 @@ informative:
               date: 2014-12-01
               target: https://www.etsi.org/deliver/etsi_gs/NFV-INF/001_099/010/01.01.01_60/gs_NFV-INF010v010101p.pdf
 
+   LF-EDGE:
+    title : Linux Foundation Edge
+    seriesinfo : https://www.lfedge.org/
+    date : Accessed March 2023
+   EDGE-ENERGY:
+    title : Estimating energy consumption of cloud, fog, and edge computing infrastructures
+    seriesinfo : IEEE Transactions on Sustainable Computing
+    date : 2019
+   DC-AI-COST:
+    title : Generative AI Breaks The Data Center - Data Center Infrastructure And Operating Costs Projected To Increase To Over $76 Billion By 2028
+    seriesinfo : Forbes, Tirias Research Report
+    date : 2023
+
 --- abstract
 
 Service providers are starting to deploy computing capabilities
-across the network for hosting applications such as AR/VR, vehicle
-networks, IoT, and AI training, among others. In these distributed
-computing environments, information about computing and communication
-resources is necessary to determine both the proper deployment location of
-each application and the best server location on which to run it.
-This information is used by numerous different implementations with different
+across the network for hosting applications such as distributed AI workloads,
+AR/VR, vehicle networks, and IoT, among others. In this
+network-compute environment, knowing information about
+the availability and state of the underlying communication and compute resources is
+necessary to determine both the proper deployment location of
+the applications and the most suitable servers on which to run them.
+Further, this information is used by numerous use cases with different
 interpretations. This document proposes an initial approach towards a
-common understanding and exposure scheme for metrics reflecting compute
-capabilities.
+common understanding and exposure scheme for metrics reflecting compute and communication capabilities.
 
 --- middle
 
@@ -205,6 +223,135 @@ provider) to query the available compute and communication resources from the sy
 | Service selection/path selection | Communication | Network/service and/or application |
 {: #prob_space title="Problem space, needs, and stakeholders." }
 
+# Use Cases
+
+## Open Abstraction for Edge Computing
+
+Modern applications such as AR/VR,
+V2X, or IoT, require bringing compute
+closer to the edge in order to meet
+strict bandwidth, latency, and jitter requirements.  While this
+deployment process resembles the path taken
+by the main cloud providers
+(notably, AWS, Facebook, Google and Microsoft) to deploy
+their large-scale datacenters, the edge presents a
+key difference: datacenter clouds (both in terms of their infrastructure
+and the applications run by them) are owned and managed by a
+single organization,
+whereas edge clouds involve a complex ecosystem of operators,
+vendors, and application providers, all striving to provide
+a quality end-to-end solution to the user. This implies that,
+while the traditional cloud has been implemented for the most part
+by using vertically optimized and closed architectures, the edge will
+necessarily need to rely on a complete ecosystem of carefully
+designed open standards to enable horizontal interoperability
+across all the involved parties.
+This document envisions ALTO playing a role as part of the
+ecosystem of open standards that are necessary to deploy and
+operate the edge cloud.
+
+As an example, consider a user of an XR
+application who arrives at his/her home by car. The application
+runs by leveraging compute capabilities from both the
+car and the public 5G edge cloud. As the user parks the
+car, 5G coverage may diminish (due to building interference)
+making the home local Wi-Fi connectivity a better choice.
+Further, instead of relying on computational resources from
+the car and the 5G edge cloud, latency can be reduced by leveraging
+computing devices (PCs, laptops, tablets) available from the home
+edge cloud.
+The application's decision to switch from one
+domain to another, however,
+demands knowledge about the compute
+and communication resources available both in the 5G and the Wi-Fi
+domains, therefore requiring interoperability across multiple
+industry standards (for instance, IETF and 3GPP on the public side,
+and IETF and LF Edge {{LF-EDGE}} on the private home side). ALTO
+can be positioned to act as an abstraction layer supporting
+the exposure of communication and compute information independently
+of the type of domain the application is currently residing in.
+
+Future versions of this document will elaborate further on this
+use case.
+
+## Optimized placement of microservice components
+
+Current applications are transitioning from a monolithic service architecture
+towards the composition of microservice components, following cloud-native
+trends. The set of microservices can have associated SLOs which impose
+constraints not only in terms of required compute resources (CPU, storage, ...)
+dependent on the compute facilities available, but also in terms of performance
+indicators such as latency, bandwidth, etc, which impose restrictions in the
+networking capabilities connecting the computing facilities. Even more complex
+constrains, such as affinity among certain microservices components could
+require complex calculations for selecting the most appropriate compute nodes
+taken into consideration both network and compute information.
+
+Thus, service/application orchestrators can benefit from the information exposed
+by ALTO at the time of deciding the placement of the microservices in the network.
+
+## Distributed AI Workloads
+
+Generative AI is a technological feat that opens up many applications such as holding
+conversations, generating art, developing a research paper, or writing software, among
+many others. Yet this innovation comes with a high cost in terms of processing and power
+consumption. While data centers are already running at capacity, it is projected
+that transitioning current search engine queries to leverage generative AI will
+increase costs by 10 times compared to traditional search methods {{DC-AI-COST}}. As (1) computing
+nodes (CPUs and GPUs) are deployed to build the edge cloud through
+technologies like 5G and (2) with billions of mobile user devices globally providing a large
+untapped computational platform, shifting part of the processing from the cloud to the
+edge becomes a viable and necessary step towards enabling the AI-transition.
+There are at least four drivers supporting this trend:
+
+- Computational and energy savings: Due to savings from not needing
+large-scale cooling systems and the high performance-per-watt
+efficiency of the edge devices, some workloads can run at the edge
+at a lower computational and energy cost [EDGE-ENERGY], especially when
+considering not only processing but also data transport.
+
+- Latency: For applications such as driverless vehicles which require real-time
+inference at very low latency, running at the edge is necessary.
+
+- Reliability and performance: Peaks in cloud demand for generative AI queries can
+create large queues and latency, and in some cases even lead to denial of service.
+In some cases, limited or no connectivity requires running the workloads at the edge.
+
+- Privacy, security, and personalization: A "private mode" allows users to strictly
+utilize on-device (or near-the-device) AI to enter sensitive prompts to chatbots,
+such as health questions or confidential ideas.
+
+These drivers lead to a distributed computational model that is hybrid: Some AI workloads
+will fully run in the cloud, some will fully run in the edge, and some will run both in the
+edge and in the cloud. Being able to efficiently run these workloads in this hybrid,
+distributed, cloud-edge environment is necessary given the aforementioned massive energy
+and computational costs. To make optimized service and workload placement decisions, information
+about both the compute and communication resources available in the network is necessary too.
+
+Consider as an example a large language model (LLM) used to generate text and hold intelligent
+conversations. LLMs produce a single token per inference, where a token is almost equivalent
+to a word. Pipelining and parallelization techniques are used to optimize inference, but
+this means that a model like GPT-3 could potentially go through all 175 billion parameters
+that are part of it to generate a single word. To efficiently run these computational-intensive
+workloads, it is necessary to know the availability of compute resources in the distributed
+system. Suppose that a user is driving a car while conversing with an AI model. The model
+can run inference on a variety of compute nodes, ordered from lower to higher compute power
+as follows: (1) the user's phone, (2) the computer in the car, (3) the 5G edge cloud,
+and (4) the datacenter cloud. Correspondingly, the system can deploy four different models
+with different levels of precision and compute requirements. The simplest model with the
+least parameters can run in the phone, requiring less compute power but yielding lower
+accuracy. Three other models ordered in increasing value of accuracy and computational
+complexity can run in the car, the edge, and the cloud. The application can identify the
+right trade-off between accuracy and computational cost, combined with metrics of
+communication bandwidth and latency, to make the right decision on which of the four
+models to use for every inference request. Note that this is similar to the
+resolution/bandwidth trade-off commonly found in the image encoding problem, where an
+image can be encoded and transmitted at different levels of resolution depending on the
+available bandwidth in the communication channel. In the case of AI inference, however,
+not only bandwidth is a scarce resource, but also compute. ALTO extensions to support
+the exposure of compute resources would allow applications to make optimized decisions
+on selecting the right computational resource, supporting the efficient execution of hybrid
+AI workloads.
 
 
 #  Guiding Principles
