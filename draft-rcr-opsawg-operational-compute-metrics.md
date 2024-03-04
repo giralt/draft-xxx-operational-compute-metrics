@@ -226,71 +226,6 @@ provider) to query the available compute and communication resources from the sy
 
 # Use Cases
 
-## Open Abstraction for Edge Computing
-
-Modern applications such as AR/VR,
-V2X, or IoT, require bringing compute
-closer to the edge in order to meet
-strict bandwidth, latency, and jitter requirements.  While this
-deployment process resembles the path taken
-by the main cloud providers
-(notably, AWS, Facebook, Google and Microsoft) to deploy
-their large-scale datacenters, the edge presents a
-key difference: datacenter clouds (both in terms of their infrastructure
-and the applications run by them) are owned and managed by a
-single organization,
-whereas edge clouds involve a complex ecosystem of operators,
-vendors, and application providers, all striving to provide
-a quality end-to-end solution to the user. This implies that,
-while the traditional cloud has been implemented for the most part
-by using vertically optimized and closed architectures, the edge will
-necessarily need to rely on a complete ecosystem of carefully
-designed open standards to enable horizontal interoperability
-across all the involved parties.
-This document envisions ALTO playing a role as part of the
-ecosystem of open standards that are necessary to deploy and
-operate the edge cloud.
-
-As an example, consider a user of an XR
-application who arrives at his/her home by car. The application
-runs by leveraging compute capabilities from both the
-car and the public 5G edge cloud. As the user parks the
-car, 5G coverage may diminish (due to building interference)
-making the home local Wi-Fi connectivity a better choice.
-Further, instead of relying on computational resources from
-the car and the 5G edge cloud, latency can be reduced by leveraging
-computing devices (PCs, laptops, tablets) available from the home
-edge cloud.
-The application's decision to switch from one
-domain to another, however,
-demands knowledge about the compute
-and communication resources available both in the 5G and the Wi-Fi
-domains, therefore requiring interoperability across multiple
-industry standards (for instance, IETF and 3GPP on the public side,
-and IETF and LF Edge {{LF-EDGE}} on the private home side). ALTO
-can be positioned to act as an abstraction layer supporting
-the exposure of communication and compute information independently
-of the type of domain the application is currently residing in.
-
-Future versions of this document will elaborate further on this
-use case.
-
-## Optimized placement of microservice components
-
-Current applications are transitioning from a monolithic service architecture
-towards the composition of microservice components, following cloud-native
-trends. The set of microservices can have associated SLOs which impose
-constraints not only in terms of required compute resources (CPU, storage, ...)
-dependent on the compute facilities available, but also in terms of performance
-indicators such as latency, bandwidth, etc, which impose restrictions in the
-networking capabilities connecting the computing facilities. Even more complex
-constrains, such as affinity among certain microservices components could
-require complex calculations for selecting the most appropriate compute nodes
-taken into consideration both network and compute information.
-
-Thus, service/application orchestrators can benefit from the information exposed
-by ALTO at the time of deciding the placement of the microservices in the network.
-
 ## Distributed AI Workloads
 
 Generative AI is a technological feat that opens up many applications such as holding
@@ -354,11 +289,76 @@ the exposure of compute resources would allow applications to make optimized dec
 on selecting the right computational resource, supporting the efficient execution of hybrid
 AI workloads.
 
+## Open Abstraction for Edge Computing
+
+Modern applications such as AR/VR,
+V2X, or IoT, require bringing compute
+closer to the edge in order to meet
+strict bandwidth, latency, and jitter requirements.  While this
+deployment process resembles the path taken
+by the main cloud providers
+(notably, AWS, Facebook, Google and Microsoft) to deploy
+their large-scale datacenters, the edge presents a
+key difference: datacenter clouds (both in terms of their infrastructure
+and the applications run by them) are owned and managed by a
+single organization,
+whereas edge clouds involve a complex ecosystem of operators,
+vendors, and application providers, all striving to provide
+a quality end-to-end solution to the user. This implies that,
+while the traditional cloud has been implemented for the most part
+by using vertically optimized and closed architectures, the edge will
+necessarily need to rely on a complete ecosystem of carefully
+designed open standards to enable horizontal interoperability
+across all the involved parties.
+This document envisions ALTO playing a role as part of the
+ecosystem of open standards that are necessary to deploy and
+operate the edge cloud.
+
+As an example, consider a user of an XR
+application who arrives at his/her home by car. The application
+runs by leveraging compute capabilities from both the
+car and the public 5G edge cloud. As the user parks the
+car, 5G coverage may diminish (due to building interference)
+making the home local Wi-Fi connectivity a better choice.
+Further, instead of relying on computational resources from
+the car and the 5G edge cloud, latency can be reduced by leveraging
+computing devices (PCs, laptops, tablets) available from the home
+edge cloud.
+The application's decision to switch from one
+domain to another, however,
+demands knowledge about the compute
+and communication resources available both in the 5G and the Wi-Fi
+domains, therefore requiring interoperability across multiple
+industry standards (for instance, IETF and 3GPP on the public side,
+and IETF and LF Edge {{LF-EDGE}} on the private home side). ALTO
+can be positioned to act as an abstraction layer supporting
+the exposure of communication and compute information independently
+of the type of domain the application is currently residing in.
+
+Future versions of this document will elaborate further on this
+use case.
+
+## Optimized Placement of Microservice Components
+
+Current applications are transitioning from a monolithic service architecture
+towards the composition of microservice components, following cloud-native
+trends. The set of microservices can have associated SLOs which impose
+constraints not only in terms of required compute resources (CPU, storage, ...)
+dependent on the compute facilities available, but also in terms of performance
+indicators such as latency, bandwidth, etc, which impose restrictions in the
+networking capabilities connecting the computing facilities. Even more complex
+constrains, such as affinity among certain microservices components could
+require complex calculations for selecting the most appropriate compute nodes
+taken into consideration both network and compute information.
+
+Thus, service/application orchestrators can benefit from the information exposed
+by ALTO at the time of deciding the placement of the microservices in the network.
+
 # Production and Consumption Scenarios of Compute-related Information
 
 It is important to understand the scenarios of production and consumption of compute-related information in combination with information related to communication. Leveraging such combination enables the possibility of resource and workload placement optimization, leading to both operational cost reductions to the operator and service provider as well as an improvement on the service level experienced by the users.
 
-## Producers of compute-related information
+## Producers of Compute-Related Information
 
 The information relative to compute (i.e., processing capabilities, memory, and storage capacity) can be structured in two ways. On one hand, the information corresponding to the raw compute resources; on the other hand, the information of resources allocated or in use by a specific application or service function.
 
@@ -366,7 +366,7 @@ The former is typically provided by the management systems enabling the virtuali
 
 Regarding the resources allocated or in use by a specific application or service function, two situations apply. The total allocation and the allocation per service or application. In the first case, the information can be supplied by the virtualization management systems described before. For the specific allocation per service, it can be expected that the specific management systems of the service or application is capable to provide the resources being used at run time typically as part of the allocated ones. In this last scenario, it is also reasonable to expect the availability of APIs offering such information, even though it can be particular to a service or application.
 
-## Consumers of compute-related information
+## Consumers of Compute-Related Information
 
 The consumption of compute-related information is relative to the different phases of the service lifecycle. This means that such information can be consumed in different points of time and for different purposes.
 
@@ -374,9 +374,64 @@ The expected consumers can be both external or internal to the network. As exter
 
 As internal consumers it is possible to consider network management entities requiring view on the level of resource usage for traffic steering (as the Path Selector in {{I-D.ldbc-cats-framework}}), load balance, or analytics, among others.
 
+# Metrics Exposure
+
+Regarding metrics exposure one can distinguish the topics of (1)
+how the metrics are exposed and (2) which kind of metrics need to be exposed.
+The infrastructure resources can be divided into network and compute related
+resources. Network based resources can roughly be subdivided according to the
+network structure into edge, backbone, and cloud resources.
+
+This section intends to give a brief outlook regarding these resources
+for stimulating additional discussion with related work going on in
+other IETF working groups or standardization bodies.
+
+## Edge Resources
+
+Edge resources are referring to latency, bandwidth, compute
+latency or traffic breakout.
+
+## Network Resources
+
+Network resources relate to the traditional network
+infrastructure. The next table provides an overview of some of the
+commonly used metrics.
+
+| Network | Kind of Resource |
+| Path #1 |     QoS          |
+|         |     Latency      |
+|         |     Bandwidth    |
+|         |     RTT          |
+|         |     Packet Loss  |
+|         |     Jitter       |
+
+
+## Cloud Resources
+
+The next table provides an example of parameters that
+could be exposed:
+
+| CPU         |    Compute       |   Sum of available cpu resources    |
+| Memory      |    Compute       |   Sum of available memory           |
+| Storage     |    Storage       |   Sum of available storage          |
+| Configmaps  |    Object        |   Sum of config maps                |
+| Secrets     |    Object        |   Sum of possible secrets           |
+| Pods        |    Object        |   Sum of possible pods              |
+| Jobs        |    Object        |   Sum of all parallel jobs          |
+| Services    |    Object        |   Sum of parallel services          |
+
+# Related Work
+
+Some existing work has explored compute-related metrics. They can be categorized as follows:
+
+* References providing raw compute infrastructure metrics: {{?I-D.contreras-alto-service-edge}} includes references to cloud management solutions (i.e., OpenStack, Kubernetes, etc) which administer the virtualization infrastructure, providing information about raw compute infrastructure metrics. Furthermore, {{NFV-TST}} describes processor, memory and network interface usage metrics.
+* References providing compute virtualization metrics: {{?RFC7666}} provides several metrics as part of the Management Information Base (MIB) definition for managing virtual machines controlled by a hypervisor. The objects there defined make reference to the resources consumed by a particluar virtual machine serving as host for services or applications. Moreover, {{NFV-INF}} provides metrics associated to virtualized network functions.
+* References providing service metrics including compute-related information: {{?I-D.dunbar-cats-edge-service-metrics}} proposes metrics associated to services running in compute infrastructures. Some of these metrics do not depend on the infrastructure behavior itself but from where such compute infrastructure is topologically located.
+
 #  Guiding Principles
 
-The driving principles for designing an interface to jointly extract network and compute information are as follows:
+The driving principles for designing an interface to jointly extract
+network and compute information are as follows:
 
 P1. Leverage metrics across working groups to avoid reinventing the wheel. For instance:
 
@@ -393,14 +448,6 @@ to the service provider and the client application. However,
 there is currently no effort being pursued to expose compute information
 to the service provider and the client application for
 service placement or selection.
-
-# Related Work
-
-Some existing work has explored compute-related metrics. They can be categorized as follows:
-
-* References providing raw compute infrastructure metrics: {{?I-D.contreras-alto-service-edge}} includes references to cloud management solutions (i.e., OpenStack, Kubernetes, etc) which administer the virtualization infrastructure, providing information about raw compute infrastructure metrics. Furthermore, {{NFV-TST}} describes processor, memory and network interface usage metrics.
-* References providing compute virtualization metrics: {{?RFC7666}} provides several metrics as part of the Management Information Base (MIB) definition for managing virtual machines controlled by a hypervisor. The objects there defined make reference to the resources consumed by a particluar virtual machine serving as host for services or applications. Moreover, {{NFV-INF}} provides metrics associated to virtualized network functions.
-* References providing service metrics including compute-related information: {{?I-D.dunbar-cats-edge-service-metrics}} proposes metrics associated to services running in compute infrastructures. Some of these metrics do not depend on the infrastructure behavior itself but from where such compute infrastructure is topologically located.
 
 # GAP Analysis
 
