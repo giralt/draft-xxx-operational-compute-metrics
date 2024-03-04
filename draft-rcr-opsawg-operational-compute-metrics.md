@@ -73,7 +73,13 @@ informative:
     title : Generative AI Breaks The Data Center - Data Center Infrastructure And Operating Costs Projected To Increase To Over $76 Billion By 2028
     seriesinfo : Forbes, Tirias Research Report
     date : 2023
-
+   UPCLOUD:
+     title : How to benchmark Cloud Servers
+     date : May 2023
+     target : https://upcloud.com/resources/tutorials/how-to-benchmark-cloud-servers
+   IR:
+     title : Cloud Performance Testing Best Tips and Tricks
+     target : https://www.ir.com/guides/cloud-performance-testing
 --- abstract
 
 Service providers are starting to deploy computing capabilities
@@ -234,7 +240,7 @@ many others. Yet this innovation comes with a high cost in terms of processing a
 consumption. While data centers are already running at capacity, it is projected
 that transitioning current search engine queries to leverage generative AI will
 increase costs by 10 times compared to traditional search methods {{DC-AI-COST}}. As (1) computing
-nodes (CPUs and GPUs) are deployed to build the edge cloud through
+nodes (CPUs, GPUs, and NPUs) are deployed to build the edge cloud leveraging
 technologies like 5G and (2) with billions of mobile user devices globally providing a large
 untapped computational platform, shifting part of the processing from the cloud to the
 edge becomes a viable and necessary step towards enabling the AI-transition.
@@ -243,7 +249,7 @@ There are at least four drivers supporting this trend:
 - Computational and energy savings: Due to savings from not needing
 large-scale cooling systems and the high performance-per-watt
 efficiency of the edge devices, some workloads can run at the edge
-at a lower computational and energy cost [EDGE-ENERGY], especially when
+at a lower computational and energy cost {{EDGE-ENERGY}}, especially when
 considering not only processing but also data transport.
 
 - Latency: For applications such as driverless vehicles which require real-time
@@ -356,25 +362,25 @@ by ALTO at the time of deciding the placement of the microservices in the networ
 
 # Production and Consumption Scenarios of Compute-related Information
 
-It is important to understand the scenarios of production and consumption of compute-related information in combination with information related to communication. Leveraging such combination enables the possibility of resource and workload placement optimization, leading to both operational cost reductions to the operator and service provider as well as an improvement on the service level experienced by the users.
+It is important to understand the scenarios of production and consumption of compute-related information in combination with information related to communication. Leveraging such combination enables the possibility of resource and workload placement optimization, leading to both operational cost reductions to the operator and service provider as well as an improvement on the service level experienced by the end users.
 
 ## Producers of Compute-Related Information
 
-The information relative to compute (i.e., processing capabilities, memory, and storage capacity) can be structured in two ways. On one hand, the information corresponding to the raw compute resources; on the other hand, the information of resources allocated or in use by a specific application or service function.
+The information relative to compute (i.e., processing capabilities, memory, and storage capacity) can be structured in two ways. On one hand, the information corresponding to the raw compute resources; on the other hand, the information of resources allocated or utilized by a specific application or service function.
 
-The former is typically provided by the management systems enabling the virtualization of the physical resources for a later assignment to processes running on top. Cloud Managers or Virtual Infrastructure Managers are the entities which manage those resources. These management systems offer APIs from where to retrieve the available resources in a compute facility. Thus, it can be expected that these APIs can be used for the consumption of such information. Once the raw resources are retrieved from the various compute facilities, it could be possible to generate topological network views of them, as being proposed in {{?I-D.llc-teas-dc-aware-topo-model}}.
+The former is typically provided by the management systems enabling the virtualization of the physical resources for a later assignment to the processes running on top. Cloud Managers or Virtual Infrastructure Managers are the entities that manage those resources. These management systems offer APIs to access the available resources in the computing facility. Thus, it can be expected that these APIs can be used for the consumption of such information. Once the raw resources are retrieved from the various compute facilities, it could be possible to generate topological network views of them, as being proposed in {{?I-D.llc-teas-dc-aware-topo-model}}.
 
-Regarding the resources allocated or in use by a specific application or service function, two situations apply. The total allocation and the allocation per service or application. In the first case, the information can be supplied by the virtualization management systems described before. For the specific allocation per service, it can be expected that the specific management systems of the service or application is capable to provide the resources being used at run time typically as part of the allocated ones. In this last scenario, it is also reasonable to expect the availability of APIs offering such information, even though it can be particular to a service or application.
+Regarding the resources allocated or utilized by a specific application or service function, two situations apply: (1) The total allocation and (2) the allocation per service or application. In the first case, the information can be supplied by the virtualization management systems described before. For the specific per-service allocation, it can be expected that the specific management systems of the service or application is capable to provide the resources being used at run time typically as part of the allocated ones. In this last scenario, it is also reasonable to expect the availability of APIs offering this information, even though they can be specific to the service or application.
 
 ## Consumers of Compute-Related Information
 
-The consumption of compute-related information is relative to the different phases of the service lifecycle. This means that such information can be consumed in different points of time and for different purposes.
+The consumption of compute-related information is relative to the different phases of the service lifecycle. This means that this information can be consumed in different points of time and for different purposes.
 
 The expected consumers can be both external or internal to the network. As external consumers it is possible to consider external application management systems requiring resource availability information for service function placement decision, workload migration in the case of consuming raw resources, or requiring information on the usage of resources for service assurance or service scaling, among others.
 
-As internal consumers it is possible to consider network management entities requiring view on the level of resource usage for traffic steering (as the Path Selector in {{I-D.ldbc-cats-framework}}), load balance, or analytics, among others.
+As internal consumers, it is possible to consider network management entities requiring information on the level of resource utilization for traffic steering (as the Path Selector in {{I-D.ldbc-cats-framework}}), load balance, or analytics, among others.
 
-# Metrics Exposure
+# Metrics Selection and Exposure
 
 Regarding metrics exposure one can distinguish the topics of (1)
 how the metrics are exposed and (2) which kind of metrics need to be exposed.
@@ -397,13 +403,14 @@ Network resources relate to the traditional network
 infrastructure. The next table provides an overview of some of the
 commonly used metrics.
 
-| Network | Kind of Resource |
-| Path #1 |     QoS          |
-|         |     Latency      |
-|         |     Bandwidth    |
-|         |     RTT          |
-|         |     Packet Loss  |
-|         |     Jitter       |
+| Kind of Resource |
+|     QoS          |
+|     Latency      |
+|     Bandwidth    |
+|     RTT          |
+|     Packet Loss  |
+|     Jitter       |
+{: #net_res title="Examples of network resource metrics." }
 
 
 ## Cloud Resources
@@ -411,14 +418,117 @@ commonly used metrics.
 The next table provides an example of parameters that
 could be exposed:
 
-| CPU         |    Compute       |   Sum of available cpu resources    |
-| Memory      |    Compute       |   Sum of available memory           |
-| Storage     |    Storage       |   Sum of available storage          |
-| Configmaps  |    Object        |   Sum of config maps                |
-| Secrets     |    Object        |   Sum of possible secrets           |
-| Pods        |    Object        |   Sum of possible pods              |
-| Jobs        |    Object        |   Sum of all parallel jobs          |
-| Services    |    Object        |   Sum of parallel services          |
+| CPU         |    Compute       |   Available cpu resources    |
+| Memory      |    Compute       |   Available memory           |
+| Storage     |    Storage       |   Available storage          |
+| Configmaps  |    Object        |   Configuration and topology maps       |
+| Secrets     |    Object        |   Possible secrets           |
+| Pods        |    Object        |   Possible pods              |
+| Jobs        |    Object        |   Concurrent jobs            |
+| Services    |    Object        |   Concurrent services        |
+{: #cloud_res title="Examples of cloud resource parameters." }
+
+## Considerations about Metrics
+
+The metrics considered in this document should be used to support
+decisions for selection and deployment of services and applications.
+Further iterations of this document may consider additional
+life cycle operations such as assurance and relevant metrics.
+
+The network netrics listed above are specified in a number of
+IETF documents such as RFC 9439 {{I-D.ietf-alto-performance-metrics}},
+which itself leverages on RFC 7679. The work on compute metrics
+at the IETF, on the other hand, is in its first stages and merely
+relates to low-level infrastructure metrics such as in {{?RFC7666}}.
+However:
+
+- decisions for service deployment and selection also involve
+decisions that require an aggregated view for instance at the
+service level,
+
+- deciding entities may only have partial access to the compute
+information and actually do not need to have all the details.
+A number of public tools and methods to test compute facility
+performances are made available by cloud service providers or
+service management businesses, see {{UPCLOUD}} and {{IR}} to name a few.
+However, for the proposed performance metrics, their definition and
+acquisition method may differ from one provider to the other,
+making it thus challenging to compare performances across different
+providers. The latter aspect is particularly problematic for
+applications running at the edge where a complex ecosystem of
+operators, vendors, and application providers is involved
+and calls for a common standardized definition.
+<!--  REFS
+UPCLOUD https://upcloud.com/resources/tutorials/how-to-benchmark-cloud-servers
+IR https://www.ir.com/guides/cloud-performance-testing-->
+
+## Metric Dimensions
+
+Upon exploring existing work, this draft
+proposes to consider a number of dimensions before identifying
+the compute metrics needed to take a service operation decision.
+This list is initial and is to be updated upon further discussion.
+
+Dimensions helping to identify needed compute metrics:
+
+| Dimension	 | Definition	| Examples |
+| Decision	 | what are the metrics used for | monitoring, benchmarking, service selection and placement |
+| Driving KPI | what is assessed with the metrics | speed, scalability, cost, stability |
+| Decision scope | different granularities| infrastructure node/cluster, compute service, end-to-end application  |
+| Receiving entity | receiving metrics  | router, centralized controller, application management |
+| Deciding entity | computing decisions | router, centralized controller, application management |
+{: #comp_dimensions title="Dimensions to consider when idenfitying compute metrics." }
+
+When metrics are documented according to their life cycle action, it allow for
+a more reliable interpretation and informed utilization of the metrics.
+The table below provides some examples:
+
+| Lifecycle action	 | Example	|
+| Acquisition method  | telemetry, estimation |
+| Value processing 	 | aggregation, abstraction |
+| Exposure            | in-path distribution, off-path distribution |
+{: #metric_action title="Metrics documented by life cycle action." }
+
+## Abstraction Level and Information Access
+
+One important aspect to consider is that receiving entities that need to consume metrics to take selection or placement decisions do not always have access to computing information. In particular, several scenarios to be completed upon further discussions, may need to be considered among which:
+
+- the consumer is an ISP that does not own the compute infrastructure or has no access to full information. In this case the compute metrics will likely be estimated
+
+- the consumer is an application that has no direct access to full information while the ISP has access to both network and compute information. However the ISP is willing to provide guidance to the application with abstract information.
+
+- the consumer has access to full network and compute information and wants to use it for fine-grained decision making e.g. at the node/cluster level
+
+- the consumer has access to full information but essentially needs guidance with abstracted information.
+
+- the consumer has access to information that is abstracted or detailed depending on the metrics.
+
+These scenarios further drive the selection of metrics upon the above mentioned dimensions.
+
+## Distribution and Exposure Mechanisms
+
+Integration of network and compute metrics in decisions
+
+### Metric Distribution Computing-Aware Traffic Steering (CATS)
+
+Other existing work at the IETF CATS WG has explored the collection and distribution of computing metrics in {{I-D.ldbc-cats-framework}}. They consider three deployment models in their deployment considerations:
+- distributed among network devices directly,
+- collected by a centralized control plane,
+- hybrid where a part of computing metrics are distributed among involved network devices, and others may be collected by a centralized control plane.
+In the hybrid mode, the draft suggests that some static information (e.g., capabilities information) can be distributed among network devices since they are quite stable. Frequent changing information (e.g., resource utilization) can be collected by a centralized control plane to avoid frequent flooding in the distributed control plane.
+
+Beside the required extensions to the routing protocols, the hybrid mode stresses the impact of the dynamicity of the distributed metrics and the need to carefully sort out the metric exposure mode w.r.t. their dynamicity.
+
+### Metric Exposure with Extensions of ALTO
+
+The ALTO protocol has been difined to expose an abstracted network topology and related path costs in {{RFC7285}}. Its extension RFC 9240 allows to define entities on which properties can be defined, while {{?I-D.contreras-alto-service-edge}} introduces a proposed entity property that allows to consider an entity as both a network element with network related costs and properties and a element of a data centzer with compute related properties. Such an exposure mechanism is particularly useful for decision making entities which are centralized and located off the network paths.
+
+### Exposure of Abstracted Generic Metrics
+In some cases, whether due to unavailable information details or for the sake of simplicity, a consumer may need reliable but simple guidance to select a service. To this end, abstracted generic metrics may be useful.
+
+One can consider a generic metric that can be named “computingcost” and is applied to a contact point to one or more edge servers such as a load balancer, for short  an edge server, to reflect the network operator policy and preferences.  The metric “computingcost” results from an abstraction method that is hidden from users, similarly to the metric “routingcost” defined in {{RFC7285}}.  For instance, “computingcost” may be higher for an edge server located far away, or in disliked geographical areas, or owned by a provider who does not share information with the Internet Service Provider (ISP) or with which ISP has a poorer commercial agreement.  “computingcost” may also reflect environmental preferences in terms, for instance, of energy source, average consumption vs. local climate, location adequacy vs. climate.
+
+One may also consider a generic metric named “computingperf”, applied to an edge server, that reflects its performances, based on measurements or estimations by the ISP or combination thereof.  An edge server with a higher “computingperf” value will be preferred.  “computingperf” can be based on a vector of one or more metrics reflecting, for instance, responsiveness, reliability of cloud services based on metrics such as latency, packet loss, jitter, time to first and/or last byte, or a single value reflecting a global performance score.
 
 # Related Work
 
@@ -427,6 +537,11 @@ Some existing work has explored compute-related metrics. They can be categorized
 * References providing raw compute infrastructure metrics: {{?I-D.contreras-alto-service-edge}} includes references to cloud management solutions (i.e., OpenStack, Kubernetes, etc) which administer the virtualization infrastructure, providing information about raw compute infrastructure metrics. Furthermore, {{NFV-TST}} describes processor, memory and network interface usage metrics.
 * References providing compute virtualization metrics: {{?RFC7666}} provides several metrics as part of the Management Information Base (MIB) definition for managing virtual machines controlled by a hypervisor. The objects there defined make reference to the resources consumed by a particluar virtual machine serving as host for services or applications. Moreover, {{NFV-INF}} provides metrics associated to virtualized network functions.
 * References providing service metrics including compute-related information: {{?I-D.dunbar-cats-edge-service-metrics}} proposes metrics associated to services running in compute infrastructures. Some of these metrics do not depend on the infrastructure behavior itself but from where such compute infrastructure is topologically located.
+
+Other existing work at the IETF CATS WG has explored the collection
+and distribution of computing metrics in {{I-D.ldbc-cats-framework}}.
+In their deployment considerations, they consider three models: distributed,
+centralized and hybrid.
 
 #  Guiding Principles
 
@@ -454,8 +569,6 @@ service placement or selection.
 From this related work it is evident that compute-related metrics can serve several purposes, ranging from service instance instantiation to service instance behavior, and then to service instance selection. Some of the metrics could refer to the same object (e.g., CPU) but with a particular usage and scope.
 
 In contrast, the network metrics are more uniform and straightforward. It is then necessary to consistently define a set of metrics that could assist to the operation in the different concerns identified so far, so that networks and systems could have a common understanding of the perceived compute performance. When combined with network metrics, the combined network plus compute performance behavior will assist informed decisions particular to each of the operational concerns related to the different parts of a service life cycle.
-
-
 
 # Security Considerations
 
