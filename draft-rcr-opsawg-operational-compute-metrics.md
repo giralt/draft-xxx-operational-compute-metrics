@@ -448,6 +448,7 @@ service level,
 
 - deciding entities may only have partial access to the compute
 information and actually do not need to have all the details.
+
 A number of public tools and methods to test compute facility
 performances are made available by cloud service providers or
 service management businesses, see {{UPCLOUD}} and {{IR}} to name a few.
@@ -479,7 +480,7 @@ Dimensions helping to identify needed compute metrics:
 | Deciding entity | computing decisions | router, centralized controller, application management |
 {: #comp_dimensions title="Dimensions to consider when idenfitying compute metrics." }
 
-When metrics are documented according to their life cycle action, it allow for
+When metrics are documented according to their life cycle action, it allows for
 a more reliable interpretation and informed utilization of the metrics.
 The table below provides some examples:
 
@@ -507,17 +508,19 @@ These scenarios further drive the selection of metrics upon the above mentioned 
 
 ## Distribution and Exposure Mechanisms
 
-Integration of network and compute metrics in decisions
-
 ### Metric Distribution Computing-Aware Traffic Steering (CATS)
 
 Other existing work at the IETF CATS WG has explored the collection and distribution of computing metrics in {{I-D.ldbc-cats-framework}}. They consider three deployment models in their deployment considerations:
+
 - distributed among network devices directly,
+
 - collected by a centralized control plane,
+
 - hybrid where a part of computing metrics are distributed among involved network devices, and others may be collected by a centralized control plane.
+
 In the hybrid mode, the draft suggests that some static information (e.g., capabilities information) can be distributed among network devices since they are quite stable. Frequent changing information (e.g., resource utilization) can be collected by a centralized control plane to avoid frequent flooding in the distributed control plane.
 
-Beside the required extensions to the routing protocols, the hybrid mode stresses the impact of the dynamicity of the distributed metrics and the need to carefully sort out the metric exposure mode w.r.t. their dynamicity.
+Besides the required extensions to the routing protocols, the hybrid mode stresses the impact of the dynamicity of the distributed metrics and the need to carefully sort out the metric exposure mode w.r.t. their dynamicity.
 
 ### Metric Exposure with Extensions of ALTO
 
@@ -538,7 +541,7 @@ Some existing work has explored compute-related metrics. They can be categorized
 * References providing compute virtualization metrics: {{?RFC7666}} provides several metrics as part of the Management Information Base (MIB) definition for managing virtual machines controlled by a hypervisor. The objects there defined make reference to the resources consumed by a particluar virtual machine serving as host for services or applications. Moreover, {{NFV-INF}} provides metrics associated to virtualized network functions.
 * References providing service metrics including compute-related information: {{?I-D.dunbar-cats-edge-service-metrics}} proposes metrics associated to services running in compute infrastructures. Some of these metrics do not depend on the infrastructure behavior itself but from where such compute infrastructure is topologically located.
 
-Other existing work at the IETF CATS WG has explored the collection
+* Other existing work at the IETF CATS WG has explored the collection
 and distribution of computing metrics in {{I-D.ldbc-cats-framework}}.
 In their deployment considerations, they consider three models: distributed,
 centralized and hybrid.
