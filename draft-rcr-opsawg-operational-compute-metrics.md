@@ -101,8 +101,7 @@ Operators are starting to deploy distributed computing environments
 in different parts of the network with the objective of addressing
 different service needs including latency, bandwidth, processing
 capabilities, storage, etc.
-This translates in the emergence of a
-number of data centers (both in the cloud and at the edge) of
+This translates in the emergence of a number of data centers (both in the cloud and at the edge) of
 different sizes (e.g., large, medium, small) characterized by
 distinct dimension of CPUs, memory, and storage capabilities, as well
 as bandwidth capacity for forwarding the traffic generated in and out
@@ -114,8 +113,7 @@ function or application can be deployed, resulting in different
 unitary cost per CPU, memory, and storage. This increases the
 complexity of deciding the location where a given function or
 application should be best deployed or executed.
-This decision should be jointly
-influenced on the one hand by the available resources in a given computing
+This decision should be jointly influenced on the one hand by the available resources in a given computing
 environment, and on the other hand by the capabilities of the network path connecting
 the traffic source with the destination.
 
