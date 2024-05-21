@@ -91,22 +91,22 @@ necessary to determine both the proper deployment location of
 the applications and the most suitable servers on which to run them.
 Further, this information is used by numerous use cases with different
 interpretations. This document proposes an initial approach towards a
-common understanding and exposure scheme for metrics reflecting compute and communication capabilities.
+common exposure scheme for metrics reflecting compute and communication capabilities.
 
 --- middle
 
 # Introduction
 
 Operators are starting to deploy distributed computing environments
-in different parts of the network with the objective of addressing
-different service needs including latency, bandwidth, processing
-capabilities, storage, etc.
-This translates in the emergence of a
-number of data centers (both in the cloud and at the edge) of
-different sizes (e.g., large, medium, small) characterized by
-distinct dimension of CPUs, memory, and storage capabilities, as well
+in different parts of the network that must support a variety of
+applications with different performance needs such as latency, bandwidth,
+compute power, storage, energy, etc.
+This translates in the emergence of distributed compute resources
+(both in the cloud and at the edge) with a variety of sizes
+(e.g., large, medium, small) characterized by
+distinct dimensions of CPUs, memory, and storage capabilities, as well
 as bandwidth capacity for forwarding the traffic generated in and out
-of the corresponding data center.
+of the corresponding compute resource.
 
 The proliferation of the edge computing paradigm further increases
 the potential footprint and heterogeneity of the environments where a
@@ -114,17 +114,24 @@ function or application can be deployed, resulting in different
 unitary cost per CPU, memory, and storage. This increases the
 complexity of deciding the location where a given function or
 application should be best deployed or executed.
-This decision should be jointly
-influenced on the one hand by the available resources in a given computing
-environment, and on the other hand by the capabilities of the network path connecting
-the traffic source with the destination.
+On the one hand, this decision should be jointly
+influenced by the available resources in a given computing
+environment and, on the other, by the capabilities of the network
+path connecting the traffic source with the destination.
 
-Network and compute aware function placement and selection has become of utmost importance in the last decade. The availability of such information is taken for granted by the numerous service providers and bodies that are specifying them.
-However, deployments may reach out to data centers running different implementations with different understandings and representations of compute capabilities and smooth operation is a challenge. While standardization efforts on network capabilities representation and exposure are well-advanced, similar efforts on compute capabilitites are in their infancy.
+Network and compute-aware application placement and service selection has become
+of utmost importance in the last decade. The availability of such information
+is taken for granted by the numerous service providers and bodies that are specifying them.
+However, distributed computational resources often run different
+implementations with different understandings and representations of
+compute capabilities, which poses a challenge to the applicaiton placement
+and service selection problems. While standardization
+efforts on network capabilities representation and exposure are well-advanced,
+similar efforts on compute capabilitites are in their infancy.
 
 This document proposes an initial approach towards  a common understanding
 and exposure scheme for metrics reflecting compute capabilities.
-It aims at leveraging on existing work in the IETF on compute metrics definitions to build synergies.
+It aims at leveraging existing work in the IETF on compute metrics definitions to build synergies.
 It also aims at reaching out to working or research groups in the IETF that would consume such information and have particular requirements.
 
 
@@ -524,7 +531,7 @@ Besides the required extensions to the routing protocols, the hybrid mode stress
 
 ### Metric Exposure with Extensions of ALTO
 
-The ALTO protocol has been difined to expose an abstracted network topology and related path costs in {{RFC7285}}. Its extension RFC 9240 allows to define entities on which properties can be defined, while {{?I-D.contreras-alto-service-edge}} introduces a proposed entity property that allows to consider an entity as both a network element with network related costs and properties and a element of a data centzer with compute related properties. Such an exposure mechanism is particularly useful for decision making entities which are centralized and located off the network paths.
+The ALTO protocol has been difined to expose an abstracted network topology and related path costs in {{RFC7285}}. Its extension RFC 9240 allows to define entities on which properties can be defined, while {{?I-D.contreras-alto-service-edge}} introduces a proposed entity property that allows to consider an entity as both a network element with network related costs and properties and a element of a data center with compute related properties. Such an exposure mechanism is particularly useful for decision making entities which are centralized and located off the network paths.
 
 ### Exposure of Abstracted Generic Metrics
 In some cases, whether due to unavailable information details or for the sake of simplicity, a consumer may need reliable but simple guidance to select a service. To this end, abstracted generic metrics may be useful.
