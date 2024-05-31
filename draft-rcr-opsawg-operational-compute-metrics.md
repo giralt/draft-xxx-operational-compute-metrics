@@ -362,7 +362,7 @@ taken into consideration both network and compute information.
 
 # Production and Consumption Scenarios of Compute-related Information
 
-It is important to understand the scenarios of production and consumption of compute-related information in combination with information related to communication. Leveraging such combination enables the possibility of resource and workload placement optimization, leading to both operational cost reductions to the operator and service provider as well as an improvement on the service level experienced by the end users.
+It is important to understand the scenarios of production and consumption of compute-related information in combination with information related to communication. Leveraging such combination enables the possibility of resource and workload placement optimization, leading to both operational cost reductions to the operator and service provider, as well as an improvement on the service level experienced by the end users.
 
 ## Producers of Compute-Related Information
 
