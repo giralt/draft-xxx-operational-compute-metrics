@@ -215,7 +215,7 @@ a client application that connects to the deployed service. There
 are two main decisions that must be performed in the service selection
 stage: compute node selection and path selection. In the compute node selection
 step, as the service is generally replicated in
-N locations (e.g., by leveraging a microservices architecture),
+N locations (e.g., by leveraging a microservice architecture),
 the application must decide which of the service replicas
 it connects to. Similar to the service deployment stage, this
 decision requires knowledge about communication and compute
@@ -230,7 +230,7 @@ decisions should be jointly optimized, since in general the best end-to-end perf
 is achieved by jointly taking into account both decisions. In some cases, however,
 such decisions may be owned by different players. For instance, in some network
 environments, the path selection may be decided by the network operator,
-wheres the node selection may be decided by the application. Even in these cases,
+wheres the compute node selection may be decided by the application. Even in these cases,
 it is crucial to have a proper interface (for both the network operator and the service
 provider) to query the available compute and communication resources from the system.
 
@@ -239,7 +239,7 @@ provider) to query the available compute and communication resources from the sy
 | Action to take | Information needed | Who needs it |
 |-----------:|:----------------------:|:----------------------|
 | Service placement | Compute and communication | Service provider |
-| Service selection/node selection | Compute | Network/service provider and/or application |
+| Service selection/node selection | Compute and communication | Network/service provider and/or application |
 | Service selection/path selection | Communication | Network/service and/or application |
 {: #prob_space title="Problem space, needs, and stakeholders." }
 
@@ -270,7 +270,7 @@ inference at very low latency, running at the edge is necessary.
 
 - Reliability and performance: Peaks in cloud demand for generative AI queries can
 create large queues and latency, and in some cases even lead to denial of service.
-In some cases, limited or no connectivity requires running the workloads at the edge.
+Further, limited or no connectivity generally requires running the workloads at the edge.
 
 - Privacy, security, and personalization: A "private mode" allows users to strictly
 utilize on-device (or near-the-device) AI to enter sensitive prompts to chatbots,
@@ -284,8 +284,9 @@ and computational costs. To make optimized service and workload placement decisi
 about both the compute and communication resources available in the network is necessary too.
 
 Consider as an example a large language model (LLM) used to generate text and hold intelligent
-conversations. LLMs produce a single token per inference, where a token is almost equivalent
-to a word. Pipelining and parallelization techniques are used to optimize inference, but
+conversations. LLMs produce a single token per inference,
+where a token is a set of characters forming words or fractions of words.
+Pipelining and parallelization techniques are used to optimize inference, but
 this means that a model like GPT-3 could potentially go through all 175 billion parameters
 that are part of it to generate a single word. To efficiently run these computational-intensive
 workloads, it is necessary to know the availability of compute resources in the distributed
@@ -293,7 +294,7 @@ system. Suppose that a user is driving a car while conversing with an AI model. 
 can run inference on a variety of compute nodes, ordered from lower to higher compute power
 as follows: (1) the user's phone, (2) the computer in the car, (3) the 5G edge cloud,
 and (4) the datacenter cloud. Correspondingly, the system can deploy four different models
-with different levels of precision and compute requirements. The simplest model with the
+with different levels of accuracy and compute requirements. The simplest model with the
 least parameters can run in the phone, requiring less compute power but yielding lower
 accuracy. Three other models ordered in increasing value of accuracy and computational
 complexity can run in the car, the edge, and the cloud. The application can identify the
@@ -303,10 +304,7 @@ models to use for every inference request. Note that this is similar to the
 resolution/bandwidth trade-off commonly found in the image encoding problem, where an
 image can be encoded and transmitted at different levels of resolution depending on the
 available bandwidth in the communication channel. In the case of AI inference, however,
-not only bandwidth is a scarce resource, but also compute. ALTO extensions to support
-the exposure of compute resources would allow applications to make optimized decisions
-on selecting the right computational resource, supporting the efficient execution of hybrid
-AI workloads.
+not only bandwidth is a scarce resource, but also compute.
 
 ## Open Abstraction for Edge Computing
 
@@ -329,9 +327,6 @@ by using vertically optimized and closed architectures, the edge will
 necessarily need to rely on a complete ecosystem of carefully
 designed open standards to enable horizontal interoperability
 across all the involved parties.
-This document envisions ALTO playing a role as part of the
-ecosystem of open standards that are necessary to deploy and
-operate the edge cloud.
 
 As an example, consider a user of an XR
 application who arrives at his/her home by car. The application
@@ -349,29 +344,21 @@ demands knowledge about the compute
 and communication resources available both in the 5G and the Wi-Fi
 domains, therefore requiring interoperability across multiple
 industry standards (for instance, IETF and 3GPP on the public side,
-and IETF and LF Edge {{LF-EDGE}} on the private home side). ALTO
-can be positioned to act as an abstraction layer supporting
-the exposure of communication and compute information independently
-of the type of domain the application is currently residing in.
-
-Future versions of this document will elaborate further on this
-use case.
+and IETF and LF Edge {{LF-EDGE}} on the private home side).
 
 ## Optimized Placement of Microservice Components
 
 Current applications are transitioning from a monolithic service architecture
 towards the composition of microservice components, following cloud-native
-trends. The set of microservices can have associated SLOs which impose
-constraints not only in terms of required compute resources (CPU, storage, ...)
+trends. The set of microservices can have 
+associated Service Level Objectives (SLOs) that impose
+constraints not only in terms of the required computational resources 
 dependent on the compute facilities available, but also in terms of performance
 indicators such as latency, bandwidth, etc, which impose restrictions in the
 networking capabilities connecting the computing facilities. Even more complex
-constrains, such as affinity among certain microservices components could
+constraints, such as affinity among certain microservices components could
 require complex calculations for selecting the most appropriate compute nodes
 taken into consideration both network and compute information.
-
-Thus, service/application orchestrators can benefit from the information exposed
-by ALTO at the time of deciding the placement of the microservices in the network.
 
 # Production and Consumption Scenarios of Compute-related Information
 
