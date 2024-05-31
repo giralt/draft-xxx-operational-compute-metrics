@@ -80,6 +80,9 @@ informative:
    IR:
      title : Cloud Performance Testing Best Tips and Tricks
      target : https://www.ir.com/guides/cloud-performance-testing
+   LLM_COMP_REQ :
+     title: Serving OPT-175B, BLOOM-176B and CodeGen-16B using Alpa
+     target : https://alpa.ai/tutorials/opt_serving.html
 --- abstract
 
 Service providers are starting to deploy computing capabilities
@@ -124,9 +127,9 @@ of utmost importance in the last decade. The availability of such information
 is taken for granted by the numerous service providers and bodies that are specifying them.
 However, distributed computational resources often run different
 implementations with different understandings and representations of
-compute capabilities, which poses a challenge to the applicaiton placement
+compute capabilities, which poses a challenge to the application placement
 and service selection problems. While standardization
-efforts on network capabilities representation and exposure are well-advanced,
+efforts on network capabilities representation and exposure are well advanced,
 similar efforts on compute capabilitites are in their infancy.
 
 This document proposes an initial approach towards  a common understanding
@@ -150,7 +153,7 @@ CHANGE 2 -->
 
 Visibility and exposure of both (1) network and (2) compute
 resources to the application is critical to
-enable the proper functioning of the new class of services
+enable a proper functioning of the new class of services
 arising at the edge (e.g., distributed AI, driverless vehicles,
 AR/VR, etc.). To understand the problem space and the capabilities
 that are lacking in today's protocol interfaces needed to enable
@@ -161,9 +164,9 @@ At the edge, compute nodes
 are deployed near communication nodes (e.g., co-located
 in a 5G base station) to provide computing services that are
 close to users with the goal to (1) reduce latency, (2) increase
-communication bandwidth, (3) enable privacy/personalization
-(e.g., federated AI learning), and (4) reduce cloud costs and
-energy. Services are deployed on the communication and compute
+communication bandwidth, (3) increase reliability, (4) enable privacy
+nd security, (5) enable personalization, and (6) reduce cloud costs and
+energy consumption. Services are deployed on the communication and compute
 infrastructure through a two-phase life cycle that involves first a
 service *deployment stage* and then a *service selection* stage
 ({{lifecycle}}).
@@ -186,20 +189,23 @@ these new services. -->
 
 
 **Service deployment.** This phase is carried out by the service
-provider, and consists in the deployment of a new service
+provider and involves the deployment of a new service
 (e.g., a distributed AI training/inference, an XR/AR service, etc.)
 on the communication and compute infrastructure. The service
 provider needs to properly size the amount of communication and compute
 resources assigned to this new service to meet the expected user
 demand. The decision on where the service is deployed and how
 many resources are requested from the infrastructure depends on
-the levels of QoE that the provider wants to guarantee to the
-user base. To make a proper deployment decision, the provider
-must have visibility on the resources available from
-the infrastructure, including communication resources (e.g., latency and
-bandwidth) and compute (e.g., CPU, GPU, memory, storage). For instance,
+the levels of Quality of Experience (QoE)
+that the provider wants to guarantee to the
+users of the service. To make a proper deployment decision, the provider
+must have visibility on the resources available within
+the infrastructure, including communication (e.g., link
+bandwidth and latency) and compute
+(e.g., CPU, GPU, memory and storage capacity) resources. For instance,
 to run a Large Language Model (LLM) with 175 billion parameters, a total
-aggregated memory of 400GB and 8 GPUs are needed. The service provider needs
+aggregated memory of 350GB and 5 GPUs may be needed {{LLM_COMP_REQ}}.
+The service provider needs
 an interface to query the infrastructure, extract the available compute
 and communication resources, and decide which subset of resources are
 needed to run the service.
