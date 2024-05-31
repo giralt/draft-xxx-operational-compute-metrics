@@ -350,9 +350,9 @@ and IETF and LF Edge {{LF-EDGE}} on the private home side).
 
 Current applications are transitioning from a monolithic service architecture
 towards the composition of microservice components, following cloud-native
-trends. The set of microservices can have 
+trends. The set of microservices can have
 associated Service Level Objectives (SLOs) that impose
-constraints not only in terms of the required computational resources 
+constraints not only in terms of the required computational resources
 dependent on the compute facilities available, but also in terms of performance
 indicators such as latency, bandwidth, etc, which impose restrictions in the
 networking capabilities connecting the computing facilities. Even more complex
