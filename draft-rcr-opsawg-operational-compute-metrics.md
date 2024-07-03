@@ -533,6 +533,63 @@ One can consider a generic metric that can be named “computingcost” and is a
 
 One may also consider a generic metric named “computingperf”, applied to an edge server, that reflects its performances, based on measurements or estimations by the ISP or combination thereof.  An edge server with a higher “computingperf” value will be preferred.  “computingperf” can be based on a vector of one or more metrics reflecting, for instance, responsiveness, reliability of cloud services based on metrics such as latency, packet loss, jitter, time to first and/or last byte, or a single value reflecting a global performance score.
 
+# Study of the Kubernetes Metrics API and Exposure Mechanism
+
+An approach to develop IETF specifications for the definition of compute and
+communication metrics is to leverage existing and mature solutions, whether based on
+open standards or de facto standards. On one hand, this approach avoids
+reinventing the wheel; on the other, it ensures the specifications are based
+on significant industry experience and stable running code.
+
+For communication metrics, the IETF has already developed detailed and mature
+specifications. An example is the ALTO Protocol {{RFC7285}}, which provides RFCs standardizing
+communication metrics and a detailed exposure mechanism protocol.
+
+Compute metrics, however, have not been thoroughly studied within the IETF.
+With the goal to avoid reinventing the wheel and to ensure significant industry
+experience is taken into account, in this section we study the Kubernetes
+Metric API. Kubernetes is not only a de facto standard to manage containerized
+software in data centers, but it is also increasingly being used by telecommunication operators
+to manage compute resources at the edge.
+
+## Understanding the Kubernetes Metric API and its Exposure Mechanism
+
+{{kubernetes_metrics}} shows the Kubernetes Metric API architecture. XXX
+
+                +---------------------------------------------------------------------------------+
+                |                                                                                 |
+                |  Cluster                      +-----------------------------------------------+ |
+                |                               |                                               | |
+                |                               |  Node                           +-----------+ | |
+                |                               |                                 | Container | | |
+                |                               |                               +-+           | | |
+                |                               |                               | |  runtime  | | |
+                |                               |                 +----------+  | +-----------+ | |
+    +-------+   |                               |                 |          |  |               | |
+    |  HPA  <-+ |                               |               +-+ cAdvisor |<-+               | |
+    +-------+ | |                               |               | |          |  | +-----------+ | |
+              | | +----------+    +-----------+ | +----------+  | +----------+  | | Container | | |
+    +-------+ | | |  API     |    |  Metrics  | | |          |  |               +-+           | | |
+    |  VPA  <-+-+-+          <--+-+           <-+-+ Kubelet  <--+                 |  runtime  | | |
+    +-------+ | | | server   |  | |   server  | | |          |  |                 +-----------+ | |
+              | | +----------+  | +-----------+ | +----------+  |                               | |
+    +-------+ | |               |               |               |                               | |
+    |kucectl| | |               |               |               | +----------+                  | |
+    | stop  <-+ |               | +-----------+ |               | |  Other   |                  | |
+    +-------+   |               | |  Other    | |               +-+   pod    |                  | |
+                |               +-+           | |                 |   data   |                  | |
+                |                 |  data     | |                 +----------+                  | |
+                |                 +-----------+ |                                               | |
+                |                               +-----------------------------------------------+ |
+                |                                                                                 |
+                +---------------------------------------------------------------------------------+
+{: #kubernetes_metrics title="Collection and exposure of metrics using the Kubernetes metric API." }
+
+## Mapping the Kubernetes Metrics API and the CATS Architectures
+
+XXX
+
+
 # Related Work
 
 Some existing work has explored compute-related metrics. They can be categorized as follows:
