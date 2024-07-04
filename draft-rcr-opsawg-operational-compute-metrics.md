@@ -552,9 +552,39 @@ Metric API. Kubernetes is not only a de facto standard to manage containerized
 software in data centers, but it is also increasingly being used by telecommunication operators
 to manage compute resources at the edge.
 
-## Understanding the Kubernetes Metric API and its Exposure Mechanism
+## Understanding the Kubernetes Metrics API and its Exposure Mechanism
 
-{{kubernetes_metrics}} shows the Kubernetes Metric API architecture. XXX
+{{kubernetes_metrics}} shows the Kubernetes Metric API architecture.
+It consists of the following components:
+
+**Pod**. A collection of one or more containers.
+
+**Cluster**. A collection of one or more pods.
+
+**HPA, VPA and 'kubectl stop'**. Three different applications that
+serve as examples of consumers of the Metrics API.
+The HorizontalPodAutoscaler (HPA) and VerticalPodAutoscaler
+(VPA) use data from the metrics
+API to adjust workload replicas and resources to meet
+customer demand. 'kubectl stop' can
+be used to show all the metrics.
+
+**cAdvisor**. Daemon for collecting metrics (CPU, memory, GPU, etc.) from all the containers
+in a pod. It is responsible for aggregating and exposing these metrics to kubelet.
+
+**Kubelet**. Node agent responsible for managing container resources. It includes the
+ability to collect the metrics from the cAdvisor and making them accessible
+using the /metrics/resource and /stats kubelet API endpoints.
+
+**Metrics server**. Cluster agent responsible for collecting and aggregating resource metrics
+from each kubelet.
+
+**API Server**. General server providing API access to kubernetes services.
+One of them corresponds to the Metrics API service. HPA, VPA, and
+'kubectl top' query the API server to retrieve the metrics.
+
+
+
 
                 +---------------------------------------------------------------------------------+
                 |                                                                                 |
@@ -574,8 +604,8 @@ to manage compute resources at the edge.
     +-------+ | | | server   |  | |   server  | | |          |  |                 +-----------+ | |
               | | +----------+  | +-----------+ | +----------+  |                               | |
     +-------+ | |               |               |               |                               | |
-    |kucectl| | |               |               |               | +----------+                  | |
-    | stop  <-+ |               | +-----------+ |               | |  Other   |                  | |
+    |kubectl| | |               |               |               | +----------+                  | |
+    | top   <-+ |               | +-----------+ |               | |  Other   |                  | |
     +-------+   |               | |  Other    | |               +-+   pod    |                  | |
                 |               +-+           | |                 |   data   |                  | |
                 |                 |  data     | |                 +----------+                  | |
@@ -586,6 +616,10 @@ to manage compute resources at the edge.
 {: #kubernetes_metrics title="Collection and exposure of metrics using the Kubernetes metric API." }
 
 ## Mapping the Kubernetes Metrics API and the CATS Architectures
+
+XXX
+
+## Available Metrics from the Kubernetes Metrics API
 
 XXX
 
