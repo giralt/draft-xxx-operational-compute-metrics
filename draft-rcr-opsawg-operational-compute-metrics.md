@@ -614,7 +614,7 @@ One of them corresponds to the Metrics API service. HPA, VPA, and
                 |                                                                                 |
                 +---------------------------------------------------------------------------------+
 {: #kubernetes_metrics title="Collection and exposure of
-metrics using the Kubernetes metric API." }
+metrics using the Kubernetes Metrics API." }
 
 ## Mapping the Kubernetes Metrics API and the CATS Architectures
 
@@ -656,7 +656,8 @@ for ease of reading.
                     :                                :  +---|CS-ID 2|
                     :                                :      +-------+
                     :<-------------------------------:
-{: #cats_framework title="CATS Metric Dessimination in a Distributed Model.
+{: #cats_framework title="Collection and exposure of
+metrics using the CATS Distributed Model.
 (Taken from [I-D.ldbc-cats-framework])" }
 
 xxx
