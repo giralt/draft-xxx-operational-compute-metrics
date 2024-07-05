@@ -167,16 +167,25 @@ close to users with the goal to (1) reduce latency, (2) increase
 communication bandwidth, (3) increase reliability, (4) enable privacy
 nd security, (5) enable personalization, and (6) reduce cloud costs and
 energy consumption. Services are deployed on the communication and compute
-infrastructure through a two-phase life cycle that involves first a
-service *deployment stage* and then a *service selection* stage
+infrastructure through a phased life cycle that involves first a
+service *deployment stage*, then a *service selection* stage, and finally a *service assurance* stage.
 ({{lifecycle}}).
 
-     +-------------+      +--------------+      +-------------+
-     |             |      |              |      |             |
-     |  New        +------>  Service     +------>  Service    |
-     |  Service    |      |  Deployment  |      |  Selection  |
-     |             |      |              |      |             |
-     +-------------+      +--------------+      +-------------+
+ +-------------+      +--------------+      +-------------+
+ |             |      |              |      |             |
+ |  New        +------>  Service     +------>  Service    |
+ |  Service    |      |  Deployment  |      |  Selection  |
+ |             |      |              |      |             |
+ +-------------+      +-----^--------+      +-------+-----+
+                            |                       |
+                            |                       |
+                            |                       |
+                            |    +-------------+    |
+                            |    |             |    |
+                            +----+  Service    <----+
+                                 |  Assurance  |
+                                 |             |
+                                 +-------------+
 {: #lifecycle title="Service life cycle." }
 
 
@@ -234,6 +243,8 @@ wheres the compute node selection may be decided by the application. Even in the
 it is crucial to have a proper interface (for both the network operator and the service
 provider) to query the available compute and communication resources from the system.
 
+**Service assurance.** During this pase, the behavior of the service is analyzed in order to endure the proper functioning of it according to the aplicable Service Level Objectives (SLOs). In case the SLOs are not met, corrective actions could be decided by the network provider, or requested by the service provider or application. The assessment of the service behavior can take into account both compute and network metrics.
+
 {{prob_space}} summarizes the problem space, the information that needs to be exposed, and the stakeholders that need this information.
 
 | Action to take | Information needed | Who needs it |
@@ -241,6 +252,7 @@ provider) to query the available compute and communication resources from the sy
 | Service placement | Compute and communication | Service provider |
 | Service selection/node selection | Compute and communication | Network/service provider and/or application |
 | Service selection/path selection | Communication | Network/service and/or application |
+| Service assurance | Compute and communication | Network/service provider and/or application |
 {: #prob_space title="Problem space, needs, and stakeholders." }
 
 # Use Cases
