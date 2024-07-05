@@ -613,11 +613,53 @@ One of them corresponds to the Metrics API service. HPA, VPA, and
                 |                               +-----------------------------------------------+ |
                 |                                                                                 |
                 +---------------------------------------------------------------------------------+
-{: #kubernetes_metrics title="Collection and exposure of metrics using the Kubernetes metric API." }
+{: #kubernetes_metrics title="Collection and exposure of
+metrics using the Kubernetes metric API." }
 
 ## Mapping the Kubernetes Metrics API and the CATS Architectures
 
-XXX
+In this section, we observe that there is a natural mapping between
+the Kubernetes Metrics API and the IETF CATS architecture. This
+makes the Metrics API a de facto standard that can be easily
+adapted to support the CATS distributed design.
+
+To describe the mapping, we take the distributed model
+of the CATS Metric Dissemination framework introduced in
+{{I-D.ldbc-cats-framework}}, and include it in {{cats_framework}}
+for ease of reading.
+
+                    :<----------------------:
+                    :                       :              +--------+
+                    :                       :              |CS-ID 1 |
+                    :                       :           +--|CIS-ID 1|
+                    :              +----------------+   |  +--------+
+                    :              |    C-SMA       |---|   Service Site 2
+                    :              +----------------+   |  +--------+
+                    :              |CATS-Forwarder 2|   +--|CS-ID 1 |
+                    :              +----------------+      |CIS-ID 2|
+    +--------+      :                        |             +--------+
+    | Client |      :  Network +----------------------+
+    +--------+      :  metrics | +-------+            |
+          |         : :<---------| C-NMA |            |
+          |         : :        | +-------+            |
+    +---------------------+    |                      |
+    |CATS-Forwarder 1|C-PS|----|                      |
+    +---------------------+    |       Underlay       |
+                    :          |     Infrastructure   |     +--------+
+                    :          |                      |     |CS-ID 1 |
+                    :          +----------------------+ +---|CIS-ID 3|
+                    :                    |              |   +--------+
+                    :          +----------------+  +-------+
+                    :          |CATS-Forwarder 3|--| C-SMA | Service Site 3
+                    :          +----------------+  +-------+
+                    :                                :  |   +-------+
+                    :                                :  +---|CS-ID 2|
+                    :                                :      +-------+
+                    :<-------------------------------:
+{: #cats_framework title="CATS Metric Dessimination in a Distributed Model.
+(Taken from [I-D.ldbc-cats-framework])" }
+
+xxx
 
 ## Available Metrics from the Kubernetes Metrics API
 
