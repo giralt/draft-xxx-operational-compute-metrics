@@ -616,16 +616,16 @@ One of them corresponds to the Metrics API service. HPA, VPA, and
 {: #kubernetes_metrics title="Collection and exposure of
 metrics using the Kubernetes Metrics API." }
 
-## Mapping the Kubernetes Metrics API and the CATS Architectures
+## Example of Mapping the Kubernetes Metrics API and the CATS Architectures
 
-In this section, we observe that there is a natural mapping between
-the Kubernetes Metrics API and the IETF CATS architecture. This
-makes the Metrics API a de facto standard that can be easily
-adapted to support the CATS distributed design.
+In this section, we describe a mapping between
+the Kubernetes Metrics API and the IETF CATS metric dissemination
+architecture, illustrating how a de facto standard widely used in production
+systems can be easily adapted to support the CATS metrics framework.
 
 To describe the mapping, we take the distributed model
-of the CATS Metric Dissemination framework introduced in
-{{I-D.ldbc-cats-framework}}, and include it in {{cats_framework}}
+of the CATS metrics dissemination framework introduced in
+{{I-D.ldbc-cats-framework}}, which we include in {{cats_framework}}
 for ease of reading.
 
                     :<----------------------:
@@ -660,7 +660,9 @@ for ease of reading.
 metrics using the CATS Distributed Model.
 (Taken from [I-D.ldbc-cats-framework])" }
 
-xxx
+The following table provides the mapping:
+
+
 
 ## Available Metrics from the Kubernetes Metrics API
 
