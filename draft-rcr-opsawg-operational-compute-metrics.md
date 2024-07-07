@@ -623,41 +623,43 @@ the Kubernetes Metrics API and the IETF CATS metric dissemination
 architecture, illustrating how a de facto standard widely used in production
 systems can be easily adapted to support the CATS metrics framework.
 
-To describe the mapping, we take the distributed model
+To describe the mapping, we take the centralized model
 of the CATS metrics dissemination framework introduced in
 {{I-D.ldbc-cats-framework}}, which we include in {{cats_framework}}
-for ease of reading.
+for ease of reading. (Similar mappings can be created with the
+distributed and hybrid models also introduced in this {{cats_framework}})
 
-                    :<----------------------:
-                    :                       :              +--------+
-                    :                       :              |CS-ID 1 |
-                    :                       :           +--|CIS-ID 1|
-                    :              +----------------+   |  +--------+
-                    :              |    C-SMA       |---|   Service Site 2
-                    :              +----------------+   |  +--------+
-                    :              |CATS-Forwarder 2|   +--|CS-ID 1 |
-                    :              +----------------+      |CIS-ID 2|
-    +--------+      :                        |             +--------+
-    | Client |      :  Network +----------------------+
-    +--------+      :  metrics | +-------+            |
-          |         : :<---------| C-NMA |            |
-          |         : :        | +-------+            |
-    +---------------------+    |                      |
-    |CATS-Forwarder 1|C-PS|----|                      |
-    +---------------------+    |       Underlay       |
-                    :          |     Infrastructure   |     +--------+
-                    :          |                      |     |CS-ID 1 |
-                    :          +----------------------+ +---|CIS-ID 3|
-                    :                    |              |   +--------+
-                    :          +----------------+  +-------+
-                    :          |CATS-Forwarder 3|--| C-SMA | Service Site 3
-                    :          +----------------+  +-------+
-                    :                                :  |   +-------+
-                    :                                :  +---|CS-ID 2|
-                    :                                :      +-------+
-                    :<-------------------------------:
+                :       +------+
+                :<------| C-PS |<----------------------------------+
+                :       +------+ <------+              +--------+  |
+                :          ^            |           +--|CS-ID 1 |  |
+                :          |            |           |  |CIS-ID 1|  |
+                :          |   +----------------+   |  +--------+  |
+                :          |   |    C-SMA       |---|Service Site 2|
+                :          |   +----------------+   |  +--------+  |
+                :          |   |CATS-Forwarder 2|   +--|CS-ID 1 |  |
+                :          |   +----------------+      |CIS-ID 2|  |
+    +--------+  :          |             |             +--------+  |
+    | Client |  :  Network |   +----------------------+            |
+    +--------+  :  metrics |   | +-------+            |            |
+         |      :          +-----| C-NMA |            |      +-----+
+         |      :          |   | +-------+            |      |C-SMA|<-+
+    +----------------+ <---+   |                      |      +-----+  |
+    |CATS-Forwarder 1|---------|                      |          ^    |
+    +----------------+         |       Underlay       |          |    |
+                :              |     Infrastructure   |     +--------+|
+                :              |                      |     |CS-ID 1 ||
+                :              +----------------------+  +--|CIS-ID 3||
+                :                        |               |  +--------+|
+                :          +----------------+------------+            |
+                :          |CATS-Forwarder 3|         Service Site 3  |
+                :          +----------------+                         |
+                :                        |       :      +-------+     |
+                :                        +-------:------|CS-ID 2|-----+
+                :                                :      +-------+
+                :<-------------------------------:
 {: #cats_framework title="Collection and exposure of
-metrics using the CATS Distributed Model.
+metrics using the CATS Centralized Model.
 (Taken from [I-D.ldbc-cats-framework])" }
 
 The following table provides the mapping:
