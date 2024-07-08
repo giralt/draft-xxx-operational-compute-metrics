@@ -83,6 +83,10 @@ informative:
    LLM_COMP_REQ :
      title: Serving OPT-175B, BLOOM-176B and CodeGen-16B using Alpa
      target : https://alpa.ai/tutorials/opt_serving.html
+   BBF TR-383:
+     title: Common YANG Modules for Access Networks
+     target: https://www.broadband-forum.org/pdfs/tr-383-1-7-0.pdf
+     
 --- abstract
 
 Service providers are starting to deploy computing capabilities
@@ -428,6 +432,21 @@ could be exposed:
 | Services    |    Object        |   Concurrent services        |
 {: #cloud_res title="Examples of cloud resource parameters." }
 
+It is a first idea regarding the kind of resources quotas. 
+The first column contains the kind of resource e.g., cpu or memory. 
+The second column is the kind of resource type or classification. 
+It is clustered in compute, storage, and object resources analog to definition 
+in a cloud native environment. 
+In the example of CPU, the resource quota can have a default value or could be 
+limited or could be in a defined range that can be used (0.1 or 2 CPU). 
+An additional parameter is the maximum amount of CPU requests.
+The general format of the units is the total.
+Sensitive credentials (secrets) can be made available to pods as environment 
+variables or configuration files without the need to store these sensitive or 
+changing data in version control systems or image registries. 
+So, config maps and secrets allow you to separate code and configuration.
+
+
 ## Considerations about Metrics
 
 The metrics considered in this document should be used to support
@@ -734,6 +753,8 @@ Some existing work has explored compute-related metrics. They can be categorized
 and distribution of computing metrics in {{I-D.ldbc-cats-framework}}.
 In their deployment considerations, they consider three models: distributed,
 centralized and hybrid.
+
+* Standardization work regarding related work on compute metrics can also be found in standardization bodies like Broadband Forum. The modules defined there are related to the work of the standardization body. Examples can be found in {{BBF TR-383}} describing access and interface related parameters and metrics. Edge cloud topics are also likely to become relevant in the access domain.
 
 #  Guiding Principles
 
