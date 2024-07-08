@@ -472,9 +472,9 @@ This list is initial and is to be updated upon further discussion.
 
 Dimensions helping to identify needed compute metrics:
 
-| Dimension	 | Definition	| Examples |
-| Decision	 | what are the metrics used for | monitoring, benchmarking, service selection and placement |
-| Driving KPI | what is assessed with the metrics | speed, scalability, cost, stability |
+| Dimension	 | Definition	of dimension | Examples |
+| Decision	 | what operation the metrics are used for | monitoring, benchmarking, service selection and placement |
+| Driving KPI | what KPI is assessed with the metrics | speed, scalability, cost, stability |
 | Decision scope | different granularities| infrastructure node/cluster, compute service, end-to-end application  |
 | Receiving entity | receiving metrics  | router, centralized controller, application management |
 | Deciding entity | computing decisions | router, centralized controller, application management |
