@@ -168,10 +168,8 @@ communication bandwidth, (3) increase reliability, (4) enable privacy
 nd security, (5) enable personalization, and (6) reduce cloud costs and
 energy consumption. Services are deployed on the communication and compute
 infrastructure through a phased life cycle that involves first a
-service *deployment stage*, then a *service selection* stage, and finally a *service assurance* stage.
+service *deployment stage*, then a *service selection* stage, and finally a *service assurance* stage ({{lifecycle}}).
 
-
-~~~
  +-------------+      +--------------+      +-------------+
  |             |      |              |      |             |
  |  New        +------>  Service     +------>  Service    |
@@ -187,8 +185,7 @@ service *deployment stage*, then a *service selection* stage, and finally a *ser
                                  |  Assurance  |
                                  |             |
                                  +-------------+
-~~~
-
+                                 
 {: #lifecycle title="Service life cycle." }
 
 
