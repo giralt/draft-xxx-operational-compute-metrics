@@ -171,6 +171,7 @@ infrastructure through a phased life cycle that involves first a
 service *deployment stage*, then a *service selection* stage, and finally a *service assurance* stage.
 ({{lifecycle}}).
 
+~~~
  +-------------+      +--------------+      +-------------+
  |             |      |              |      |             |
  |  New        +------>  Service     +------>  Service    |
@@ -186,6 +187,8 @@ service *deployment stage*, then a *service selection* stage, and finally a *ser
                                  |  Assurance  |
                                  |             |
                                  +-------------+
+~~~
+
 {: #lifecycle title="Service life cycle." }
 
 
