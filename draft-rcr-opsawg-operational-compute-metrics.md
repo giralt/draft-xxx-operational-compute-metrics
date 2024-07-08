@@ -86,6 +86,9 @@ informative:
    BBF TR-383:
      title: Common YANG Modules for Access Networks
      target: https://www.broadband-forum.org/pdfs/tr-383-1-7-0.pdf
+   GRAFANA:
+     title: Grafana - Visualization Tool and Dashbords from multiple Data Sources
+     target:  https://grafana.com/
      
 --- abstract
 
@@ -432,7 +435,7 @@ could be exposed:
 | Services    |    Object        |   Concurrent services        |
 {: #cloud_res title="Examples of cloud resource parameters." }
 
-It is a first idea regarding the kind of resources quotas. 
+It is an idea regarding the kind of resources quotas. 
 The first column contains the kind of resource e.g., cpu or memory. 
 The second column is the kind of resource type or classification. 
 It is clustered in compute, storage, and object resources analog to definition 
@@ -551,6 +554,13 @@ In some cases, whether due to unavailable information details or for the sake of
 One can consider a generic metric that can be named “computingcost” and is applied to a contact point to one or more edge servers such as a load balancer, for short  an edge server, to reflect the network operator policy and preferences.  The metric “computingcost” results from an abstraction method that is hidden from users, similarly to the metric “routingcost” defined in {{RFC7285}}.  For instance, “computingcost” may be higher for an edge server located far away, or in disliked geographical areas, or owned by a provider who does not share information with the Internet Service Provider (ISP) or with which ISP has a poorer commercial agreement.  “computingcost” may also reflect environmental preferences in terms, for instance, of energy source, average consumption vs. local climate, location adequacy vs. climate.
 
 One may also consider a generic metric named “computingperf”, applied to an edge server, that reflects its performances, based on measurements or estimations by the ISP or combination thereof.  An edge server with a higher “computingperf” value will be preferred.  “computingperf” can be based on a vector of one or more metrics reflecting, for instance, responsiveness, reliability of cloud services based on metrics such as latency, packet loss, jitter, time to first and/or last byte, or a single value reflecting a global performance score.
+
+### Observability of Metrics
+Metrics are an important aspect of building observability. They may be used for placement of applications, observation of patterns or even for root cause analyzation. The costs are the resources (network, storage, and compute) required to store and process the metrics. In case of analytics use cases the determination of the useful metrics ahead of time is difficult. Therefore, the delivery of a subset of metrics or all - if required – must be possible. From the operator perspective the metrics can be used for:
+-	Network Operation 
+-	Network Analytics
+It should also be possible to use the metrics for different purposes and allow a central or distributed handling. The metrics should allow a dynamic addition or deletion of network elements and must be usable in a multi-vendor environment. Latter requires a metrics framework and the ability to normalize the metrics. Conclusion is that standardization of metrics is required. Special tools enable the visualization of the metrics even if coming from different data sources.
+
 
 # Study of the Kubernetes Metrics API and Exposure Mechanism
 
@@ -755,6 +765,8 @@ In their deployment considerations, they consider three models: distributed,
 centralized and hybrid.
 
 * Standardization work regarding related work on compute metrics can also be found in standardization bodies like Broadband Forum. The modules defined there are related to the work of the standardization body. Examples can be found in {{BBF TR-383}} describing access and interface related parameters and metrics. Edge cloud topics are also likely to become relevant in the access domain.
+
+* For monitoring and graphical visualization of metrics tools like Grafana {{GRAFANA}} are available. With such kind of tools, it is possible to create dashboards for improving the observability of the platforms. These tools can be customized providing a suitable view depending on the uses case. 
 
 #  Guiding Principles
 
