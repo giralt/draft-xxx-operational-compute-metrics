@@ -83,7 +83,7 @@ informative:
    LLM_COMP_REQ :
      title: Serving OPT-175B, BLOOM-176B and CodeGen-16B using Alpa
      target : https://alpa.ai/tutorials/opt_serving.html
-   BBF TR-383:
+   BBF_TR-383:
      title: Common YANG Modules for Access Networks
      target: https://www.broadband-forum.org/pdfs/tr-383-1-7-0.pdf
    GRAFANA:
@@ -764,7 +764,7 @@ and distribution of computing metrics in {{I-D.ldbc-cats-framework}}.
 In their deployment considerations, they consider three models: distributed,
 centralized and hybrid.
 
-* Standardization work regarding related work on compute metrics can also be found in standardization bodies like Broadband Forum. The modules defined there are related to the work of the standardization body. Examples can be found in {{BBF TR-383}} describing access and interface related parameters and metrics. Edge cloud topics are also likely to become relevant in the access domain.
+* Standardization work regarding related work on compute metrics can also be found in standardization bodies like Broadband Forum. The modules defined there are related to the work of the standardization body. Examples can be found in {{BBF_TR-383}} describing access and interface related parameters and metrics. Edge cloud topics are also likely to become relevant in the access domain.
 
 * For monitoring and graphical visualization of metrics tools like Grafana {{GRAFANA}} are available. With such kind of tools, it is possible to create dashboards for improving the observability of the platforms. These tools can be customized providing a suitable view depending on the uses case. 
 
