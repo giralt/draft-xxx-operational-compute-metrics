@@ -616,12 +616,13 @@ One of them corresponds to the Metrics API service. HPA, VPA, and
 {: #kubernetes_metrics title="Collection and exposure of
 metrics using the Kubernetes Metrics API." }
 
-## Example of Mapping the Kubernetes Metrics API and the CATS Architectures
+## Example of How to Map the Kubernetes Metrics API with the IETF CATS METRICS Distribution
 
 In this section, we describe a mapping between
 the Kubernetes Metrics API and the IETF CATS metric dissemination
-architecture, illustrating how a de facto standard widely used in production
-systems can be easily adapted to support the CATS metrics framework.
+architecture, illustrating and example of how a de facto standard widely
+used in production systems can be adapted to support the CATS metrics
+framework.
 
 To describe the mapping, we take the centralized model
 of the CATS metrics dissemination framework introduced in
@@ -664,12 +665,62 @@ metrics using the CATS Centralized Model.
 
 The following table provides the mapping:
 
+| IETF CATS component | Kubernetes Metrics API component |
+| CIS-ID              | Container runtime       |
+| C-SMA               | cAdvisor                |
+| C-NMA               | Other data              |
+| C-PS                | HPA, VPA                |
+| CATS Service Site   | Node                    |
+| CATS Service        | Cluster                 |
+{: #kub_cats_map title="Example of how to map the Kubernetes
+Metrics API with the IETF CATS Architecture." }
 
+Note that while in Kubernetes there are multiple levels of abstraction
+to reach the Metrics API (cAdvisor -> kubelet -> metrics  server -> API server),
+they can all be co-located in the cAdvisor, which can then be mapped to the
+C-SMA module in CATS.
 
 ## Available Metrics from the Kubernetes Metrics API
 
-XXX
+The Kubernetes Metrics API implementation
+can be found in staging/src/k8s.io/kubelet/pkg/apis/stats/v1alpha1/types.go
+as part of the Kubernetes repository (https://github.com/kubernetes/kubernetes):
 
+In this section we provide a summary of the metrics offered by the API:
+
+
+| Nodel-level metric| Decription |
+| nodeName | Name of the node |
+| ContainerStats | Stats of the containers within this node |
+| CPUStats | Stats pertaining to CPU resources |
+| MemoryStats | Stats pertaining to memory (RAM) resources |
+| NetworkStats | Stats pertaining to network resources |
+| FsStats | Stats pertaining to the filesystem resources |
+| RuntimeStats | Stats about the underlying containers runtime |
+| RlimitStats | Stats about the rlimits of system |
+{: #kub_metrics_node title="Summary of the Kubernetes Metric API: Node-level metrics." }
+
+| Pod-level metric| Description |
+| PodReference | Reference to the measured Pod |
+| CPU | Stats pertaining to CPU resources consumed by pod cgroup |
+| Memory | Stats pertaining to memory (RAM) resources consumed by pod cgroup |
+| NetworkStats | Stats pertaining to network resources |
+| VolumeStats | Stats pertaining to volume usage of filesystem resources |
+| FsStats | Total filesystem usage for the containers |
+| ProcessStats | Stats pertaining to processes |
+{: #kub_metrics_pod title="Summary of the Kubernetes Metric API: Pod-level metrics." }
+
+| Container-level metric| Description |
+| name | Name of the container |
+| CPUStats | Stats pertaining to CPU resources |
+| MemoryStats | Stats pertaining to memory (RAM) resources |
+| AcceleratorStats | Metrics for Accelerators (e.g., GPU, NPU, etc.)|
+| FsStats | Stats pertaining to the container's filesystem resources |
+| UserDefinedMetrics | User defined metrics that are exposed by containers in the pod |
+{: #kub_metrics_container title="Summary of the Kubernetes Metric API: Container-level metrics." }
+
+For more details, refer to https://github.com/kubernetes/kubernetes under the path
+staging/src/k8s.io/kubelet/pkg/apis/stats/v1alpha1/types.go.
 
 # Related Work
 
