@@ -1,0 +1,315 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2024-07-09T01:11:20.737993+00:00",
+  "repo": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "PR_kwDOKgx8kM5udbg-",
+      "title": " Test Update draft-rcr-opsawg-operational-compute-metrics.md",
+      "url": "https://github.com/giralt/draft-rcr-opsawg-operational-compute-metrics/pull/1",
+      "state": "OPEN",
+      "author": "luismcontreras",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Just for testing",
+      "createdAt": "2024-05-03T10:46:36Z",
+      "updatedAt": "2024-05-03T10:46:37Z",
+      "baseRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "baseRefName": "main",
+      "baseRefOid": "8b457b2450c45f3239d90e4ec91ba48ed43c0f77",
+      "headRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "headRefName": "luismcontreras-patch-1",
+      "headRefOid": "88e49947b31673a7bd423b05678b1cb7b41d3db8",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "PR_kwDOKgx8kM50hvsM",
+      "title": "Update draft-rcr-opsawg-operational-compute-metrics.md",
+      "url": "https://github.com/giralt/draft-rcr-opsawg-operational-compute-metrics/pull/2",
+      "state": "MERGED",
+      "author": "luismcontreras",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added ACK for Luis",
+      "createdAt": "2024-07-05T11:15:41Z",
+      "updatedAt": "2024-07-05T11:42:28Z",
+      "baseRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "baseRefName": "main",
+      "baseRefOid": "fb7b157cc1e04e676949d7ece31428a7533573a5",
+      "headRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "headRefName": "luismcontreras-patch-2",
+      "headRefOid": "9a9ee504b645c601072a4261973b4b680d8e28f0",
+      "closedAt": "2024-07-05T11:42:28Z",
+      "mergedAt": "2024-07-05T11:42:28Z",
+      "mergedBy": "giralt",
+      "mergeCommit": {
+        "oid": "1687fa52bc62b0a8f692a875cfa16b3097becd85"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOKgx8kM6Ax220",
+          "commit": {
+            "abbreviatedOid": "9a9ee50"
+          },
+          "author": "giralt",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-07-05T11:42:23Z",
+          "updatedAt": "2024-07-05T11:42:23Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "PR_kwDOKgx8kM50h4-z",
+      "title": "Update draft-rcr-opsawg-operational-compute-metrics.md",
+      "url": "https://github.com/giralt/draft-rcr-opsawg-operational-compute-metrics/pull/3",
+      "state": "MERGED",
+      "author": "luismcontreras",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Added \"service assurance\" to the lifecycle",
+      "createdAt": "2024-07-05T11:42:23Z",
+      "updatedAt": "2024-07-08T22:15:49Z",
+      "baseRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "baseRefName": "main",
+      "baseRefOid": "fb7b157cc1e04e676949d7ece31428a7533573a5",
+      "headRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "headRefName": "luismcontreras-patch-3",
+      "headRefOid": "22e56295f0a9945ce91f880b74dd79cbea1f66bc",
+      "closedAt": "2024-07-08T22:15:49Z",
+      "mergedAt": "2024-07-08T22:15:49Z",
+      "mergedBy": "luismcontreras",
+      "mergeCommit": {
+        "oid": "94c49793ee457d5ea89b58c03de48795cf2cdcbb"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOKgx8kM50sbOU",
+      "title": "Update draft-rcr-opsawg-operational-compute-metrics.md",
+      "url": "https://github.com/giralt/draft-rcr-opsawg-operational-compute-metrics/pull/4",
+      "state": "OPEN",
+      "author": "Roland-Schott",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Proposed changes:\r\n- Hint on BBF activities\r\n- Add info regarding table 3",
+      "createdAt": "2024-07-08T13:13:50Z",
+      "updatedAt": "2024-07-08T20:51:58Z",
+      "baseRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "baseRefName": "main",
+      "baseRefOid": "b6bc5164105270610bd2892a20817e9fb4d202a7",
+      "headRepository": "Roland-Schott/draft-rcr-opsawg-operational-compute-metrics",
+      "headRefName": "patch-1",
+      "headRefOid": "62de0789fbe9abd1647800f88c9cf31cc925acf7",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOKgx8kM6BAe0K",
+          "commit": {
+            "abbreviatedOid": "62de078"
+          },
+          "author": "Roland-Schott",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "reference: BBF_TR-383",
+          "createdAt": "2024-07-08T20:51:06Z",
+          "updatedAt": "2024-07-08T20:51:06Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOKgx8kM6BAfRR",
+          "commit": {
+            "abbreviatedOid": "62de078"
+          },
+          "author": "Roland-Schott",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-07-08T20:51:57Z",
+          "updatedAt": "2024-07-08T20:51:58Z",
+          "comments": [
+            {
+              "originalPosition": 54,
+              "body": "BBF_TR-383",
+              "createdAt": "2024-07-08T20:51:58Z",
+              "updatedAt": "2024-07-08T20:51:58Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOKgx8kM50tU1K",
+      "title": "Update draft-rcr-opsawg-operational-compute-metrics.md",
+      "url": "https://github.com/giralt/draft-rcr-opsawg-operational-compute-metrics/pull/5",
+      "state": "OPEN",
+      "author": "saraalto",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Test edits on 6.5 ",
+      "createdAt": "2024-07-08T14:56:55Z",
+      "updatedAt": "2024-07-08T14:56:55Z",
+      "baseRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "baseRefName": "main",
+      "baseRefOid": "b6bc5164105270610bd2892a20817e9fb4d202a7",
+      "headRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "headRefName": "saraalto-patch-1",
+      "headRefOid": "df98201ebea8d75bfb5483a16bb9e9623d5082f1",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOKgx8kM50vrr7",
+      "title": "Roland schott patch 1",
+      "url": "https://github.com/giralt/draft-rcr-opsawg-operational-compute-metrics/pull/6",
+      "state": "OPEN",
+      "author": "Roland-Schott",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Update BBF_TR-383",
+      "createdAt": "2024-07-08T21:00:12Z",
+      "updatedAt": "2024-07-08T21:00:12Z",
+      "baseRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "baseRefName": "main",
+      "baseRefOid": "b6bc5164105270610bd2892a20817e9fb4d202a7",
+      "headRepository": "Roland-Schott/draft-rcr-opsawg-operational-compute-metrics",
+      "headRefName": "Roland-Schott-patch-1",
+      "headRefOid": "403868c1e59849d6500cd9354c720222b9598d6f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOKgx8kM50v3h0",
+      "title": "Update draft-rcr-opsawg-operational-compute-metrics.md",
+      "url": "https://github.com/giralt/draft-rcr-opsawg-operational-compute-metrics/pull/7",
+      "state": "OPEN",
+      "author": "saraalto",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "REFERENCES\r\nADDED normative RFC9240\r\n\r\n6.5. Metric Dimensions \r\nUPDATED TITLE\r\n## Metric Identification Dimensions \r\nTEXT UPDATES\r\nUPDATES TO FIGURE CAPTION\r\n\r\n6.7.1 Metric Distribution Computing-Aware Traffic Steering (CATS)\r\nUPDATED TITLE \r\n## #Metric Distribution in Computing-Aware Traffic Steering (CATS)\r\nTEXT UPDATES\r\n\r\n### Metric Exposure with Extensions of ALTO\r\nTEXT  UPDATES",
+      "createdAt": "2024-07-08T21:32:25Z",
+      "updatedAt": "2024-07-08T21:32:26Z",
+      "baseRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "baseRefName": "main",
+      "baseRefOid": "b6bc5164105270610bd2892a20817e9fb4d202a7",
+      "headRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "headRefName": "saraalto-patch-2",
+      "headRefOid": "e9bd163d7be90710d9de300ecbb60f913874c3e0",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDOKgx8kM50wEns",
+      "title": "Update draft-rcr-opsawg-operational-compute-metrics.md",
+      "url": "https://github.com/giralt/draft-rcr-opsawg-operational-compute-metrics/pull/8",
+      "state": "OPEN",
+      "author": "saraalto",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "6.5. Metric Dimensions \r\nUPDATED TITLE\r\n## Metric Identification Dimensions \r\nTEXT UPDATES\r\nUPDATES TO FIGURE CAPTION\r\n\r\n6.7.1 Metric Distribution Computing-Aware Traffic Steering (CATS)\r\nUPDATED TITLE \r\n## #Metric Distribution in Computing-Aware Traffic Steering (CATS)\r\nTEXT UPDATES\r\n\r\n### Metric Exposure with Extensions of ALTO\r\nTEXT  UPDATES\r\n",
+      "createdAt": "2024-07-08T22:21:59Z",
+      "updatedAt": "2024-07-08T22:21:59Z",
+      "baseRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "baseRefName": "saraalto-patch-2",
+      "baseRefOid": "e9bd163d7be90710d9de300ecbb60f913874c3e0",
+      "headRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "headRefName": "saraalto-patch-3",
+      "headRefOid": "497c42267967ac872e609b336d458ee30bca17ad",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
+}
