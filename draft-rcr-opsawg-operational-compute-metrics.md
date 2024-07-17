@@ -46,7 +46,6 @@ author:
 
 normative:
   RFC7285:
-  RFC9240:
   I-D.ietf-alto-performance-metrics:
   I-D.du-cats-computing-modeling-description:
   I-D.ldbc-cats-framework:
@@ -536,7 +535,7 @@ Besides, the section on Metrics Distribution indicates the need for required ext
 
 ### Metric Exposure with Extensions of ALTO
 
-The ALTO protocol has been defined to expose an abstracted network topology and related path costs in {{RFC7285}}. ALTO is a client-server protocol exposing information to clients that can be associated to applications as well as orchestrators. Its extension {{RFC9240}} allows to define entities on which properties can be defined, while {{?I-D.contreras-alto-service-edge}} introduces a proposed entity property that allows to consider an entity as both a network element with network related costs and properties and a element of a data center with compute related properties. Such an exposure mechanism is particularly useful for decision making entities which are centralized and located off the network paths.
+The ALTO protocol has been defined to expose an abstracted network topology and related path costs in {{RFC7285}}. ALTO is a client-server protocol exposing information to clients that can be associated to applications as well as orchestrators. Its extension RFC 9240 allows to define entities on which properties can be defined, while {{?I-D.contreras-alto-service-edge}} introduces a proposed entity property that allows to consider an entity as both a network element with network related costs and properties and a element of a data center with compute related properties. Such an exposure mechanism is particularly useful for decision making entities which are centralized and located off the network paths.
 
 ### Exposure of Abstracted Generic Metrics
 In some cases, whether due to unavailable information details or for the sake of simplicity, a consumer may need reliable but simple guidance to select a service. To this end, abstracted generic metrics may be useful.
