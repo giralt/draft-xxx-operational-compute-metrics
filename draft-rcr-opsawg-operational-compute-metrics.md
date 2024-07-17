@@ -176,12 +176,12 @@ service *deployment stage*, then a *service selection* stage, and finally a *ser
     |  Service    |      |  Deployment  |      |  Selection  |
     |             |      |              |      |             |
     +-------------+      +-----^--------+      +-------+-----+
-                                |                       |
-                                |                       |
-                                |                       |
-                                |    +-------------+    |
-                                |    |             |    |
-                                +----+  Service    <----+
+                               |                       |
+                               |                       |
+                               |                       |
+                               |    +-------------+    |
+                               |    |             |    |
+                               +----+  Service    <----+
                                     |  Assurance  |
                                     |             |
                                     +-------------+
