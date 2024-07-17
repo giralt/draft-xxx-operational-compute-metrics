@@ -480,7 +480,7 @@ Dimensions helping to identify needed compute metrics:
 | Deciding entity | function using the metrics to compute decisions | router, centralized controller, application management |
 {: #comp_dimensions title="Dimensions to consider when identifying the needed compute metrics." }
 
-The "value" of a dimension has an impact on the characteristic of the metric to consider. In particular: 
+The "value" of a dimension has an impact on the characteristic of the metric to consider. In particular:
 
 - the driving KPI(s): will lead to select metrics that are impacting them,
 
@@ -490,7 +490,7 @@ The "value" of a dimension has an impact on the characteristic of the metric to 
 
 - the deciding entity: computes the decisions to take upon metric values and needs information that is synchronized at an appropriate frequency.
 
-The metrics values may be subject to different life cycle actions which are mainly: acquisition, processing and exposure. These actions are performed according to different approaches. Documenting these approaches allows for a more reliable interpretation and informed utilization of the metrics. Documenting the method used for a given approach may provide further reliability.  
+The metrics values may be subject to different life cycle actions which are mainly: acquisition, processing and exposure. These actions are performed according to different approaches. Documenting these approaches allows for a more reliable interpretation and informed utilization of the metrics. Documenting the method used for a given approach may provide further reliability.
 The table below provides some examples:
 
 | Lifecycle action	 | Example	|
@@ -519,7 +519,7 @@ These scenarios further drive the selection of metrics upon the above mentioned 
 
 ### Metric Distribution in Computing-Aware Traffic Steering (CATS)
 
-The IETF CATS WG has explored the collection and distribution of computing metrics in {{I-D.ldbc-cats-framework}}. In their deployment considerations, they consider three deployment models for the location of the service selection function: distributed, centralized and hybrid. Respectively in these models, the compute metrics are: 
+The IETF CATS WG has explored the collection and distribution of computing metrics in {{I-D.ldbc-cats-framework}}. In their deployment considerations, they consider three deployment models for the location of the service selection function: distributed, centralized and hybrid. Respectively in these models, the compute metrics are:
 
 - distributed among network devices directly,
 
@@ -531,7 +531,7 @@ In the hybrid mode, the draft says that some static information (e.g., capabilit
 
 The hybrid mode thus stresses the impact of the dynamicity of the distributed metrics and the need to carefully sort out the metric exposure mode w.r.t. their dynamicity.
 
-Besides, the section on Metrics Distribution indicates the need for required extensions to the routing protocols, in order to distribute additional information such as link latency and other information not standardized in routing protocols such as compute metrics. 
+Besides, the section on Metrics Distribution indicates the need for required extensions to the routing protocols, in order to distribute additional information such as link latency and other information not standardized in routing protocols such as compute metrics.
 
 ### Metric Exposure with Extensions of ALTO
 
