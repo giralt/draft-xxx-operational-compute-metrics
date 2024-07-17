@@ -46,6 +46,7 @@ author:
 
 normative:
   RFC7285:
+  RFC9240:
   I-D.ietf-alto-performance-metrics:
   I-D.du-cats-computing-modeling-description:
   I-D.ldbc-cats-framework:
@@ -168,24 +169,23 @@ communication bandwidth, (3) increase reliability, (4) enable privacy
 nd security, (5) enable personalization, and (6) reduce cloud costs and
 energy consumption. Services are deployed on the communication and compute
 infrastructure through a phased life cycle that involves first a
-service *deployment stage*, then a *service selection* stage, and finally a *service assurance* stage ({{lifecycle}}).
+service *deployment stage*, then a *service selection* stage, and finally a *service assurance* stage ({{lifecycle}).
 
- +-------------+      +--------------+      +-------------+
- |             |      |              |      |             |
- |  New        +------>  Service     +------>  Service    |
- |  Service    |      |  Deployment  |      |  Selection  |
- |             |      |              |      |             |
- +-------------+      +-----^--------+      +-------+-----+
-                            |                       |
-                            |                       |
-                            |                       |
-                            |    +-------------+    |
-                            |    |             |    |
-                            +----+  Service    <----+
-                                 |  Assurance  |
-                                 |             |
-                                 +-------------+
-                                 
+    +-------------+      +--------------+      +-------------+
+    |             |      |              |      |             |
+    |  New        +------>  Service     +------>  Service    |
+    |  Service    |      |  Deployment  |      |  Selection  |
+    |             |      |              |      |             |
+    +-------------+      +-----^--------+      +-------+-----+
+                                |                       |
+                                |                       |
+                                |                       |
+                                |    +-------------+    |
+                                |    |             |    |
+                                +----+  Service    <----+
+                                    |  Assurance  |
+                                    |             |
+                                    +-------------+
 {: #lifecycle title="Service life cycle." }
 
 
@@ -484,23 +484,32 @@ This list is initial and is to be updated upon further discussion.
 
 Dimensions helping to identify needed compute metrics:
 
-| Dimension	 | Definition	of dimension | Examples |
-| Decision	 | what operation the metrics are used for | monitoring, benchmarking, service selection and placement |
-| Driving KPI | what KPI is assessed with the metrics | speed, scalability, cost, stability |
-| Decision scope | different granularities| infrastructure node/cluster, compute service, end-to-end application  |
-| Receiving entity | receiving metrics  | router, centralized controller, application management |
-| Deciding entity | computing decisions | router, centralized controller, application management |
-{: #comp_dimensions title="Dimensions to consider when idenfitying compute metrics." }
+| Dimension	 | Definition of dimension	| Examples |
+| Target operation	 | what operation the metrics is used for | monitoring, benchmarking, service selection and placement |
+| Driving KPI(s) | KPI(s) assessed with the metrics | speed, scalability, cost, stability |
+| Decision scope | granularity of metric definition | infrastructure node/cluster, compute service, end-to-end application  |
+| Receiving entity | function receiving the metrics  | router, centralized controller, application management |
+| Deciding entity | function using the metrics to compute decisions | router, centralized controller, application management |
+{: #comp_dimensions title="Dimensions to consider when identifying the needed compute metrics." }
 
-When metrics are documented according to their life cycle action, it allows for
-a more reliable interpretation and informed utilization of the metrics.
+The "value" of a dimension has an impact on the characteristic of the metric to consider. In particular:
+
+- the driving KPI(s): will lead to select metrics that are impacting them,
+
+- the decision scope: will lead to select metrics at a relevant granularity or aggregation level,
+
+- the receiving entity: impacts the dynamicity of the received metric values. While a router likely receives static information to moderate overhead, a centralized control function may receive more dynamic information that it may additionally process on its own,
+
+- the deciding entity: computes the decisions to take upon metric values and needs information that is synchronized at an appropriate frequency.
+
+The metrics values may be subject to different life cycle actions which are mainly: acquisition, processing and exposure. These actions are performed according to different approaches. Documenting these approaches allows for a more reliable interpretation and informed utilization of the metrics. Documenting the method used for a given approach may provide further reliability.
 The table below provides some examples:
 
 | Lifecycle action	 | Example	|
 | Acquisition method  | telemetry, estimation |
 | Value processing 	 | aggregation, abstraction |
 | Exposure            | in-path distribution, off-path distribution |
-{: #metric_action title="Metrics documented by life cycle action." }
+{: #metric_action title="Examples of life actions approach documented on metrics." }
 
 ## Abstraction Level and Information Access
 
@@ -520,9 +529,9 @@ These scenarios further drive the selection of metrics upon the above mentioned 
 
 ## Distribution and Exposure Mechanisms
 
-### Metric Distribution Computing-Aware Traffic Steering (CATS)
+### Metric Distribution in Computing-Aware Traffic Steering (CATS)
 
-Other existing work at the IETF CATS WG has explored the collection and distribution of computing metrics in {{I-D.ldbc-cats-framework}}. They consider three deployment models in their deployment considerations:
+The IETF CATS WG has explored the collection and distribution of computing metrics in {{I-D.ldbc-cats-framework}}. In their deployment considerations, they consider three deployment models for the location of the service selection function: distributed, centralized and hybrid. Respectively in these models, the compute metrics are:
 
 - distributed among network devices directly,
 
@@ -530,13 +539,15 @@ Other existing work at the IETF CATS WG has explored the collection and distribu
 
 - hybrid where a part of computing metrics are distributed among involved network devices, and others may be collected by a centralized control plane.
 
-In the hybrid mode, the draft suggests that some static information (e.g., capabilities information) can be distributed among network devices since they are quite stable. Frequent changing information (e.g., resource utilization) can be collected by a centralized control plane to avoid frequent flooding in the distributed control plane.
+In the hybrid mode, the draft says that some static information (e.g., capabilities information) can be distributed among network devices since they are quite stable. Frequent changing information (e.g., resource utilization) can be collected by a centralized control plane to avoid frequent flooding in the distributed control plane.
 
-Besides the required extensions to the routing protocols, the hybrid mode stresses the impact of the dynamicity of the distributed metrics and the need to carefully sort out the metric exposure mode w.r.t. their dynamicity.
+The hybrid mode thus stresses the impact of the dynamicity of the distributed metrics and the need to carefully sort out the metric exposure mode w.r.t. their dynamicity.
+
+Besides, the section on Metrics Distribution indicates the need for required extensions to the routing protocols, in order to distribute additional information such as link latency and other information not standardized in routing protocols such as compute metrics.
 
 ### Metric Exposure with Extensions of ALTO
 
-The ALTO protocol has been difined to expose an abstracted network topology and related path costs in {{RFC7285}}. Its extension RFC 9240 allows to define entities on which properties can be defined, while {{?I-D.contreras-alto-service-edge}} introduces a proposed entity property that allows to consider an entity as both a network element with network related costs and properties and a element of a data center with compute related properties. Such an exposure mechanism is particularly useful for decision making entities which are centralized and located off the network paths.
+The ALTO protocol has been defined to expose an abstracted network topology and related path costs in {{RFC7285}}. ALTO is a client-server protocol exposing information to clients that can be associated to applications as well as orchestrators. Its extension {{RFC9240}} allows to define entities on which properties can be defined, while {{?I-D.contreras-alto-service-edge}} introduces a proposed entity property that allows to consider an entity as both a network element with network related costs and properties and a element of a data center with compute related properties. Such an exposure mechanism is particularly useful for decision making entities which are centralized and located off the network paths.
 
 ### Exposure of Abstracted Generic Metrics
 In some cases, whether due to unavailable information details or for the sake of simplicity, a consumer may need reliable but simple guidance to select a service. To this end, abstracted generic metrics may be useful.
