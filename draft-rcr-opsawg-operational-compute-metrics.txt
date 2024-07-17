@@ -718,7 +718,7 @@ Table of Contents
    topology and related path costs in [RFC7285].  ALTO is a client-
    server protocol exposing information to clients that can be
    associated to applications as well as orchestrators.  Its extension
-   [RFC9240] allows to define entities on which properties can be
+   RFC 9240 allows to define entities on which properties can be
    defined, while [I-D.contreras-alto-service-edge] introduces a
    proposed entity property that allows to consider an entity as both a
    network element with network related costs and properties and a
@@ -1135,12 +1135,6 @@ Table of Contents
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
-
-   [RFC9240]  Roome, W., Randriamasy, S., Yang, Y., Zhang, J., and K.
-              Gao, "An Extension for Application-Layer Traffic
-              Optimization (ALTO): Entity Property Maps", RFC 9240,
-              DOI 10.17487/RFC9240, July 2022,
-              <https://www.rfc-editor.org/rfc/rfc9240>.
 
 13.2.  Informative References
 
