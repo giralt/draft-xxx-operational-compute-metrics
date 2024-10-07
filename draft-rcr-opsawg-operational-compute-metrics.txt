@@ -5,12 +5,12 @@
 Network Working Group                                     S. Randriamasy
 Internet-Draft                                           Nokia Bell Labs
 Intended status: Informational                           L. M. Contreras
-Expires: 18 January 2025                                      Telefonica
+Expires: 10 April 2025                                        Telefonica
                                                            J. Ros-Giralt
                                                    Qualcomm Europe, Inc.
                                                                R. Schott
                                                         Deutsche Telekom
-                                                            17 July 2024
+                                                          7 October 2024
 
 
  Joint Exposure of Network and Compute Information for Infrastructure-
@@ -61,7 +61,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 January 2025.
+   This Internet-Draft will expire on 10 April 2025.
 
 Copyright Notice
 
@@ -182,7 +182,7 @@ Table of Contents
    (e.g., co-located in a 5G base station) to provide computing services
    that are close to users with the goal to (1) reduce latency, (2)
    increase communication bandwidth, (3) increase reliability, (4)
-   enable privacy nd security, (5) enable personalization, and (6)
+   enable privacy and security, (5) enable personalization, and (6)
    reduce cloud costs and energy consumption.  Services are deployed on
    the communication and compute infrastructure through a phased life
    cycle that involves first a service _deployment stage_, then a
@@ -279,8 +279,8 @@ Table of Contents
      | Service selection/ | Communication | Network/service and/or   |
      |     path selection |               | application              |
      +--------------------+---------------+--------------------------+
-     |  Service assurance |  Compute and  | Network/service provider |
-     |                    | communication | and/or application       |
+     |  Service assurance |  Compute and  | Network provider and/or  |
+     |                    | communication | application              |
      +--------------------+---------------+--------------------------+
 
               Table 1: Problem space, needs, and stakeholders.
@@ -549,7 +549,7 @@ Table of Contents
    Further iterations of this document may consider additional life
    cycle operations such as assurance and relevant metrics.
 
-   The network netrics listed above are specified in a number of IETF
+   The network metrics listed above are specified in a number of IETF
    documents such as RFC 9439 [I-D.ietf-alto-performance-metrics], which
    itself leverages on RFC 7679.  The work on compute metrics at the
    IETF, on the other hand, is in its first stages and merely relates to
@@ -748,7 +748,7 @@ Table of Contents
    adequacy vs. climate.
 
    One may also consider a generic metric named “computingperf”, applied
-   to an edge server, that reflects its performances, based on
+   to an edge server, that reflects its performance, based on
    measurements or estimations by the ISP or combination thereof.  An
    edge server with a higher “computingperf” value will be preferred.
    “computingperf” can be based on a vector of one or more metrics

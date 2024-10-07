@@ -21,24 +21,24 @@ Further, this information is used by numerous use cases with different
 interpretations. This document proposes an initial approach towards a
 common exposure scheme for metrics reflecting compute and communication capabilities. 
     " name="description">
-<meta content="xml2rfc 3.22.0" name="generator">
+<meta content="xml2rfc 3.23.2" name="generator">
 <meta content="next generation" name="keyword">
 <meta content="unicorn" name="keyword">
 <meta content="sparkling distributed ledger" name="keyword">
 <meta content="draft-rcr-opsawg-operational-compute-metrics-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.22.0
-    Python 3.12.3
+  xml2rfc 3.23.2
+    Python 3.12.6
     ConfigArgParse 1.7
-    google-i18n-address 3.1.0
+    google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.4
     lxml 4.9.4
-    platformdirs 4.2.2
+    platformdirs 4.3.6
     pycountry 22.3.5
     PyYAML 6.0.1
     requests 2.32.3
-    setuptools 69.5.1
+    setuptools 70.3.0
     wcwidth 0.2.13
 -->
 <link href="draft-rcr-opsawg-operational-compute-metrics.xml" rel="alternate" type="application/rfc+xml">
@@ -1038,11 +1038,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">TODO - Abbreviation</td>
-<td class="right">July 2024</td>
+<td class="right">October 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Randriamasy, et al.</td>
-<td class="center">Expires 18 January 2025</td>
+<td class="center">Expires 10 April 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1055,12 +1055,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-rcr-opsawg-operational-compute-metrics-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-07-17" class="published">17 July 2024</time>
+<time datetime="2024-10-07" class="published">7 October 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-01-18">18 January 2025</time></dd>
+<dd class="expires"><time datetime="2025-04-10">10 April 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1126,7 +1126,7 @@ common exposure scheme for metrics reflecting compute and communication capabili
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 18 January 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1345,7 +1345,7 @@ are deployed near communication nodes (e.g., co-located
 in a 5G base station) to provide computing services that are
 close to users with the goal to (1) reduce latency, (2) increase
 communication bandwidth, (3) increase reliability, (4) enable privacy
-nd security, (5) enable personalization, and (6) reduce cloud costs and
+and security, (5) enable personalization, and (6) reduce cloud costs and
 energy consumption. Services are deployed on the communication and compute
 infrastructure through a phased life cycle that involves first a
 service <em>deployment stage</em>, then a <em>service selection</em> stage, and finally a <em>service assurance</em> stage (<a href="#lifecycle" class="auto internal xref">Figure 1</a>).<a href="#section-3-2" class="pilcrow">¶</a></p>
@@ -1452,7 +1452,7 @@ provider) to query the available compute and communication resources from the sy
           <tr>
             <td class="text-right" rowspan="1" colspan="1">Service assurance</td>
             <td class="text-center" rowspan="1" colspan="1">Compute and communication</td>
-            <td class="text-left" rowspan="1" colspan="1">Network/service provider and/or application</td>
+            <td class="text-left" rowspan="1" colspan="1">Network provider and/or application</td>
           </tr>
         </tbody>
       </table>
@@ -1759,7 +1759,7 @@ could be exposed:<a href="#section-6.3-1" class="pilcrow">¶</a></p>
 decisions for selection and deployment of services and applications.
 Further iterations of this document may consider additional
 life cycle operations such as assurance and relevant metrics.<a href="#section-6.4-1" class="pilcrow">¶</a></p>
-<p id="section-6.4-2">The network netrics listed above are specified in a number of
+<p id="section-6.4-2">The network metrics listed above are specified in a number of
 IETF documents such as RFC 9439 <span>[<a href="#I-D.ietf-alto-performance-metrics" class="cite xref">I-D.ietf-alto-performance-metrics</a>]</span>,
 which itself leverages on RFC 7679. The work on compute metrics
 at the IETF, on the other hand, is in its first stages and merely
@@ -1955,7 +1955,7 @@ The table below provides some examples:<a href="#section-6.5-6" class="pilcrow">
           </h4>
 <p id="section-6.7.3-1">In some cases, whether due to unavailable information details or for the sake of simplicity, a consumer may need reliable but simple guidance to select a service. To this end, abstracted generic metrics may be useful.<a href="#section-6.7.3-1" class="pilcrow">¶</a></p>
 <p id="section-6.7.3-2">One can consider a generic metric that can be named “computingcost” and is applied to a contact point to one or more edge servers such as a load balancer, for short  an edge server, to reflect the network operator policy and preferences.  The metric “computingcost” results from an abstraction method that is hidden from users, similarly to the metric “routingcost” defined in <span>[<a href="#RFC7285" class="cite xref">RFC7285</a>]</span>.  For instance, “computingcost” may be higher for an edge server located far away, or in disliked geographical areas, or owned by a provider who does not share information with the Internet Service Provider (ISP) or with which ISP has a poorer commercial agreement.  “computingcost” may also reflect environmental preferences in terms, for instance, of energy source, average consumption vs. local climate, location adequacy vs. climate.<a href="#section-6.7.3-2" class="pilcrow">¶</a></p>
-<p id="section-6.7.3-3">One may also consider a generic metric named “computingperf”, applied to an edge server, that reflects its performances, based on measurements or estimations by the ISP or combination thereof.  An edge server with a higher “computingperf” value will be preferred.  “computingperf” can be based on a vector of one or more metrics reflecting, for instance, responsiveness, reliability of cloud services based on metrics such as latency, packet loss, jitter, time to first and/or last byte, or a single value reflecting a global performance score.<a href="#section-6.7.3-3" class="pilcrow">¶</a></p>
+<p id="section-6.7.3-3">One may also consider a generic metric named “computingperf”, applied to an edge server, that reflects its performance, based on measurements or estimations by the ISP or combination thereof.  An edge server with a higher “computingperf” value will be preferred.  “computingperf” can be based on a vector of one or more metrics reflecting, for instance, responsiveness, reliability of cloud services based on metrics such as latency, packet loss, jitter, time to first and/or last byte, or a single value reflecting a global performance score.<a href="#section-6.7.3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2374,6 +2374,7 @@ service placement or selection.<a href="#section-9-4" class="pilcrow">¶</a></p>
 <p id="section-12-1">This document has no IANA actions.<a href="#section-12-1" class="pilcrow">¶</a></p>
 </section>
 </div>
+<div id="sec-combined-references">
 <section id="section-13">
       <h2 id="name-references">
 <a href="#section-13" class="section-number selfRef">13. </a><a href="#name-references" class="section-name selfRef">References</a>
@@ -2469,6 +2470,7 @@ service placement or selection.<a href="#section-9-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
+</div>
 <div id="acknowledgments">
 <section id="appendix-A">
       <h2 id="name-acknowledgments">
