@@ -165,7 +165,7 @@ are deployed near communication nodes (e.g., co-located
 in a 5G base station) to provide computing services that are
 close to users with the goal to (1) reduce latency, (2) increase
 communication bandwidth, (3) increase reliability, (4) enable privacy
-nd security, (5) enable personalization, and (6) reduce cloud costs and
+and security, (5) enable personalization, and (6) reduce cloud costs and
 energy consumption. Services are deployed on the communication and compute
 infrastructure through a phased life cycle that involves first a
 service *deployment stage*, then a *service selection* stage, and finally a *service assurance* stage ({{lifecycle}).
@@ -251,7 +251,7 @@ provider) to query the available compute and communication resources from the sy
 | Service placement | Compute and communication | Service provider |
 | Service selection/node selection | Compute and communication | Network/service provider and/or application |
 | Service selection/path selection | Communication | Network/service and/or application |
-| Service assurance | Compute and communication | Network/service provider and/or application |
+| Service assurance | Compute and communication | Network provider and/or application |
 {: #prob_space title="Problem space, needs, and stakeholders." }
 
 # Use Cases
@@ -446,7 +446,7 @@ decisions for selection and deployment of services and applications.
 Further iterations of this document may consider additional
 life cycle operations such as assurance and relevant metrics.
 
-The network netrics listed above are specified in a number of
+The network metrics listed above are specified in a number of
 IETF documents such as RFC 9439 {{I-D.ietf-alto-performance-metrics}},
 which itself leverages on RFC 7679. The work on compute metrics
 at the IETF, on the other hand, is in its first stages and merely
@@ -553,7 +553,7 @@ In some cases, whether due to unavailable information details or for the sake of
 
 One can consider a generic metric that can be named “computingcost” and is applied to a contact point to one or more edge servers such as a load balancer, for short  an edge server, to reflect the network operator policy and preferences.  The metric “computingcost” results from an abstraction method that is hidden from users, similarly to the metric “routingcost” defined in {{RFC7285}}.  For instance, “computingcost” may be higher for an edge server located far away, or in disliked geographical areas, or owned by a provider who does not share information with the Internet Service Provider (ISP) or with which ISP has a poorer commercial agreement.  “computingcost” may also reflect environmental preferences in terms, for instance, of energy source, average consumption vs. local climate, location adequacy vs. climate.
 
-One may also consider a generic metric named “computingperf”, applied to an edge server, that reflects its performances, based on measurements or estimations by the ISP or combination thereof.  An edge server with a higher “computingperf” value will be preferred.  “computingperf” can be based on a vector of one or more metrics reflecting, for instance, responsiveness, reliability of cloud services based on metrics such as latency, packet loss, jitter, time to first and/or last byte, or a single value reflecting a global performance score.
+One may also consider a generic metric named “computingperf”, applied to an edge server, that reflects its performance, based on measurements or estimations by the ISP or combination thereof.  An edge server with a higher “computingperf” value will be preferred.  “computingperf” can be based on a vector of one or more metrics reflecting, for instance, responsiveness, reliability of cloud services based on metrics such as latency, packet loss, jitter, time to first and/or last byte, or a single value reflecting a global performance score.
 
 # Study of the Kubernetes Metrics API and Exposure Mechanism
 
