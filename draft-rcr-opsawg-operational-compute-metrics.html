@@ -28,7 +28,7 @@ common exposure scheme for metrics reflecting compute and communication capabili
 <meta content="draft-rcr-opsawg-operational-compute-metrics-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.23.2
-    Python 3.12.6
+    Python 3.12.7
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
@@ -1042,7 +1042,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Randriamasy, et al.</td>
-<td class="center">Expires 10 April 2025</td>
+<td class="center">Expires 14 April 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1055,12 +1055,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-rcr-opsawg-operational-compute-metrics-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-10-07" class="published">7 October 2024</time>
+<time datetime="2024-10-11" class="published">11 October 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-04-10">10 April 2025</time></dd>
+<dd class="expires"><time datetime="2025-04-14">14 April 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1126,7 +1126,7 @@ common exposure scheme for metrics reflecting compute and communication capabili
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 10 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 14 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1332,39 +1332,47 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-problem-space-and-needs">
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-problem-space-and-needs" class="section-name selfRef">Problem Space and Needs</a>
       </h2>
-<p id="section-3-1">Visibility and exposure of both (1) network and (2) compute
-resources to the application is critical to
-enable a proper functioning of the new class of services
-arising at the edge (e.g., distributed AI, driverless vehicles,
-AR/VR, etc.). To understand the problem space and the capabilities
-that are lacking in today's protocol interfaces needed to enable
-these new services, we focus on the life cycle of
-a service.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">At the edge, compute nodes
-are deployed near communication nodes (e.g., co-located
+<p id="section-3-1">With the emergence of a new generation of applications with stringent
+performance requirements (e.g.,  distributed AI training and inference,
+driverless vehicles, and virtual/augmented reality) the need for
+advanced solutions that can model and manage compute and communication
+resources has become essential to manage and optimize the performance
+of these applications.  Today's networks connect compute resources
+deployed across a continuum, ranging from data centers (cloud
+computing) to the edge (edge computing). While the same architecture
+principles apply across this continuum, in this draft we focus on
+the deployment of services at the edge, involving the cooperation
+of different actors---namely, network operators, service providers
+and applications---in a heterogeneous environment.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">In what follows, we use the life cycle of a service to understand
+the problem space and guide the analysis of the capabilities that are
+lacking in today's protocol interfaces needed to enable these new services.<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">At the edge, compute nodes are deployed near
+communication nodes (e.g., co-located
 in a 5G base station) to provide computing services that are
 close to users with the goal to (1) reduce latency, (2) increase
 communication bandwidth, (3) increase reliability, (4) enable privacy
 and security, (5) enable personalization, and (6) reduce cloud costs and
 energy consumption. Services are deployed on the communication and compute
-infrastructure through a phased life cycle that involves first a
-service <em>deployment stage</em>, then a <em>service selection</em> stage, and finally a <em>service assurance</em> stage (<a href="#lifecycle" class="auto internal xref">Figure 1</a>).<a href="#section-3-2" class="pilcrow">¶</a></p>
+infrastructure through a phased life cycle that generally involves a
+service <em>deployment stage</em>, a <em>service selection</em> stage, and a <em>service assurance</em> stage,
+ as shown in {lifecycle}.<a href="#section-3-3" class="pilcrow">¶</a></p>
 <span id="name-service-life-cycle"></span><div id="lifecycle">
 <figure id="figure-1">
-        <div class="alignLeft art-text artwork" id="section-3-3.1">
+        <div class="alignLeft art-text artwork" id="section-3-4.1">
 <pre>
-+-------------+      +--------------+      +-------------+
-|             |      |              |      |             |
-|  New        +------&gt;  Service     +------&gt;  Service    |
-|  Service    |      |  Deployment  |      |  Selection  |
-|             |      |              |      |             |
-+-------------+      +-----^--------+      +-------+-----+
+                     +--------------+      +-------------+
+         New         |              |      |             |
+       Service +-----&gt;  (1) Service +------&gt; (2) Service |
+                     |  Deployment  |      |  Selection  |
+                     |              |      |             |
+                     +-----^--------+      +-------^-----+
                            |                       |
                            |                       |
                            |                       |
                            |    +-------------+    |
                            |    |             |    |
-                           +----+  Service    &lt;----+
+                           +----&gt; (3) Service &lt;----+
                                 |  Assurance  |
                                 |             |
                                 +-------------+
@@ -1374,52 +1382,72 @@ service <em>deployment stage</em>, then a <em>service selection</em> stage, and 
 <a href="#name-service-life-cycle" class="selfRef">Service life cycle.</a>
         </figcaption></figure>
 </div>
-<p id="section-3-4"><strong>Service deployment.</strong> This phase is carried out by the service
-provider and involves the deployment of a new service
-(e.g., a distributed AI training/inference, an XR/AR service, etc.)
-on the communication and compute infrastructure. The service
-provider needs to properly size the amount of communication and compute
-resources assigned to this new service to meet the expected user
-demand. The decision on where the service is deployed and how
-many resources are requested from the infrastructure depends on
-the levels of Quality of Experience (QoE)
-that the provider wants to guarantee to the
-users of the service. To make a proper deployment decision, the provider
-must have visibility on the resources available within
-the infrastructure, including communication (e.g., link
-bandwidth and latency) and compute
-(e.g., CPU, GPU, memory and storage capacity) resources. For instance,
+<p id="section-3-5"><strong>(1) Service deployment.</strong> This stage is carried out by the service provider
+and involves the deployment of a new service (e.g., a distributed AI
+training/inference, an XR/AR service, etc.) on the compute and communication
+infrastructure.  The service provider needs to properly size the amount of
+compute and communication resources assigned to this new service to meet
+the expected user demand.  The decision on where the service is deployed
+and how many resources are requested from the infrastructure depends on
+the levels of Quality of Experience (QoE) that the provider wants to guarantee
+to the users of the service. To make a proper deployment decision, the
+provider must have visibility on the resources available within the infrastructure,
+including compute (e.g., CPU, GPU, memory and storage capacity) and
+communication (e.g., link bandwidth and latency) resources.  For instance,
 to run a Large Language Model (LLM) with 175 billion parameters, a total
-aggregated memory of 350GB and 5 GPUs may be needed <span>[<a href="#LLM_COMP_REQ" class="cite xref">LLM_COMP_REQ</a>]</span>.
-The service provider needs
-an interface to query the infrastructure, extract the available compute
-and communication resources, and decide which subset of resources are
-needed to run the service.<a href="#section-3-4" class="pilcrow">¶</a></p>
-<p id="section-3-5"><strong>Service selection.</strong> This phase is initiated by the user, through
-a client application that connects to the deployed service. There
-are two main decisions that must be performed in the service selection
-stage: compute node selection and path selection. In the compute node selection
-step, as the service is generally replicated in
-N locations (e.g., by leveraging a microservice architecture),
-the application must decide which of the service replicas
-it connects to. Similar to the service deployment stage, this
-decision requires knowledge about communication and compute
-resources available in each replica. On the other hand, in the path selection decision,
-the application must decide which path it chooses to connect to the service.
-This decision depends on the communication properties (e.g., bandwidth and latency)
-of the available paths. Similar to the service deployment case,
-the service provider needs an interface to query the infrastructure and extract the available compute
-and communication resources, with the goal to make informed node and path selection decisions.
-It is also important to note that, ideally, the node and path selection
-decisions should be jointly optimized, since in general the best end-to-end performance
-is achieved by jointly taking into account both decisions. In some cases, however,
-such decisions may be owned by different players. For instance, in some network
-environments, the path selection may be decided by the network operator,
-wheres the compute node selection may be decided by the application. Even in these cases,
-it is crucial to have a proper interface (for both the network operator and the service
-provider) to query the available compute and communication resources from the system.<a href="#section-3-5" class="pilcrow">¶</a></p>
-<p id="section-3-6"><strong>Service assurance.</strong> During this pase, the behavior of the service is analyzed in order to endure the proper functioning of it according to the aplicable Service Level Objectives (SLOs). In case the SLOs are not met, corrective actions could be decided by the network provider, or requested by the service provider or application. The assessment of the service behavior can take into account both compute and network metrics.<a href="#section-3-6" class="pilcrow">¶</a></p>
-<p id="section-3-7"><a href="#prob_space" class="auto internal xref">Table 1</a> summarizes the problem space, the information that needs to be exposed, and the stakeholders that need this information.<a href="#section-3-7" class="pilcrow">¶</a></p>
+aggregated memory of 350GB and 5 GPUs may be needed \cite{llm_comp_req}.
+The service provider needs an interface to query the infrastructure,
+extract the available compute and communication resources, and decide
+which subset of resources are needed to run the service.<a href="#section-3-5" class="pilcrow">¶</a></p>
+<p id="section-3-6"><strong>(2) Service selection.</strong> This stage is initiated by the user, through a
+client application that connects to the deployed service.  There are two
+main actions that must be performed in the service selection stage:
+(2.a) \textit{compute node selection} and (2.b) \textit{path selection}.
+In the compute node selection step, as the service is generally replicated
+in N locations (e.g., by leveraging a microservice architecture), the
+application must decide which of the service replicas it connects to.
+This decision depends on the compute properties (e.g., CPU/GPU
+availability) of the compute nodes running the service replicas.
+On the other hand, in the path selection decision, the application must
+decide which path it chooses to connect to the service.  This decision
+depends on the communication properties (e.g., bandwidth and latency) of
+the available paths.  Similar to the service deployment case, the application
+needs an interface to query the infrastructure and extract the available
+compute and communication resources, with the goal to make informed node
+and path selection decisions. Note that in some scenarios, the network
+or service provider can make node and path selection decisions in lieu
+of the application. It is also important to note that, ideally, the node
+and path selection decisions should be jointly optimized, since in general
+the best end-to-end performance is achieved by jointly taking into account
+both factors.  In some cases, however, such decisions may be owned by
+different players.  For instance, in some network environments, the path
+selection may be decided by the network operator, wheres the compute node
+selection may be decided by the application or the service provider.
+Even in these cases, it is crucial to have a proper interface (for
+both the operators and the application) to query the available compute
+and communication resources from the system.<a href="#section-3-6" class="pilcrow">¶</a></p>
+<p id="section-3-7"><strong>(3) Service assurance.</strong> Due to the stringent Quality of Experience (QoE)
+requirements of edge applications, service assurance (SA) is also essential.
+SA continuously monitors service performance to ensure that the distributed
+computing and communication system meets the applicable Service Level Objectives (SLOs).
+If the SLOs are not met, corrective actions can be taken by the
+service provider, the application, or the network provider.
+The evaluation of SLO compliance needs to consider both computing metrics (e.g.,
+compute latency, memory requirements) and communication metrics (e.g.,
+bandwidth, latency). Corrective actions can include both new service placement and
+new service selection tasks. For instance, upon detecting that a certain compute
+node is overloaded, increasing the compute delay above the corresponding
+SLO threshold, the application can reinvoke service node selection (2.a)
+to switch its workload to another less utilized compute node.
+Similarly, upon detecting that a certain communication link
+is congested, increasing the communication delay above
+the corresponding SLO threshold, the application can reinvoke service path
+selection (2.b) to switch the data flow to another less congested link.
+If SA detects that there are not enough compute or communication resources
+to guarantee the SLOs, it can also invoke service placement (1) to allocate
+additional compute and communication resources.<a href="#section-3-7" class="pilcrow">¶</a></p>
+<p id="section-3-8"><a href="#prob_space" class="auto internal xref">Table 1</a> summarizes the problem space, the information that needs to be exposed,
+and the stakeholders that need this information.<a href="#section-3-8" class="pilcrow">¶</a></p>
 <span id="name-problem-space-needs-and-sta"></span><div id="prob_space">
 <table class="center" id="table-1">
         <caption>
@@ -1435,24 +1463,24 @@ provider) to query the available compute and communication resources from the sy
         </thead>
         <tbody>
           <tr>
-            <td class="text-right" rowspan="1" colspan="1">Service placement</td>
+            <td class="text-right" rowspan="1" colspan="1">(1) Service placement</td>
             <td class="text-center" rowspan="1" colspan="1">Compute and communication</td>
             <td class="text-left" rowspan="1" colspan="1">Service provider</td>
           </tr>
           <tr>
-            <td class="text-right" rowspan="1" colspan="1">Service selection/node selection</td>
+            <td class="text-right" rowspan="1" colspan="1">(2.a) Service selection: compute node selection</td>
             <td class="text-center" rowspan="1" colspan="1">Compute and communication</td>
-            <td class="text-left" rowspan="1" colspan="1">Network/service provider and/or application</td>
+            <td class="text-left" rowspan="1" colspan="1">Network provider, service provider or application</td>
           </tr>
           <tr>
-            <td class="text-right" rowspan="1" colspan="1">Service selection/path selection</td>
+            <td class="text-right" rowspan="1" colspan="1">(2.b) Service selection: path selection</td>
             <td class="text-center" rowspan="1" colspan="1">Communication</td>
-            <td class="text-left" rowspan="1" colspan="1">Network/service and/or application</td>
+            <td class="text-left" rowspan="1" colspan="1">Network provider or application</td>
           </tr>
           <tr>
-            <td class="text-right" rowspan="1" colspan="1">Service assurance</td>
+            <td class="text-right" rowspan="1" colspan="1">(3) Service assurance</td>
             <td class="text-center" rowspan="1" colspan="1">Compute and communication</td>
-            <td class="text-left" rowspan="1" colspan="1">Network provider and/or application</td>
+            <td class="text-left" rowspan="1" colspan="1">Network provider, service provider or application</td>
           </tr>
         </tbody>
       </table>
@@ -1474,8 +1502,8 @@ conversations, generating art, developing a research paper, or writing software,
 many others. Yet this innovation comes with a high cost in terms of processing and power
 consumption. While data centers are already running at capacity, it is projected
 that transitioning current search engine queries to leverage generative AI will
-increase costs by 10 times compared to traditional search methods <span>[<a href="#DC-AI-COST" class="cite xref">DC-AI-COST</a>]</span>. As (1) computing
-nodes (CPUs, GPUs, and NPUs) are deployed to build the edge cloud leveraging
+increase costs by 10 times compared to traditional search methods <span>[<a href="#DC-AI-COST" class="cite xref">DC-AI-COST</a>]</span>. As (1)
+computing nodes (CPUs, GPUs, and NPUs) are deployed to build the edge cloud leveraging
 technologies like 5G and (2) with billions of mobile user devices globally providing a large
 untapped computational platform, shifting part of the processing from the cloud to the
 edge becomes a viable and necessary step towards enabling the AI-transition.
@@ -1601,7 +1629,7 @@ taken into consideration both network and compute information.<a href="#section-
       <h2 id="name-production-and-consumption-">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-production-and-consumption-" class="section-name selfRef">Production and Consumption Scenarios of Compute-related Information</a>
       </h2>
-<p id="section-5-1">It is important to understand the scenarios of production and consumption of compute-related information in combination with information related to communication. Leveraging such combination enables the possibility of resource and workload placement optimization, leading to both operational cost reductions to the operator and service provider, as well as an improvement on the service level experienced by the end users.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">From the standpoint of the network operator and the service provider, understanding the scenarios of production and consumption of compute and communication-related information is essential. By leveraging this combination, it becomes possible to optimize resource and workload placement. This optimization can lead to significant operational cost reductions for operators and service providers, as well as enhanced service levels for end users.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <div id="producers-of-compute-related-information">
 <section id="section-5.1">
         <h3 id="name-producers-of-compute-relate">
