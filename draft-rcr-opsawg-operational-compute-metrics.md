@@ -168,17 +168,6 @@ In what follows, we use the life cycle of a service to understand
 the problem space and guide the analysis of the capabilities that are
 lacking in today's protocol interfaces needed to enable these new services.
 
-At the edge, compute nodes are deployed near
-communication nodes (e.g., co-located
-in a 5G base station) to provide computing services that are
-close to users with the goal to (1) reduce latency, (2) increase
-communication bandwidth, (3) increase reliability, (4) enable privacy
-and security, (5) enable personalization, and (6) reduce cloud costs and
-energy consumption. Services are deployed on the communication and compute
-infrastructure through a phased life cycle that generally involves a
-service *deployment stage*, a *service selection* stage, and a *service assurance* stage,
- as shown in {lifecycle}.
-
                          +--------------+      +-------------+
              New         |              |      |             |
            Service +----->  (1) Service +------> (2) Service |
@@ -195,6 +184,17 @@ service *deployment stage*, a *service selection* stage, and a *service assuranc
                                     |             |
                                     +-------------+
 {: #lifecycle title="Service life cycle." }
+
+At the edge, compute nodes are deployed near
+communication nodes (e.g., co-located
+in a 5G base station) to provide computing services that are
+close to users with the goal to (1) reduce latency, (2) increase
+communication bandwidth, (3) increase reliability, (4) enable privacy
+and security, (5) enable personalization, and (6) reduce cloud costs and
+energy consumption. Services are deployed on the communication and compute
+infrastructure through a phased life cycle that generally involves a
+service *deployment stage*, a *service selection* stage, and a *service assurance* stage,
+ as shown in {{lifecycle}}.
 
 
 <!--
@@ -400,23 +400,61 @@ taken into consideration both network and compute information.
 
 # Production and Consumption Scenarios of Compute-related Information
 
-From the standpoint of the network operator and the service provider, understanding the scenarios of production and consumption of compute and communication-related information is essential. By leveraging this combination, it becomes possible to optimize resource and workload placement. This optimization can lead to significant operational cost reductions for operators and service providers, as well as enhanced service levels for end users.
+From the standpoint of the network operator and the service provider,
+understanding the scenarios of production and consumption of compute and
+communication-related information is essential. By leveraging this combination,
+it becomes possible to optimize resource and workload placement, leading to
+significant operational cost reductions for operators and service providers,
+as well as enhanced service levels for end users.
 
 ## Producers of Compute-Related Information
 
-The information relative to compute (i.e., processing capabilities, memory, and storage capacity) can be structured in two ways. On one hand, the information corresponding to the raw compute resources; on the other hand, the information of resources allocated or utilized by a specific application or service function.
+The information relative to compute (e.g., processing capabilities, memory,
+storage capacity, etc.) can be structured in two ways. On one hand, the
+information corresponding to the raw compute resources; on the other hand,
+the information of resources allocated or ut
+ilized by a specific application or service function.
 
-The former is typically provided by the management systems enabling the virtualization of the physical resources for a later assignment to the processes running on top. Cloud Managers or Virtual Infrastructure Managers are the entities that manage those resources. These management systems offer APIs to access the available resources in the computing facility. Thus, it can be expected that these APIs can be used for the consumption of such information. Once the raw resources are retrieved from the various compute facilities, it could be possible to generate topological network views of them, as being proposed in {{?I-D.llc-teas-dc-aware-topo-model}}.
+The former is typically provided by the management systems enabling the
+virtualization of the physical resources for a later assignment to the
+processes running on top. Cloud Managers or Virtual Infrastructure Managers
+are usually the entities that manage these resources. These management
+systems offer APIs to access the available resources in the computing
+facility. Thus, it can be expected that these APIs can also be used for
+consuming such information. Once the raw resources are retrieved from
+the various compute facilities, it is possible to generate topological
+network views of them, as proposed in {{?I-D.llc-teas-dc-aware-topo-model}}.
 
-Regarding the resources allocated or utilized by a specific application or service function, two situations apply: (1) The total allocation and (2) the allocation per service or application. In the first case, the information can be supplied by the virtualization management systems described before. For the specific per-service allocation, it can be expected that the specific management systems of the service or application is capable to provide the resources being used at run time typically as part of the allocated ones. In this last scenario, it is also reasonable to expect the availability of APIs offering this information, even though they can be specific to the service or application.
+Regarding the resources allocated or utilized by a specific application
+or service function, two situations apply: (1) The total allocation and
+(2) the allocation per service or application. In the first case, the
+information can be supplied by the virtualization management systems described
+before. For the specific per-service allocation, it can be expected
+that the specific management systems of the service or application are
+capable of providing the resources being used at run time,
+typically as part of the allocated ones. In this last scenario,
+it is also reasonable to expect the availability of APIs offering this
+information, even though they can be specific to the service or application.
 
 ## Consumers of Compute-Related Information
 
-The consumption of compute-related information is relative to the different phases of the service lifecycle. This means that this information can be consumed in different points of time and for different purposes.
+The consumption of compute-related information is relative to the
+different phases of the service lifecycle ({{lifecycle}}). This means
+that this information can be consumed in different points of time
+and for different purposes.
 
-The expected consumers can be both external or internal to the network. As external consumers it is possible to consider external application management systems requiring resource availability information for service function placement decision, workload migration in the case of consuming raw resources, or requiring information on the usage of resources for service assurance or service scaling, among others.
+The expected consumers can be both external or internal to the network.
+As external consumers, it is possible to consider external application
+management systems requiring resource availability information for
+service function placement decision, workload migration in the case
+of consuming raw resources, or requiring information on the usage
+of resources for service assurance or service scaling, among others.
 
-As internal consumers, it is possible to consider network management entities requiring information on the level of resource utilization for traffic steering (as the Path Selector in {{I-D.ldbc-cats-framework}}), load balance, or analytics, among others.
+As internal consumers, it is possible to consider network
+management entities requiring information on the level of
+resource utilization for traffic steering (e.g., as done by the
+Path Selector in {{I-D.ldbc-cats-framework}}), load balance,
+or analytics, among others.
 
 # Metrics Selection and Exposure
 
