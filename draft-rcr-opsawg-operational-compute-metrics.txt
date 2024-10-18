@@ -5,12 +5,12 @@
 Network Working Group                                     S. Randriamasy
 Internet-Draft                                           Nokia Bell Labs
 Intended status: Informational                           L. M. Contreras
-Expires: 14 April 2025                                        Telefonica
+Expires: 21 April 2025                                        Telefonica
                                                            J. Ros-Giralt
                                                    Qualcomm Europe, Inc.
                                                                R. Schott
                                                         Deutsche Telekom
-                                                         11 October 2024
+                                                         18 October 2024
 
 
  Joint Exposure of Network and Compute Information for Infrastructure-
@@ -61,7 +61,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 14 April 2025.
+   This Internet-Draft will expire on 21 April 2025.
 
 Copyright Notice
 
@@ -188,17 +188,6 @@ Table of Contents
    lacking in today's protocol interfaces needed to enable these new
    services.
 
-   At the edge, compute nodes are deployed near communication nodes
-   (e.g., co-located in a 5G base station) to provide computing services
-   that are close to users with the goal to (1) reduce latency, (2)
-   increase communication bandwidth, (3) increase reliability, (4)
-   enable privacy and security, (5) enable personalization, and (6)
-   reduce cloud costs and energy consumption.  Services are deployed on
-   the communication and compute infrastructure through a phased life
-   cycle that generally involves a service _deployment stage_, a
-   _service selection_ stage, and a _service assurance_ stage, as shown
-   in {lifecycle}.
-
                         +--------------+      +-------------+
             New         |              |      |             |
           Service +----->  (1) Service +------> (2) Service |
@@ -216,6 +205,17 @@ Table of Contents
                                    +-------------+
 
                        Figure 1: Service life cycle.
+
+   At the edge, compute nodes are deployed near communication nodes
+   (e.g., co-located in a 5G base station) to provide computing services
+   that are close to users with the goal to (1) reduce latency, (2)
+   increase communication bandwidth, (3) increase reliability, (4)
+   enable privacy and security, (5) enable personalization, and (6)
+   reduce cloud costs and energy consumption.  Services are deployed on
+   the communication and compute infrastructure through a phased life
+   cycle that generally involves a service _deployment stage_, a
+   _service selection_ stage, and a _service assurance_ stage, as shown
+   in Figure 1.
 
    *(1) Service deployment.* This stage is carried out by the service
    provider and involves the deployment of a new service (e.g., a
@@ -448,28 +448,28 @@ Table of Contents
    understanding the scenarios of production and consumption of compute
    and communication-related information is essential.  By leveraging
    this combination, it becomes possible to optimize resource and
-   workload placement.  This optimization can lead to significant
-   operational cost reductions for operators and service providers, as
-   well as enhanced service levels for end users.
+   workload placement, leading to significant operational cost
+   reductions for operators and service providers, as well as enhanced
+   service levels for end users.
 
 5.1.  Producers of Compute-Related Information
 
-   The information relative to compute (i.e., processing capabilities,
-   memory, and storage capacity) can be structured in two ways.  On one
-   hand, the information corresponding to the raw compute resources; on
-   the other hand, the information of resources allocated or utilized by
-   a specific application or service function.
+   The information relative to compute (e.g., processing capabilities,
+   memory, storage capacity, etc.) can be structured in two ways.  On
+   one hand, the information corresponding to the raw compute resources;
+   on the other hand, the information of resources allocated or ut
+   ilized by a specific application or service function.
 
    The former is typically provided by the management systems enabling
    the virtualization of the physical resources for a later assignment
    to the processes running on top.  Cloud Managers or Virtual
-   Infrastructure Managers are the entities that manage those resources.
-   These management systems offer APIs to access the available resources
-   in the computing facility.  Thus, it can be expected that these APIs
-   can be used for the consumption of such information.  Once the raw
-   resources are retrieved from the various compute facilities, it could
-   be possible to generate topological network views of them, as being
-   proposed in [I-D.llc-teas-dc-aware-topo-model].
+   Infrastructure Managers are usually the entities that manage these
+   resources.  These management systems offer APIs to access the
+   available resources in the computing facility.  Thus, it can be
+   expected that these APIs can also be used for consuming such
+   information.  Once the raw resources are retrieved from the various
+   compute facilities, it is possible to generate topological network
+   views of them, as proposed in [I-D.llc-teas-dc-aware-topo-model].
 
    Regarding the resources allocated or utilized by a specific
    application or service function, two situations apply: (1) The total
@@ -477,8 +477,8 @@ Table of Contents
    first case, the information can be supplied by the virtualization
    management systems described before.  For the specific per-service
    allocation, it can be expected that the specific management systems
-   of the service or application is capable to provide the resources
-   being used at run time typically as part of the allocated ones.  In
+   of the service or application are capable of providing the resources
+   being used at run time, typically as part of the allocated ones.  In
    this last scenario, it is also reasonable to expect the availability
    of APIs offering this information, even though they can be specific
    to the service or application.
@@ -486,12 +486,12 @@ Table of Contents
 5.2.  Consumers of Compute-Related Information
 
    The consumption of compute-related information is relative to the
-   different phases of the service lifecycle.  This means that this
-   information can be consumed in different points of time and for
-   different purposes.
+   different phases of the service lifecycle (Figure 1).  This means
+   that this information can be consumed in different points of time and
+   for different purposes.
 
    The expected consumers can be both external or internal to the
-   network.  As external consumers it is possible to consider external
+   network.  As external consumers, it is possible to consider external
    application management systems requiring resource availability
    information for service function placement decision, workload
    migration in the case of consuming raw resources, or requiring
@@ -500,7 +500,7 @@ Table of Contents
 
    As internal consumers, it is possible to consider network management
    entities requiring information on the level of resource utilization
-   for traffic steering (as the Path Selector in
+   for traffic steering (e.g., as done by the Path Selector in
    [I-D.ldbc-cats-framework]), load balance, or analytics, among others.
 
 6.  Metrics Selection and Exposure
