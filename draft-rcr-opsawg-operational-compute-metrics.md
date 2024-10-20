@@ -261,11 +261,11 @@ bandwidth, latency). Corrective actions can include both new service placement a
 new service selection tasks. For instance, upon detecting that a certain compute
 node is overloaded, increasing the compute delay above the corresponding
 SLO threshold, the application can reinvoke service node selection (2.a)
-to switch its workload to another less utilized compute node.
+to migrate its workload to another less utilized compute node.
 Similarly, upon detecting that a certain communication link
 is congested, increasing the communication delay above
 the corresponding SLO threshold, the application can reinvoke service path
-selection (2.b) to switch the data flow to another less congested link.
+selection (2.b) to move the data flow to another less congested link.
 If SA detects that there are not enough compute or communication resources
 to guarantee the SLOs, it can also invoke service placement (1) to allocate
 additional compute and communication resources.
