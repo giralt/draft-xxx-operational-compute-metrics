@@ -1042,7 +1042,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Randriamasy, et al.</td>
-<td class="center">Expires 21 April 2025</td>
+<td class="center">Expires 23 April 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1055,12 +1055,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-rcr-opsawg-operational-compute-metrics-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-10-18" class="published">18 October 2024</time>
+<time datetime="2024-10-20" class="published">20 October 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-04-21">21 April 2025</time></dd>
+<dd class="expires"><time datetime="2025-04-23">23 April 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1126,7 +1126,7 @@ common exposure scheme for metrics reflecting compute and communication capabili
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 21 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 23 April 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1438,11 +1438,11 @@ bandwidth, latency). Corrective actions can include both new service placement a
 new service selection tasks. For instance, upon detecting that a certain compute
 node is overloaded, increasing the compute delay above the corresponding
 SLO threshold, the application can reinvoke service node selection (2.a)
-to switch its workload to another less utilized compute node.
+to migrate its workload to another less utilized compute node.
 Similarly, upon detecting that a certain communication link
 is congested, increasing the communication delay above
 the corresponding SLO threshold, the application can reinvoke service path
-selection (2.b) to switch the data flow to another less congested link.
+selection (2.b) to move the data flow to another less congested link.
 If SA detects that there are not enough compute or communication resources
 to guarantee the SLOs, it can also invoke service placement (1) to allocate
 additional compute and communication resources.<a href="#section-3-7" class="pilcrow">¶</a></p>

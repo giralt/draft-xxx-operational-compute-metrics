@@ -5,12 +5,12 @@
 Network Working Group                                     S. Randriamasy
 Internet-Draft                                           Nokia Bell Labs
 Intended status: Informational                           L. M. Contreras
-Expires: 21 April 2025                                        Telefonica
+Expires: 23 April 2025                                        Telefonica
                                                            J. Ros-Giralt
                                                    Qualcomm Europe, Inc.
                                                                R. Schott
                                                         Deutsche Telekom
-                                                         18 October 2024
+                                                         20 October 2024
 
 
  Joint Exposure of Network and Compute Information for Infrastructure-
@@ -61,7 +61,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 April 2025.
+   This Internet-Draft will expire on 23 April 2025.
 
 Copyright Notice
 
@@ -281,11 +281,11 @@ Table of Contents
    placement and new service selection tasks.  For instance, upon
    detecting that a certain compute node is overloaded, increasing the
    compute delay above the corresponding SLO threshold, the application
-   can reinvoke service node selection (2.a) to switch its workload to
+   can reinvoke service node selection (2.a) to migrate its workload to
    another less utilized compute node.  Similarly, upon detecting that a
    certain communication link is congested, increasing the communication
    delay above the corresponding SLO threshold, the application can
-   reinvoke service path selection (2.b) to switch the data flow to
+   reinvoke service path selection (2.b) to move the data flow to
    another less congested link.  If SA detects that there are not enough
    compute or communication resources to guarantee the SLOs, it can also
    invoke service placement (1) to allocate additional compute and
