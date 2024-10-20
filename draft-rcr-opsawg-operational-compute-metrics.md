@@ -412,8 +412,7 @@ as well as enhanced service levels for end users.
 The information relative to compute (e.g., processing capabilities, memory,
 storage capacity, etc.) can be structured in two ways. On one hand, the
 information corresponding to the raw compute resources; on the other hand,
-the information of resources allocated or ut
-ilized by a specific application or service function.
+the information of resources allocated or utilized by a specific application or service function.
 
 The former is typically provided by the management systems enabling the
 virtualization of the physical resources for a later assignment to the
@@ -423,10 +422,10 @@ systems offer APIs to access the available resources in the computing
 facility. Thus, it can be expected that these APIs can also be used for
 consuming such information. Once the raw resources are retrieved from
 the various compute facilities, it is possible to generate topological
-network views of them, as proposed in {{?I-D.llc-teas-dc-aware-topo-model}}.
+network views including such resources, as proposed in {{?I-D.llc-teas-dc-aware-topo-model}}.
 
 Regarding the resources allocated or utilized by a specific application
-or service function, two situations apply: (1) The total allocation and
+or service function, two situations apply: (1) The total allocation of resources, and
 (2) the allocation per service or application. In the first case, the
 information can be supplied by the virtualization management systems described
 before. For the specific per-service allocation, it can be expected
