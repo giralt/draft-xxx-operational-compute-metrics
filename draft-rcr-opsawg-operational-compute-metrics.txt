@@ -457,8 +457,8 @@ Table of Contents
    The information relative to compute (e.g., processing capabilities,
    memory, storage capacity, etc.) can be structured in two ways.  On
    one hand, the information corresponding to the raw compute resources;
-   on the other hand, the information of resources allocated or ut
-   ilized by a specific application or service function.
+   on the other hand, the information of resources allocated or utilized
+   by a specific application or service function.
 
    The former is typically provided by the management systems enabling
    the virtualization of the physical resources for a later assignment
@@ -469,19 +469,20 @@ Table of Contents
    expected that these APIs can also be used for consuming such
    information.  Once the raw resources are retrieved from the various
    compute facilities, it is possible to generate topological network
-   views of them, as proposed in [I-D.llc-teas-dc-aware-topo-model].
+   views including such resources, as proposed in
+   [I-D.llc-teas-dc-aware-topo-model].
 
    Regarding the resources allocated or utilized by a specific
    application or service function, two situations apply: (1) The total
-   allocation and (2) the allocation per service or application.  In the
-   first case, the information can be supplied by the virtualization
-   management systems described before.  For the specific per-service
-   allocation, it can be expected that the specific management systems
-   of the service or application are capable of providing the resources
-   being used at run time, typically as part of the allocated ones.  In
-   this last scenario, it is also reasonable to expect the availability
-   of APIs offering this information, even though they can be specific
-   to the service or application.
+   allocation of resources, and (2) the allocation per service or
+   application.  In the first case, the information can be supplied by
+   the virtualization management systems described before.  For the
+   specific per-service allocation, it can be expected that the specific
+   management systems of the service or application are capable of
+   providing the resources being used at run time, typically as part of
+   the allocated ones.  In this last scenario, it is also reasonable to
+   expect the availability of APIs offering this information, even
+   though they can be specific to the service or application.
 
 5.2.  Consumers of Compute-Related Information
 
