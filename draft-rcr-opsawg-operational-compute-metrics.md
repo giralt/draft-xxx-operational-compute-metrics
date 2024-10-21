@@ -164,7 +164,7 @@ the deployment of services at the edge, involving the cooperation
 of different actors---namely, network operators, service providers
 and applications---in a heterogeneous environment.
 
-In what follows, we use the life cycle of a service to understand
+In what follows, we use the lifecycle of a service to understand
 the problem space and guide the analysis of the capabilities that are
 lacking in today's protocol interfaces needed to enable these new services.
 
@@ -183,7 +183,7 @@ lacking in today's protocol interfaces needed to enable these new services.
                                     |  Assurance  |
                                     |             |
                                     +-------------+
-{: #lifecycle title="Service life cycle." }
+{: #lifecycle title="Service lifecycle." }
 
 At the edge, compute nodes are deployed near
 communication nodes (e.g., co-located
@@ -192,13 +192,13 @@ close to users with the goal to (1) reduce latency, (2) increase
 communication bandwidth, (3) increase reliability, (4) enable privacy
 and security, (5) enable personalization, and (6) reduce cloud costs and
 energy consumption. Services are deployed on the communication and compute
-infrastructure through a phased life cycle that generally involves a
+infrastructure through a phased lifecycle that generally involves a
 service *deployment stage*, a *service selection* stage, and a *service assurance* stage,
  as shown in {{lifecycle}}.
 
 
 <!--
-In this Section, we introduce the life cycle of a
+In this Section, we introduce the lifecycle of a
 service as a simple framework to understand the capabilities
 that are lacking in today's protocol interfaces and that are necessary for
 these new services. -->
@@ -474,7 +474,7 @@ other IETF working groups or standardization bodies.
 The metrics considered in this document should be used to support
 decisions for selection and deployment of services and applications.
 Further iterations of this document may consider additional
-life cycle operations such as assurance and relevant metrics.
+lifecycle operations such as assurance and relevant metrics.
 
 The network metrics listed above are specified in a number of
 IETF documents such as RFC 9439 {{I-D.ietf-alto-performance-metrics}},
@@ -483,16 +483,16 @@ at the IETF, on the other hand, is in its first stages and merely
 relates to low-level infrastructure metrics such as in {{?RFC7666}}.
 However:
 
-- decisions for service deployment and selection also involve
-decisions that require an aggregated view for instance at the
-service level,
+- Decisions for service deployment and selection also involve
+decisions that require an aggregated view, for instance, at the
+service level.
 
-- deciding entities may only have partial access to the compute
+- Deciding entities may only have partial access to the compute
 information and actually do not need to have all the details.
 
 A number of public tools and methods to test compute facility
 performances are made available by cloud service providers or
-service management businesses, see {{UPCLOUD}} and {{IR}} to name a few.
+service management businesses (e.g., see {{UPCLOUD}} and {{IR}}).
 However, for the proposed performance metrics, their definition and
 acquisition method may differ from one provider to the other,
 making it thus challenging to compare performances across different
@@ -514,45 +514,46 @@ This list is initial and is to be updated upon further discussion.
 Dimensions helping to identify needed compute metrics:
 
 | Dimension	 | Definition of dimension	| Examples |
-| Target operation	 | what operation the metrics is used for | monitoring, benchmarking, service selection and placement |
-| Driving KPI(s) | KPI(s) assessed with the metrics | speed, scalability, cost, stability |
-| Decision scope | granularity of metric definition | infrastructure node/cluster, compute service, end-to-end application  |
-| Receiving entity | function receiving the metrics  | router, centralized controller, application management |
-| Deciding entity | function using the metrics to compute decisions | router, centralized controller, application management |
+| Target operation	 | What operation the metric is used for | Monitoring, benchmarking, service placement and selection |
+| Driving KPI(s) | KPI(s) assessed with the metrics | Speed, scalability, cost, stability |
+| Decision scope | Granularity of metric definition | Infrastructure node/cluster, compute service, end-to-end application  |
+| Receiving entity | Function receiving the metrics  | Router, centralized controller, application management |
+| Deciding entity | Function using the metrics to compute decisions | Router, centralized controller, application management |
 {: #comp_dimensions title="Dimensions to consider when identifying the needed compute metrics." }
 
 The "value" of a dimension has an impact on the characteristic of the metric to consider. In particular:
 
-- the driving KPI(s): will lead to select metrics that are impacting them,
+- The target operation: determines the specific use case for the metric, such as monitoring, benchmarking, service placement, or selection, guiding the selection of relevant metrics.
 
-- the decision scope: will lead to select metrics at a relevant granularity or aggregation level,
+- The driving KPI(s): leads to selecting metrics that are relevant from a performance standpoint.
 
-- the receiving entity: impacts the dynamicity of the received metric values. While a router likely receives static information to moderate overhead, a centralized control function may receive more dynamic information that it may additionally process on its own,
+- The decision scope: leads to selecting metrics at a relevant granularity or aggregation level.
 
-- the deciding entity: computes the decisions to take upon metric values and needs information that is synchronized at an appropriate frequency.
+- The receiving entity: impacts the dynamicity of the received metric values. While a router likely receives static information to moderate overhead, a centralized control function may receive more dynamic information that it may additionally process on its own.
 
-The metrics values may be subject to different life cycle actions which are mainly: acquisition, processing and exposure. These actions are performed according to different approaches. Documenting these approaches allows for a more reliable interpretation and informed utilization of the metrics. Documenting the method used for a given approach may provide further reliability.
-The table below provides some examples:
+- The deciding entity: computes the decisions to take upon metric values and needs information that is synchronized at an appropriate frequency.
+
+Metric values undergo various lifecycle actions, primarily acquisition, processing, and exposure. These actions can be executed through different methodologies. Documenting these methodologies enhances the reliability and informed utilization of the metrics. Additionally, detailing the specific methods used for each approach further increases their reliability. The table below provides some examples:
 
 | Lifecycle action	 | Example	|
 | Acquisition method  | telemetry, estimation |
 | Value processing 	 | aggregation, abstraction |
 | Exposure            | in-path distribution, off-path distribution |
-{: #metric_action title="Examples of life actions approach documented on metrics." }
+{: #metric_action title="Examples of lifecycle actions documented on metrics." }
 
 ## Abstraction Level and Information Access
 
-One important aspect to consider is that receiving entities that need to consume metrics to take selection or placement decisions do not always have access to computing information. In particular, several scenarios to be completed upon further discussions, may need to be considered among which:
+One important aspect to consider is that receiving entities that need to consume metrics to take selection or placement decisions do not always have access to computing information. In particular, several scenarios may need to be considered, among which:
 
-- the consumer is an ISP that does not own the compute infrastructure or has no access to full information. In this case the compute metrics will likely be estimated
+- The consumer is an ISP that does not own the compute infrastructure or has no access to full information. In this case, the compute metrics will likely be estimated.
 
-- the consumer is an application that has no direct access to full information while the ISP has access to both network and compute information. However the ISP is willing to provide guidance to the application with abstract information.
+- The consumer is an application that has no direct access to full information while the ISP has access to both network and compute information. However the ISP is willing to provide guidance to the application with abstract information.
 
-- the consumer has access to full network and compute information and wants to use it for fine-grained decision making e.g. at the node/cluster level
+- The consumer has access to full network and compute information and wants to use it for fine-grained decision making, e.g., at the node/cluster level.
 
-- the consumer has access to full information but essentially needs guidance with abstracted information.
+- The consumer has access to full information but essentially needs guidance with abstracted information.
 
-- the consumer has access to information that is abstracted or detailed depending on the metrics.
+- The consumer has access to information that is abstracted or detailed depending on the metrics.
 
 These scenarios further drive the selection of metrics upon the above mentioned dimensions.
 
@@ -560,41 +561,40 @@ These scenarios further drive the selection of metrics upon the above mentioned 
 
 ### Metric Distribution in Computing-Aware Traffic Steering (CATS)
 
-The IETF CATS WG has explored the collection and distribution of computing metrics in {{I-D.ldbc-cats-framework}}. In their deployment considerations, they consider three deployment models for the location of the service selection function: distributed, centralized and hybrid. Respectively in these models, the compute metrics are:
+The IETF CATS WG has explored the collection and distribution of computing metrics in {{I-D.ldbc-cats-framework}}. In their deployment considerations, the authors consider three deployment models for the location of the service selection function: distributed, centralized and hybrid. For these three models, the compute metrics are, respectively:
 
-- distributed among network devices directly,
+- Distributed among network devices directly.
 
-- collected by a centralized control plane,
+- Dollected by a centralized control plane.
 
-- hybrid where a part of computing metrics are distributed among involved network devices, and others may be collected by a centralized control plane.
+- Hybrid where some compute metrics are distributed among involved network devices,
+and others are collected by a centralized control plane.
 
 In the hybrid mode, the draft says that some static information (e.g., capabilities information) can be distributed among network devices since they are quite stable. Frequent changing information (e.g., resource utilization) can be collected by a centralized control plane to avoid frequent flooding in the distributed control plane.
 
-The hybrid mode thus stresses the impact of the dynamicity of the distributed metrics and the need to carefully sort out the metric exposure mode w.r.t. their dynamicity.
+The hybrid mode thus stresses the impact of the dynamicity of the distributed metrics and the need to carefully sort out the metric exposure mode with respect to their dynamicity.
 
-Besides, the section on Metrics Distribution indicates the need for required extensions to the routing protocols, in order to distribute additional information such as link latency and other information not standardized in routing protocols such as compute metrics.
+The section on Metrics Distribution also indicates the need for required extensions to the routing protocols, in order to distribute additional information such as link latency and other information not standardized in these protocols, such as compute metrics.
 
 ### Metric Exposure with Extensions of ALTO
 
-The ALTO protocol has been defined to expose an abstracted network topology and related path costs in {{RFC7285}}. ALTO is a client-server protocol exposing information to clients that can be associated to applications as well as orchestrators. Its extension RFC 9240 allows to define entities on which properties can be defined, while {{?I-D.contreras-alto-service-edge}} introduces a proposed entity property that allows to consider an entity as both a network element with network related costs and properties and a element of a data center with compute related properties. Such an exposure mechanism is particularly useful for decision making entities which are centralized and located off the network paths.
+The ALTO protocol has been defined to expose an abstract network topology and related path costs in {{RFC7285}}. ALTO is a client-server protocol exposing information to clients that can be associated to applications as well as orchestrators. Its extension RFC 9240 allows to define entities on which properties can be defined, while {{?I-D.contreras-alto-service-edge}} introduces a proposed entity property that allows to consider an entity as both a network element with network related costs and properties and a element of a data center with compute related properties. Such an exposure mechanism is particularly useful for decision making entities which are centralized and located off the network paths.
 
 ### Exposure of Abstracted Generic Metrics
+
 In some cases, whether due to unavailable information details or for the sake of simplicity, a consumer may need reliable but simple guidance to select a service. To this end, abstracted generic metrics may be useful.
 
-One can consider a generic metric that can be named “computingcost” and is applied to a contact point to one or more edge servers such as a load balancer, for short  an edge server, to reflect the network operator policy and preferences.  The metric “computingcost” results from an abstraction method that is hidden from users, similarly to the metric “routingcost” defined in {{RFC7285}}.  For instance, “computingcost” may be higher for an edge server located far away, or in disliked geographical areas, or owned by a provider who does not share information with the Internet Service Provider (ISP) or with which ISP has a poorer commercial agreement.  “computingcost” may also reflect environmental preferences in terms, for instance, of energy source, average consumption vs. local climate, location adequacy vs. climate.
+One can consider a generic metric that can be named 'computingcost' and is applied to a contact point to one or more edge servers such as a load balancer, for short  an edge server, to reflect the network operator policy and preferences.  The metric “computingcost” results from an abstraction method that is hidden from users, similarly to the metric “routingcost” defined in {{RFC7285}}.  For instance, “computingcost” may be higher for an edge server located far away, or in disliked geographical areas, or owned by a provider who does not share information with the Internet Service Provider (ISP) or with which the ISP has a poorer commercial agreement.  'computingcost' may also reflect environmental preferences in terms, for instance, of energy source, average consumption vs. local climate, location adequacy vs. climate.
 
-One may also consider a generic metric named “computingperf”, applied to an edge server, that reflects its performance, based on measurements or estimations by the ISP or combination thereof.  An edge server with a higher “computingperf” value will be preferred.  “computingperf” can be based on a vector of one or more metrics reflecting, for instance, responsiveness, reliability of cloud services based on metrics such as latency, packet loss, jitter, time to first and/or last byte, or a single value reflecting a global performance score.
+One may also consider a generic metric named 'computingperf', applied to an edge server, that reflects its performance based on measurements or estimations by the ISP or combination thereof.  An edge server with a higher “computingperf” value will be preferred.  “computingperf” can be based on a vector of one or more metrics reflecting, for instance, responsiveness, reliability of cloud services based on metrics such as latency, packet loss, jitter, time to first and/or last byte, or a single value reflecting a global performance score.
 
-## Edge Resources
+## Examples of Resources
 
-Edge resources are referring to latency, bandwidth, compute
-latency or traffic breakout.
-
-## Network Resources
+### Network Resources
 
 Network resources relate to the traditional network
-infrastructure. The next table provides an overview of some of the
-commonly used metrics.
+infrastructure. The next table provides examples of some of the
+commonly used metrics:
 
 | Kind of Resource |
 |     QoS          |
@@ -606,10 +606,11 @@ commonly used metrics.
 {: #net_res title="Examples of network resource metrics." }
 
 
-## Cloud Resources
+### Cloud Resources
 
-The next table provides an example of parameters that
-could be exposed:
+Cloud resources relate to the compute infrastructure
+infrastructure. The next table provides examples of some of the
+commonly used metrics:
 
 | Resource    |    Type          |   Example    |
 | CPU         |    Compute       |   Available CPU resources in GHz    |
@@ -815,43 +816,41 @@ staging/src/k8s.io/kubelet/pkg/apis/stats/v1alpha1/types.go.
 
 # Related Work
 
-Some existing work has explored compute-related metrics. They can be categorized as follows:
+Some existing work has explored compute-related metrics. It can be categorized as follows:
 
-* References providing raw compute infrastructure metrics: {{?I-D.contreras-alto-service-edge}} includes references to cloud management solutions (i.e., OpenStack, Kubernetes, etc) which administer the virtualization infrastructure, providing information about raw compute infrastructure metrics. Furthermore, {{NFV-TST}} describes processor, memory and network interface usage metrics.
-* References providing compute virtualization metrics: {{?RFC7666}} provides several metrics as part of the Management Information Base (MIB) definition for managing virtual machines controlled by a hypervisor. The objects there defined make reference to the resources consumed by a particluar virtual machine serving as host for services or applications. Moreover, {{NFV-INF}} provides metrics associated to virtualized network functions.
-* References providing service metrics including compute-related information: {{?I-D.dunbar-cats-edge-service-metrics}} proposes metrics associated to services running in compute infrastructures. Some of these metrics do not depend on the infrastructure behavior itself but from where such compute infrastructure is topologically located.
+* **References providing raw compute infrastructure metrics**:
 
-* Other existing work at the IETF CATS WG has explored the collection
-and distribution of computing metrics in {{I-D.ldbc-cats-framework}}.
-In their deployment considerations, they consider three models: distributed,
-centralized and hybrid.
+  * {{?I-D.contreras-alto-service-edge}} includes references to cloud management solutions (e.g., OpenStack, Kubernetes) that administer the virtualization infrastructure, providing information about raw compute infrastructure metrics.
+  * {{NFV-TST}} describes metrics related to processor, memory, and network interface usage.
+
+* **References providing compute virtualization metrics**:
+  * {{?RFC7666}} defines several metrics as part of the Management Information Base (MIB) for managing virtual machines controlled by a hypervisor. These objects reference the resources consumed by a particular virtual machine serving as a host for services or applications.
+  * {{NFV-INF}} provides metrics associated with virtualized network functions.
+
+* **References providing service metrics including compute-related information**:
+  * {{?I-D.dunbar-cats-edge-service-metrics}} proposes metrics associated with services running in compute infrastructures. Some of these metrics do not depend on the infrastructure behavior itself but on the topological location of the compute infrastructure.
+
+* **Other existing work at the IETF CATS WG**:
+  * {{I-D.ldbc-cats-framework}} explores the collection and distribution of computing metrics. In their deployment considerations, they consider three models: distributed, centralized, and hybrid.
 
 #  Guiding Principles
 
-The driving principles for designing an interface to jointly extract
-network and compute information are as follows:
+The driving principles for designing an interface to jointly extract network and compute information are as follows:
 
-P1. Leverage metrics across working groups to avoid reinventing the wheel. For instance:
+* **P1. Leverage existing metrics across working groups to avoid reinventing the wheel.** For instance:
+  * RFC 9439 ([I-D.ietf-alto-performance-metrics]) leverages IPPM metrics from RFC 7679.
+  * Section 5.2 of [I-D.du-cats-computing-modeling-description] considers delay as a good metric, since it is easy to use in both compute and communication domains. RFC 9439 also defines delay as part of the performance metrics.
+  * Section 6 of [I-D.du-cats-computing-modeling-description] proposes representing the network structure as graphs, similar to the ALTO map services in RFC 7285.
 
-- RFC 9439 {{I-D.ietf-alto-performance-metrics}} leverages IPPM metrics from RFC 7679.
-- Section 5.2 of {{I-D.du-cats-computing-modeling-description}} considers delay as a good metric, since it is easy to use in both compute and communication domains. RFC 9439 also defines delay as part of the performance metrics.
-- Section 6 of {{I-D.du-cats-computing-modeling-description}} proposes to represent the network structure as graphs, which is similar to the ALTO map services in {{RFC7285}}.
+* **P2. Aim for simplicity, while ensuring the combined efforts don’t leave technical gaps in supporting the full lifecycle of service deployment and selection.** For instance:
+  * The CATS working group covers path selection from a network standpoint, while ALTO (e.g., RFC 7285) covers exposing network information to the service provider and the client application. However, there is currently no effort being pursued to expose compute information to the service provider and the client application for service placement or selection.
 
-P2. Aim for simplicity, while ensuring the combined efforts
-don’t leave technical gaps in supporting the full life cycle
-of service deployment and selection. For instance, the CATS working
-group is covering path selection from a network standpoint, while
-ALTO (e.g., {{RFC7285}}) covers exposing of network information
-to the service provider and the client application. However,
-there is currently no effort being pursued to expose compute information
-to the service provider and the client application for
-service placement or selection.
 
 # GAP Analysis
 
 From this related work it is evident that compute-related metrics can serve several purposes, ranging from service instance instantiation to service instance behavior, and then to service instance selection. Some of the metrics could refer to the same object (e.g., CPU) but with a particular usage and scope.
 
-In contrast, the network metrics are more uniform and straightforward. It is then necessary to consistently define a set of metrics that could assist to the operation in the different concerns identified so far, so that networks and systems could have a common understanding of the perceived compute performance. When combined with network metrics, the combined network plus compute performance behavior will assist informed decisions particular to each of the operational concerns related to the different parts of a service life cycle.
+In contrast, the network metrics are more uniform and straightforward. It is then necessary to consistently define a set of metrics that could assist to the operation in the different concerns identified so far, so that networks and systems could have a common understanding of the perceived compute performance. When combined with network metrics, the combined network plus compute performance behavior will assist informed decisions particular to each of the operational concerns related to the different parts of a service lifecycle.
 
 # Security Considerations
 
