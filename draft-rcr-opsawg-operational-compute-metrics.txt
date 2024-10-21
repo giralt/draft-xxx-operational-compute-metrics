@@ -5,12 +5,12 @@
 Network Working Group                                     S. Randriamasy
 Internet-Draft                                           Nokia Bell Labs
 Intended status: Informational                           L. M. Contreras
-Expires: 23 April 2025                                        Telefonica
+Expires: 24 April 2025                                        Telefonica
                                                            J. Ros-Giralt
                                                    Qualcomm Europe, Inc.
                                                                R. Schott
                                                         Deutsche Telekom
-                                                         20 October 2024
+                                                         21 October 2024
 
 
  Joint Exposure of Network and Compute Information for Infrastructure-
@@ -61,7 +61,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 April 2025.
+   This Internet-Draft will expire on 24 April 2025.
 
 Copyright Notice
 
@@ -91,17 +91,17 @@ Table of Contents
      5.1.  Producers of Compute-Related Information
      5.2.  Consumers of Compute-Related Information
    6.  Metrics Selection and Exposure
-     6.1.  Edge Resources
-     6.2.  Network Resources
-     6.3.  Cloud Resources
-     6.4.  Considerations about Metrics
-     6.5.  Metric Dimensions
-     6.6.  Abstraction Level and Information Access
-     6.7.  Distribution and Exposure Mechanisms
-       6.7.1.  Metric Distribution in Computing-Aware Traffic Steering
+     6.1.  Considerations about Metrics
+     6.2.  Metric Dimensions
+     6.3.  Abstraction Level and Information Access
+     6.4.  Distribution and Exposure Mechanisms
+       6.4.1.  Metric Distribution in Computing-Aware Traffic Steering
                (CATS)
-       6.7.2.  Metric Exposure with Extensions of ALTO
-       6.7.3.  Exposure of Abstracted Generic Metrics
+       6.4.2.  Metric Exposure with Extensions of ALTO
+       6.4.3.  Exposure of Abstracted Generic Metrics
+     6.5.  Edge Resources
+     6.6.  Network Resources
+     6.7.  Cloud Resources
    7.  Study of the Kubernetes Metrics API and Exposure Mechanism
      7.1.  Understanding the Kubernetes Metrics API and its Exposure
            Mechanism
@@ -508,72 +508,13 @@ Table of Contents
 
    Regarding metrics exposure one can distinguish the topics of (1) how
    the metrics are exposed and (2) which kind of metrics need to be
-   exposed.  The infrastructure resources can be divided into network
-   and compute related resources.  Network based resources can roughly
-   be subdivided according to the network structure into edge, backbone,
-   and cloud resources.
+   exposed.  The infrastructure resources can be divided into (1)
+   network and (2) compute related resources.  This section intends to
+   give a brief outlook regarding these resources for stimulating
+   additional discussion with related work going on in other IETF
+   working groups or standardization bodies.
 
-   This section intends to give a brief outlook regarding these
-   resources for stimulating additional discussion with related work
-   going on in other IETF working groups or standardization bodies.
-
-6.1.  Edge Resources
-
-   Edge resources are referring to latency, bandwidth, compute latency
-   or traffic breakout.
-
-6.2.  Network Resources
-
-   Network resources relate to the traditional network infrastructure.
-   The next table provides an overview of some of the commonly used
-   metrics.
-
-                             +==================+
-                             | Kind of Resource |
-                             +==================+
-                             | QoS              |
-                             +------------------+
-                             | Latency          |
-                             +------------------+
-                             | Bandwidth        |
-                             +------------------+
-                             | RTT              |
-                             +------------------+
-                             | Packet Loss      |
-                             +------------------+
-                             | Jitter           |
-                             +------------------+
-
-                             Table 2: Examples of
-                               network resource
-                                   metrics.
-
-6.3.  Cloud Resources
-
-   The next table provides an example of parameters that could be
-   exposed:
-
-        +============+=========+=================================+
-        | CPU        | Compute | Available cpu resources         |
-        +============+=========+=================================+
-        | Memory     | Compute | Available memory                |
-        +------------+---------+---------------------------------+
-        | Storage    | Storage | Available storage               |
-        +------------+---------+---------------------------------+
-        | Configmaps | Object  | Configuration and topology maps |
-        +------------+---------+---------------------------------+
-        | Secrets    | Object  | Possible secrets                |
-        +------------+---------+---------------------------------+
-        | Pods       | Object  | Possible pods                   |
-        +------------+---------+---------------------------------+
-        | Jobs       | Object  | Concurrent jobs                 |
-        +------------+---------+---------------------------------+
-        | Services   | Object  | Concurrent services             |
-        +------------+---------+---------------------------------+
-
-             Table 3: Examples of cloud resource parameters.
-
-6.4.  Considerations about Metrics
+6.1.  Considerations about Metrics
 
    The metrics considered in this document should be used to support
    decisions for selection and deployment of services and applications.
@@ -604,7 +545,7 @@ Table of Contents
    operators, vendors, and application providers is involved and calls
    for a common standardized definition.
 
-6.5.  Metric Dimensions
+6.2.  Metric Dimensions
 
    Upon exploring existing work, this draft proposes to consider a
    number of dimensions before identifying the compute metrics needed to
@@ -637,7 +578,7 @@ Table of Contents
    |           | decisions           | management                      |
    +-----------+---------------------+---------------------------------+
 
-        Table 4: Dimensions to consider when identifying the needed
+        Table 2: Dimensions to consider when identifying the needed
                               compute metrics.
 
    The "value" of a dimension has an impact on the characteristic of the
@@ -677,9 +618,9 @@ Table of Contents
    | Exposure           | in-path distribution, off-path distribution |
    +--------------------+---------------------------------------------+
 
-    Table 5: Examples of life actions approach documented on metrics.
+    Table 3: Examples of life actions approach documented on metrics.
 
-6.6.  Abstraction Level and Information Access
+6.3.  Abstraction Level and Information Access
 
    One important aspect to consider is that receiving entities that need
    to consume metrics to take selection or placement decisions do not
@@ -709,9 +650,9 @@ Table of Contents
    These scenarios further drive the selection of metrics upon the above
    mentioned dimensions.
 
-6.7.  Distribution and Exposure Mechanisms
+6.4.  Distribution and Exposure Mechanisms
 
-6.7.1.  Metric Distribution in Computing-Aware Traffic Steering (CATS)
+6.4.1.  Metric Distribution in Computing-Aware Traffic Steering (CATS)
 
    The IETF CATS WG has explored the collection and distribution of
    computing metrics in [I-D.ldbc-cats-framework].  In their deployment
@@ -743,7 +684,7 @@ Table of Contents
    additional information such as link latency and other information not
    standardized in routing protocols such as compute metrics.
 
-6.7.2.  Metric Exposure with Extensions of ALTO
+6.4.2.  Metric Exposure with Extensions of ALTO
 
    The ALTO protocol has been defined to expose an abstracted network
    topology and related path costs in [RFC7285].  ALTO is a client-
@@ -757,7 +698,7 @@ Table of Contents
    exposure mechanism is particularly useful for decision making
    entities which are centralized and located off the network paths.
 
-6.7.3.  Exposure of Abstracted Generic Metrics
+6.4.3.  Exposure of Abstracted Generic Metrics
 
    In some cases, whether due to unavailable information details or for
    the sake of simplicity, a consumer may need reliable but simple
@@ -787,6 +728,62 @@ Table of Contents
    services based on metrics such as latency, packet loss, jitter, time
    to first and/or last byte, or a single value reflecting a global
    performance score.
+
+6.5.  Edge Resources
+
+   Edge resources are referring to latency, bandwidth, compute latency
+   or traffic breakout.
+
+6.6.  Network Resources
+
+   Network resources relate to the traditional network infrastructure.
+   The next table provides an overview of some of the commonly used
+   metrics.
+
+                             +==================+
+                             | Kind of Resource |
+                             +==================+
+                             | QoS              |
+                             +------------------+
+                             | Latency          |
+                             +------------------+
+                             | Bandwidth        |
+                             +------------------+
+                             | RTT              |
+                             +------------------+
+                             | Packet Loss      |
+                             +------------------+
+                             | Jitter           |
+                             +------------------+
+
+                             Table 4: Examples of
+                               network resource
+                                   metrics.
+
+6.7.  Cloud Resources
+
+   The next table provides an example of parameters that could be
+   exposed:
+
+        +============+=========+=================================+
+        | Resource   | Type    | Example                         |
+        +============+=========+=================================+
+        | CPU        | Compute | Available CPU resources in GHz  |
+        +------------+---------+---------------------------------+
+        | Memory     | Compute | Available memory in GB          |
+        +------------+---------+---------------------------------+
+        | Storage    | Storage | Available storage in GB         |
+        +------------+---------+---------------------------------+
+        | Configmaps | Object  | Configuration and topology maps |
+        +------------+---------+---------------------------------+
+        | Pods       | Object  | Current list of active pods     |
+        +------------+---------+---------------------------------+
+        | Jobs       | Object  | current list of active jobs     |
+        +------------+---------+---------------------------------+
+        | Services   | Object  | Concurrent services             |
+        +------------+---------+---------------------------------+
+
+             Table 5: Examples of cloud resource parameters.
 
 7.  Study of the Kubernetes Metrics API and Exposure Mechanism
 
