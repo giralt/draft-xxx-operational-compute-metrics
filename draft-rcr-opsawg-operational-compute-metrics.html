@@ -1190,13 +1190,13 @@ common exposure scheme for metrics reflecting compute and communication capabili
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-metrics-selection-and-expos" class="internal xref">Metrics Selection and Exposure</a></p>
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-considerations-about-select" class="internal xref">Considerations about Selection and Exposure of Metrics</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-considerations-about-metric" class="internal xref">Considerations about Metrics</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-metric-dimensions" class="internal xref">Metric Dimensions</a></p>
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-decision-dimensions-for-met" class="internal xref">Decision Dimensions for Metrics Selection</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
                 <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-abstraction-level-and-infor" class="internal xref">Abstraction Level and Information Access</a></p>
@@ -1692,13 +1692,13 @@ or analytics, among others.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
-<div id="metrics-selection-and-exposure">
+<div id="considerations-about-selection-and-exposure-of-metrics">
 <section id="section-6">
-      <h2 id="name-metrics-selection-and-expos">
-<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-metrics-selection-and-expos" class="section-name selfRef">Metrics Selection and Exposure</a>
+      <h2 id="name-considerations-about-select">
+<a href="#section-6" class="section-number selfRef">6. </a><a href="#name-considerations-about-select" class="section-name selfRef">Considerations about Selection and Exposure of Metrics</a>
       </h2>
-<p id="section-6-1">Regarding metrics exposure one can distinguish the topics of (1)
-how the metrics are exposed and (2) which kind of metrics need to be exposed.
+<p id="section-6-1">One can distinguish the topics of (1)
+which kind of metrics need to be exposed and (2) how the metrics are exposed.
 The infrastructure resources can be divided into (1) network and (2) compute related
 resources. This section intends to give a brief outlook regarding these resources
 for stimulating additional discussion with related work going on in
@@ -1708,11 +1708,11 @@ other IETF working groups or standardization bodies.<a href="#section-6-1" class
         <h3 id="name-considerations-about-metric">
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-considerations-about-metric" class="section-name selfRef">Considerations about Metrics</a>
         </h3>
-<p id="section-6.1-1">The metrics considered in this document should be used to support
+<p id="section-6.1-1">The metrics considered in this document are meant to support
 decisions for selection and deployment of services and applications.
 Further iterations of this document may consider additional
 lifecycle operations such as assurance and relevant metrics.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.1-2">The network metrics listed above are specified in a number of
+<p id="section-6.1-2">The abovementioned operation may also involve network metrics that are specified in a number of
 IETF documents such as RFC 9439 <span>[<a href="#I-D.ietf-alto-performance-metrics" class="cite xref">I-D.ietf-alto-performance-metrics</a>]</span>,
 which itself leverages on RFC 7679. The work on compute metrics
 at the IETF, on the other hand, is in its first stages and merely
@@ -1720,7 +1720,7 @@ relates to low-level infrastructure metrics such as in <span>[<a href="#RFC7666"
 However:<a href="#section-6.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-6.1-3.1">
-            <p id="section-6.1-3.1.1">Decisions for service deployment and selection also involve
+            <p id="section-6.1-3.1.1">Decisions for service deployment and selection may further involve
 decisions that require an aggregated view, for instance, at the
 service level.<a href="#section-6.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
@@ -1729,7 +1729,10 @@ service level.<a href="#section-6.1-3.1.1" class="pilcrow">¶</a></p>
 information and actually do not need to have all the details.<a href="#section-6.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.1-4">A number of public tools and methods to test compute facility
+<p id="section-6.1-4">Compute metrics and their acquisition and management have been addressed by standardization
+bodies outside the IETF such as NIST and DMTF, with the goal to guarantee reliable assessment and comparison of cloud
+services.
+A number of public tools and methods to test compute facility
 performances are made available by cloud service providers or
 service management businesses (e.g., see <span>[<a href="#UPCLOUD" class="cite xref">UPCLOUD</a>]</span> and <span>[<a href="#IR" class="cite xref">IR</a>]</span>).
 However, for the proposed performance metrics, their definition and
@@ -1741,16 +1744,20 @@ operators, vendors, and application providers is involved
 and calls for a common standardized definition.<a href="#section-6.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="metric-dimensions">
+<div id="decision-dimensions-for-metrics-selection">
 <section id="section-6.2">
-        <h3 id="name-metric-dimensions">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-metric-dimensions" class="section-name selfRef">Metric Dimensions</a>
+        <h3 id="name-decision-dimensions-for-met">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-decision-dimensions-for-met" class="section-name selfRef">Decision Dimensions for Metrics Selection</a>
         </h3>
-<p id="section-6.2-1">Upon exploring existing work, this draft
-proposes to consider a number of dimensions before identifying
-the compute metrics needed to take a service operation decision.
-This list is initial and is to be updated upon further discussion.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
-<p id="section-6.2-2">Dimensions helping to identify needed compute metrics:<a href="#section-6.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.2-1">Once defined, the compute metrics are to be selected and exposed to management entities
+acting at different levels, such as a centralized controller or a router, taking different actions
+such as service placement, service selection, and assurance, with decision scopes ranging from
+local compute facilities to end-to-end services.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2">Upon exploring existing work, this draft
+proposes to consider a number of "decision dimensions" reflecting the abovementioned aspects in order to help identifying
+the suitable compute metrics needed to take a service operation decision.
+This list is initial and is to be updated upon further discussion.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.2-3">Dimensions helping to identify needed compute metrics:<a href="#section-6.2-3" class="pilcrow">¶</a></p>
 <span id="name-dimensions-to-consider-when"></span><div id="comp_dimensions">
 <table class="center" id="table-2">
           <caption>
@@ -1760,7 +1767,7 @@ This list is initial and is to be updated upon further discussion.<a href="#sect
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Dimension</th>
-              <th class="text-left" rowspan="1" colspan="1">Definition of dimension</th>
+              <th class="text-left" rowspan="1" colspan="1">Definition of the dimension</th>
               <th class="text-left" rowspan="1" colspan="1">Examples</th>
             </tr>
           </thead>
@@ -1793,25 +1800,25 @@ This list is initial and is to be updated upon further discussion.<a href="#sect
           </tbody>
         </table>
 </div>
-<p id="section-6.2-4">The "value" of a dimension has an impact on the characteristic of the metric to consider. In particular:<a href="#section-6.2-4" class="pilcrow">¶</a></p>
+<p id="section-6.2-5">The "value" of a dimension has an impact on the characteristic of the metric to consider. In particular:<a href="#section-6.2-5" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.2-5.1">
-            <p id="section-6.2-5.1.1">The target operation: determines the specific use case for the metric, such as monitoring, benchmarking, service placement, or selection, guiding the selection of relevant metrics.<a href="#section-6.2-5.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.2-6.1">
+            <p id="section-6.2-6.1.1">The target operation: determines the specific use case for the metric, such as monitoring, benchmarking, service placement, or selection, guiding the selection of relevant metrics.<a href="#section-6.2-6.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.2-5.2">
-            <p id="section-6.2-5.2.1">The driving KPI(s): leads to selecting metrics that are relevant from a performance standpoint.<a href="#section-6.2-5.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-6.2-6.2">
+            <p id="section-6.2-6.2.1">The driving KPI(s): leads to selecting metrics that are relevant from a performance standpoint.<a href="#section-6.2-6.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.2-5.3">
-            <p id="section-6.2-5.3.1">The decision scope: leads to selecting metrics at a relevant granularity or aggregation level.<a href="#section-6.2-5.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-6.2-6.3">
+            <p id="section-6.2-6.3.1">The decision scope: leads to selecting metrics at a relevant granularity or aggregation level.<a href="#section-6.2-6.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.2-5.4">
-            <p id="section-6.2-5.4.1">The receiving entity: impacts the dynamicity of the received metric values. While a router likely receives static information to moderate overhead, a centralized control function may receive more dynamic information that it may additionally process on its own.<a href="#section-6.2-5.4.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-6.2-6.4">
+            <p id="section-6.2-6.4.1">The receiving entity: impacts the dynamicity of the received metric values. While a router likely receives static information to moderate overhead, a centralized control function may receive more dynamic information that it may additionally process on its own.<a href="#section-6.2-6.4.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.2-5.5">
-            <p id="section-6.2-5.5.1">The deciding entity: computes the decisions to take upon metric values and needs information that is synchronized at an appropriate frequency.<a href="#section-6.2-5.5.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-6.2-6.5">
+            <p id="section-6.2-6.5.1">The deciding entity: computes the decisions to take upon metric values and needs information that is synchronized at an appropriate frequency.<a href="#section-6.2-6.5.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.2-6">Metric values undergo various lifecycle actions, primarily acquisition, processing, and exposure. These actions can be executed through different methodologies. Documenting these methodologies enhances the reliability and informed utilization of the metrics. Additionally, detailing the specific methods used for each approach further increases their reliability. The table below provides some examples:<a href="#section-6.2-6" class="pilcrow">¶</a></p>
+<p id="section-6.2-7">Metric values undergo various lifecycle actions, primarily acquisition, processing, and exposure. These actions can be executed through different methodologies. Documenting these methodologies enhances the reliability and informed utilization of the metrics. Additionally, detailing the specific methods used for each approach further increases their reliability. The table below provides some examples:<a href="#section-6.2-7" class="pilcrow">¶</a></p>
 <span id="name-examples-of-lifecycle-actio"></span><div id="metric_action">
 <table class="center" id="table-3">
           <caption>
@@ -1884,7 +1891,7 @@ This list is initial and is to be updated upon further discussion.<a href="#sect
               <p id="section-6.4.1-2.1.1">Distributed among network devices directly.<a href="#section-6.4.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-6.4.1-2.2">
-              <p id="section-6.4.1-2.2.1">Dollected by a centralized control plane.<a href="#section-6.4.1-2.2.1" class="pilcrow">¶</a></p>
+              <p id="section-6.4.1-2.2.1">Collected by a centralized control plane.<a href="#section-6.4.1-2.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-6.4.1-2.3">
               <p id="section-6.4.1-2.3.1">Hybrid where some compute metrics are distributed among involved network devices,

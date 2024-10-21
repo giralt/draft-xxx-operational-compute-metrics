@@ -90,9 +90,9 @@ Table of Contents
            Information
      5.1.  Producers of Compute-Related Information
      5.2.  Consumers of Compute-Related Information
-   6.  Metrics Selection and Exposure
+   6.  Considerations about Selection and Exposure of Metrics
      6.1.  Considerations about Metrics
-     6.2.  Metric Dimensions
+     6.2.  Decision Dimensions for Metrics Selection
      6.3.  Abstraction Level and Information Access
      6.4.  Distribution and Exposure Mechanisms
        6.4.1.  Metric Distribution in Computing-Aware Traffic Steering
@@ -504,58 +504,68 @@ Table of Contents
    for traffic steering (e.g., as done by the Path Selector in
    [I-D.ldbc-cats-framework]), load balance, or analytics, among others.
 
-6.  Metrics Selection and Exposure
+6.  Considerations about Selection and Exposure of Metrics
 
-   Regarding metrics exposure one can distinguish the topics of (1) how
-   the metrics are exposed and (2) which kind of metrics need to be
-   exposed.  The infrastructure resources can be divided into (1)
-   network and (2) compute related resources.  This section intends to
-   give a brief outlook regarding these resources for stimulating
-   additional discussion with related work going on in other IETF
-   working groups or standardization bodies.
+   One can distinguish the topics of (1) which kind of metrics need to
+   be exposed and (2) how the metrics are exposed.  The infrastructure
+   resources can be divided into (1) network and (2) compute related
+   resources.  This section intends to give a brief outlook regarding
+   these resources for stimulating additional discussion with related
+   work going on in other IETF working groups or standardization bodies.
 
 6.1.  Considerations about Metrics
 
-   The metrics considered in this document should be used to support
+   The metrics considered in this document are meant to support
    decisions for selection and deployment of services and applications.
    Further iterations of this document may consider additional lifecycle
    operations such as assurance and relevant metrics.
 
-   The network metrics listed above are specified in a number of IETF
-   documents such as RFC 9439 [I-D.ietf-alto-performance-metrics], which
-   itself leverages on RFC 7679.  The work on compute metrics at the
-   IETF, on the other hand, is in its first stages and merely relates to
-   low-level infrastructure metrics such as in [RFC7666].  However:
+   The abovementioned operation may also involve network metrics that
+   are specified in a number of IETF documents such as RFC 9439
+   [I-D.ietf-alto-performance-metrics], which itself leverages on RFC
+   7679.  The work on compute metrics at the IETF, on the other hand, is
+   in its first stages and merely relates to low-level infrastructure
+   metrics such as in [RFC7666].  However:
 
-   *  Decisions for service deployment and selection also involve
+   *  Decisions for service deployment and selection may further involve
       decisions that require an aggregated view, for instance, at the
       service level.
 
    *  Deciding entities may only have partial access to the compute
       information and actually do not need to have all the details.
 
-   A number of public tools and methods to test compute facility
-   performances are made available by cloud service providers or service
-   management businesses (e.g., see [UPCLOUD] and [IR]).  However, for
-   the proposed performance metrics, their definition and acquisition
-   method may differ from one provider to the other, making it thus
-   challenging to compare performances across different providers.  The
-   latter aspect is particularly problematic for applications running at
-   the edge where a complex ecosystem of operators, vendors, and
-   application providers is involved and calls for a common standardized
-   definition.
+   Compute metrics and their acquisition and management have been
+   addressed by standardization bodies outside the IETF such as NIST and
+   DMTF, with the goal to guarantee reliable assessment and comparison
+   of cloud services.  A number of public tools and methods to test
+   compute facility performances are made available by cloud service
+   providers or service management businesses (e.g., see [UPCLOUD] and
+   [IR]).  However, for the proposed performance metrics, their
+   definition and acquisition method may differ from one provider to the
+   other, making it thus challenging to compare performances across
+   different providers.  The latter aspect is particularly problematic
+   for applications running at the edge where a complex ecosystem of
+   operators, vendors, and application providers is involved and calls
+   for a common standardized definition.
 
-6.2.  Metric Dimensions
+6.2.  Decision Dimensions for Metrics Selection
+
+   Once defined, the compute metrics are to be selected and exposed to
+   management entities acting at different levels, such as a centralized
+   controller or a router, taking different actions such as service
+   placement, service selection, and assurance, with decision scopes
+   ranging from local compute facilities to end-to-end services.
 
    Upon exploring existing work, this draft proposes to consider a
-   number of dimensions before identifying the compute metrics needed to
+   number of "decision dimensions" reflecting the abovementioned aspects
+   in order to help identifying the suitable compute metrics needed to
    take a service operation decision.  This list is initial and is to be
    updated upon further discussion.
 
    Dimensions helping to identify needed compute metrics:
 
    +===========+====================+=================================+
-   | Dimension | Definition of      | Examples                        |
+   | Dimension | Definition of the  | Examples                        |
    |           | dimension          |                                 |
    +===========+====================+=================================+
    | Target    | What operation the | Monitoring, benchmarking,       |
@@ -664,7 +674,7 @@ Table of Contents
 
    *  Distributed among network devices directly.
 
-   *  Dollected by a centralized control plane.
+   *  Collected by a centralized control plane.
 
    *  Hybrid where some compute metrics are distributed among involved
       network devices, and others are collected by a centralized control
