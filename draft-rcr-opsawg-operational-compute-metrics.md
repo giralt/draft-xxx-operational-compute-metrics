@@ -758,12 +758,12 @@ metrics using the CATS Centralized Model.
 The following table provides the mapping:
 
 | IETF CATS component | Kubernetes Metrics API component |
-| CIS-ID              | Container runtime       |
+| CIS-ID              | Cluster API             |
 | C-SMA               | cAdvisor                |
-| C-NMA               | Other data              |
-| C-PS                | HPA, VPA                |
-| CATS Service Site   | Node                    |
-| CATS Service        | Cluster                 |
+| C-NMA               | Other components outside Kubernetes |
+| C-PS                | Other components outside Kubernetes |
+| CATS Service Site   | Node or cluster                    |
+| CATS Service        | One or more clusters distributed on several locations |
 {: #kub_cats_map title="Example of how to map the Kubernetes
 Metrics API with the IETF CATS Architecture." }
 
