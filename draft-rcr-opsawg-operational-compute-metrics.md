@@ -456,10 +456,10 @@ resource utilization for traffic steering (e.g., as done by the
 Path Selector in {{I-D.ldbc-cats-framework}}), load balance,
 or analytics, among others.
 
-# Metrics Selection and Exposure
+# Considerations about Selection and Exposure of Metrics
 
-Regarding metrics exposure one can distinguish the topics of (1)
-how the metrics are exposed and (2) which kind of metrics need to be exposed.
+One can distinguish the topics of (1)
+which kind of metrics need to be exposed and (2) how the metrics are exposed.
 The infrastructure resources can be divided into (1) network and (2) compute related
 resources. This section intends to give a brief outlook regarding these resources
 for stimulating additional discussion with related work going on in
@@ -471,25 +471,28 @@ other IETF working groups or standardization bodies.
 
 ## Considerations about Metrics
 
-The metrics considered in this document should be used to support
+The metrics considered in this document are meant to support
 decisions for selection and deployment of services and applications.
 Further iterations of this document may consider additional
 lifecycle operations such as assurance and relevant metrics.
 
-The network metrics listed above are specified in a number of
+The abovementioned operation may also involve network metrics that are specified in a number of
 IETF documents such as RFC 9439 {{I-D.ietf-alto-performance-metrics}},
 which itself leverages on RFC 7679. The work on compute metrics
 at the IETF, on the other hand, is in its first stages and merely
 relates to low-level infrastructure metrics such as in {{?RFC7666}}.
 However:
 
-- Decisions for service deployment and selection also involve
+- Decisions for service deployment and selection may further involve
 decisions that require an aggregated view, for instance, at the
 service level.
 
 - Deciding entities may only have partial access to the compute
 information and actually do not need to have all the details.
 
+Compute metrics and their acquisition and management have been addressed by standardization
+bodies outside the IETF such as NIST and DMTF, with the goal to guarantee reliable assessment and comparison of cloud
+services.
 A number of public tools and methods to test compute facility
 performances are made available by cloud service providers or
 service management businesses (e.g., see {{UPCLOUD}} and {{IR}}).
@@ -504,16 +507,21 @@ and calls for a common standardized definition.
 UPCLOUD https://upcloud.com/resources/tutorials/how-to-benchmark-cloud-servers
 IR https://www.ir.com/guides/cloud-performance-testing-->
 
-## Metric Dimensions
+## Decision Dimensions for Metrics Selection
+
+Once defined, the compute metrics are to be selected and exposed to management entities
+acting at different levels, such as a centralized controller or a router, taking different actions
+such as service placement, service selection, and assurance, with decision scopes ranging from
+local compute facilities to end-to-end services.
 
 Upon exploring existing work, this draft
-proposes to consider a number of dimensions before identifying
-the compute metrics needed to take a service operation decision.
+proposes to consider a number of "decision dimensions" reflecting the abovementioned aspects in order to help identifying
+the suitable compute metrics needed to take a service operation decision.
 This list is initial and is to be updated upon further discussion.
 
 Dimensions helping to identify needed compute metrics:
 
-| Dimension	 | Definition of dimension	| Examples |
+| Dimension	 | Definition of the dimension	| Examples |
 | Target operation	 | What operation the metric is used for | Monitoring, benchmarking, service placement and selection |
 | Driving KPI(s) | KPI(s) assessed with the metrics | Speed, scalability, cost, stability |
 | Decision scope | Granularity of metric definition | Infrastructure node/cluster, compute service, end-to-end application  |
@@ -565,7 +573,7 @@ The IETF CATS WG has explored the collection and distribution of computing metri
 
 - Distributed among network devices directly.
 
-- Dollected by a centralized control plane.
+- Collected by a centralized control plane.
 
 - Hybrid where some compute metrics are distributed among involved network devices,
 and others are collected by a centralized control plane.
