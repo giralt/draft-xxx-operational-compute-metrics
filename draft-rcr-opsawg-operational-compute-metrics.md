@@ -651,7 +651,7 @@ It consists of the following components:
 
 **Pod**. A collection of one or more containers.
 
-**Cluster**. A collection of one or more pods.
+**Cluster**. A collection of one or more nodes.
 
 **HPA, VPA and 'kubectl stop'**. Three different applications that
 serve as examples of consumers of the Metrics API.
