@@ -412,7 +412,8 @@ as well as enhanced service levels for end users.
 The information relative to compute (e.g., processing capabilities, memory,
 storage capacity, etc.) can be structured in two ways. On one hand, the
 information corresponding to the raw compute resources; on the other hand,
-the information of resources allocated or utilized by a specific application or service function.
+the information of resources allocated or utilized by a specific
+application or service function.
 
 The former is typically provided by the management systems enabling the
 virtualization of the physical resources for a later assignment to the
@@ -459,49 +460,14 @@ or analytics, among others.
 
 Regarding metrics exposure one can distinguish the topics of (1)
 how the metrics are exposed and (2) which kind of metrics need to be exposed.
-The infrastructure resources can be divided into network and compute related
-resources. Network based resources can roughly be subdivided according to the
-network structure into edge, backbone, and cloud resources.
-
-This section intends to give a brief outlook regarding these resources
+The infrastructure resources can be divided into (1) network and (2) compute related
+resources. This section intends to give a brief outlook regarding these resources
 for stimulating additional discussion with related work going on in
 other IETF working groups or standardization bodies.
 
-## Edge Resources
 
-Edge resources are referring to latency, bandwidth, compute
-latency or traffic breakout.
-
-## Network Resources
-
-Network resources relate to the traditional network
-infrastructure. The next table provides an overview of some of the
-commonly used metrics.
-
-| Kind of Resource |
-|     QoS          |
-|     Latency      |
-|     Bandwidth    |
-|     RTT          |
-|     Packet Loss  |
-|     Jitter       |
-{: #net_res title="Examples of network resource metrics." }
-
-
-## Cloud Resources
-
-The next table provides an example of parameters that
-could be exposed:
-
-| CPU         |    Compute       |   Available cpu resources    |
-| Memory      |    Compute       |   Available memory           |
-| Storage     |    Storage       |   Available storage          |
-| Configmaps  |    Object        |   Configuration and topology maps       |
-| Secrets     |    Object        |   Possible secrets           |
-| Pods        |    Object        |   Possible pods              |
-| Jobs        |    Object        |   Concurrent jobs            |
-| Services    |    Object        |   Concurrent services        |
-{: #cloud_res title="Examples of cloud resource parameters." }
+<!-- Network based resources can roughly be subdivided according to the -->
+<!-- network structure into edge, backbone, and cloud resources. -->
 
 ## Considerations about Metrics
 
@@ -618,6 +584,45 @@ In some cases, whether due to unavailable information details or for the sake of
 One can consider a generic metric that can be named “computingcost” and is applied to a contact point to one or more edge servers such as a load balancer, for short  an edge server, to reflect the network operator policy and preferences.  The metric “computingcost” results from an abstraction method that is hidden from users, similarly to the metric “routingcost” defined in {{RFC7285}}.  For instance, “computingcost” may be higher for an edge server located far away, or in disliked geographical areas, or owned by a provider who does not share information with the Internet Service Provider (ISP) or with which ISP has a poorer commercial agreement.  “computingcost” may also reflect environmental preferences in terms, for instance, of energy source, average consumption vs. local climate, location adequacy vs. climate.
 
 One may also consider a generic metric named “computingperf”, applied to an edge server, that reflects its performance, based on measurements or estimations by the ISP or combination thereof.  An edge server with a higher “computingperf” value will be preferred.  “computingperf” can be based on a vector of one or more metrics reflecting, for instance, responsiveness, reliability of cloud services based on metrics such as latency, packet loss, jitter, time to first and/or last byte, or a single value reflecting a global performance score.
+
+## Edge Resources
+
+Edge resources are referring to latency, bandwidth, compute
+latency or traffic breakout.
+
+## Network Resources
+
+Network resources relate to the traditional network
+infrastructure. The next table provides an overview of some of the
+commonly used metrics.
+
+| Kind of Resource |
+|     QoS          |
+|     Latency      |
+|     Bandwidth    |
+|     RTT          |
+|     Packet Loss  |
+|     Jitter       |
+{: #net_res title="Examples of network resource metrics." }
+
+
+## Cloud Resources
+
+The next table provides an example of parameters that
+could be exposed:
+
+| Resource    |    Type          |   Example    |
+| CPU         |    Compute       |   Available CPU resources in GHz    |
+| Memory      |    Compute       |   Available memory in GB           |
+| Storage     |    Storage       |   Available storage in GB         |
+| Configmaps  |    Object        |   Configuration and topology maps       |
+| Pods        |    Object        |   Current list of active pods              |
+| Jobs        |    Object        |   current list of active jobs            |
+| Services    |    Object        |   Concurrent services        |
+{: #cloud_res title="Examples of cloud resource parameters." }
+
+<!-- | Secrets     |    Object        |   Possible secrets           | -->
+
 
 # Study of the Kubernetes Metrics API and Exposure Mechanism
 
