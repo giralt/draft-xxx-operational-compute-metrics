@@ -920,24 +920,25 @@ Table of Contents
 
    The following table provides the mapping:
 
-        +=====================+==================================+
-        | IETF CATS component | Kubernetes Metrics API component |
-        +=====================+==================================+
-        | CIS-ID              | Container runtime                |
-        +---------------------+----------------------------------+
-        | C-SMA               | cAdvisor                         |
-        +---------------------+----------------------------------+
-        | C-NMA               | Other data                       |
-        +---------------------+----------------------------------+
-        | C-PS                | HPA, VPA                         |
-        +---------------------+----------------------------------+
-        | CATS Service Site   | Node                             |
-        +---------------------+----------------------------------+
-        | CATS Service        | Cluster                          |
-        +---------------------+----------------------------------+
+       +=====================+=====================================+
+       | IETF CATS component | Kubernetes Metrics API component    |
+       +=====================+=====================================+
+       | CIS-ID              | Cluster API                         |
+       +---------------------+-------------------------------------+
+       | C-SMA               | cAdvisor                            |
+       +---------------------+-------------------------------------+
+       | C-NMA               | Other components outside Kubernetes |
+       +---------------------+-------------------------------------+
+       | C-PS                | Other components outside Kubernetes |
+       +---------------------+-------------------------------------+
+       | CATS Service Site   | Node or cluster                     |
+       +---------------------+-------------------------------------+
+       | CATS Service        | One or more clusters distributed on |
+       |                     | several locations                   |
+       +---------------------+-------------------------------------+
 
-          Table 6: Example of how to map the Kubernetes Metrics
-                   API with the IETF CATS Architecture.
+         Table 6: Example of how to map the Kubernetes Metrics API
+                      with the IETF CATS Architecture.
 
    Note that while in Kubernetes there are multiple levels of
    abstraction to reach the Metrics API (cAdvisor -> kubelet -> metrics
