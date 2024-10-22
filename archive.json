@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-20T01:34:55.553353+00:00",
+  "timestamp": "2024-10-22T01:22:31.040421+00:00",
   "repo": "giralt/draft-rcr-opsawg-operational-compute-metrics",
   "labels": [
     {
@@ -313,6 +313,90 @@
       "mergedBy": "giralt",
       "mergeCommit": {
         "oid": "592faf07f7d8d9a13fed6e2a1a2dbe4e8bee6275"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOKgx8kM5_VWU7",
+      "title": "Sabine Update draft-rcr-opsawg-operational-compute-metrics.md",
+      "url": "https://github.com/giralt/draft-rcr-opsawg-operational-compute-metrics/pull/9",
+      "state": "MERGED",
+      "author": "saraalto",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-10-21T14:50:07Z",
+      "updatedAt": "2024-10-21T17:01:24Z",
+      "baseRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "baseRefName": "main",
+      "baseRefOid": "ee2bbd1b16b1b27aae1d7b45aaf6bd5c37b15dd1",
+      "headRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "headRefName": "saraalto-patch-1",
+      "headRefOid": "026b09bf1e044915dc2c97eb96d06f1770ee7a1b",
+      "closedAt": "2024-10-21T17:01:24Z",
+      "mergedAt": "2024-10-21T17:01:24Z",
+      "mergedBy": "giralt",
+      "mergeCommit": {
+        "oid": "0157971cae42f5ea4f6e132f6b579c0bfc8f7370"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOKgx8kM5_Wd8i",
+      "title": "Update draft-rcr-opsawg-operational-compute-metrics.md",
+      "url": "https://github.com/giralt/draft-rcr-opsawg-operational-compute-metrics/pull/10",
+      "state": "MERGED",
+      "author": "saraalto",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "changes on section 7.2 table 6",
+      "createdAt": "2024-10-21T16:54:01Z",
+      "updatedAt": "2024-10-21T17:00:28Z",
+      "baseRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "baseRefName": "main",
+      "baseRefOid": "ee2bbd1b16b1b27aae1d7b45aaf6bd5c37b15dd1",
+      "headRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "headRefName": "saraalto-patch-4",
+      "headRefOid": "b6a042f03ac8d9f024f8856168f3b48df2a7512c",
+      "closedAt": "2024-10-21T17:00:27Z",
+      "mergedAt": "2024-10-21T17:00:27Z",
+      "mergedBy": "giralt",
+      "mergeCommit": {
+        "oid": "e783b27eb0f1ca721dac6cd75a940358e76aa590"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 11,
+      "id": "PR_kwDOKgx8kM5_W6ka",
+      "title": "Update draft-rcr-opsawg-operational-compute-metrics.md",
+      "url": "https://github.com/giralt/draft-rcr-opsawg-operational-compute-metrics/pull/11",
+      "state": "MERGED",
+      "author": "saraalto",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Edits in section 6. Also accounting for moving sections 6.1 to 6.3",
+      "createdAt": "2024-10-21T18:02:46Z",
+      "updatedAt": "2024-10-21T18:49:00Z",
+      "baseRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "baseRefName": "main",
+      "baseRefOid": "0157971cae42f5ea4f6e132f6b579c0bfc8f7370",
+      "headRepository": "giralt/draft-rcr-opsawg-operational-compute-metrics",
+      "headRefName": "saraalto-patch-5",
+      "headRefOid": "cbaa4e4d56288cdd2ba179257a3298035b65832c",
+      "closedAt": "2024-10-21T18:49:00Z",
+      "mergedAt": "2024-10-21T18:49:00Z",
+      "mergedBy": "giralt",
+      "mergeCommit": {
+        "oid": "4b5fbac210430903fcf8c189ab7b43d4a01c5221"
       },
       "comments": [],
       "reviews": []
