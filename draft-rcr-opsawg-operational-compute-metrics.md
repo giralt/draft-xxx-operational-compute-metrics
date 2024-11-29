@@ -83,6 +83,13 @@ informative:
    LLM_COMP_REQ :
      title: Serving OPT-175B, BLOOM-176B and CodeGen-16B using Alpa
      target : https://alpa.ai/tutorials/opt_serving.html
+   BBF_TR-383:
+     title: Common YANG Modules for Access Networks
+     target: https://www.broadband-forum.org/pdfs/tr-383-1-7-0.pdf
+   GRAFANA:
+     title: Grafana - Visualization Tool and Dashbords from multiple Data Sources
+     target:  https://grafana.com/
+     
 --- abstract
 
 Service providers are starting to deploy computing capabilities
@@ -469,6 +476,21 @@ other IETF working groups or standardization bodies.
 <!-- Network based resources can roughly be subdivided according to the -->
 <!-- network structure into edge, backbone, and cloud resources. -->
 
+It is an idea regarding the kind of resources quotas. 
+The first column contains the kind of resource e.g., cpu or memory. 
+The second column is the kind of resource type or classification. 
+It is clustered in compute, storage, and object resources analog to definition 
+in a cloud native environment. 
+In the example of CPU, the resource quota can have a default value or could be 
+limited or could be in a defined range that can be used (0.1 or 2 CPU). 
+An additional parameter is the maximum amount of CPU requests.
+The general format of the units is the total.
+Sensitive credentials (secrets) can be made available to pods as environment 
+variables or configuration files without the need to store these sensitive or 
+changing data in version control systems or image registries. 
+So, config maps and secrets allow you to separate code and configuration.
+
+
 ## Considerations about Metrics
 
 The metrics considered in this document are meant to support
@@ -631,6 +653,13 @@ commonly used metrics:
 {: #cloud_res title="Examples of cloud resource parameters." }
 
 <!-- | Secrets     |    Object        |   Possible secrets           | -->
+
+
+### Observability of Metrics
+Metrics are an important aspect of building observability. They may be used for placement of applications, observation of patterns or even for root cause analyzation. The costs are the resources (network, storage, and compute) required to store and process the metrics. In case of analytics use cases the determination of the useful metrics ahead of time is difficult. Therefore, the delivery of a subset of metrics or all - if required – must be possible. From the operator perspective the metrics can be used for:
+-	Network Operation 
+-	Network Analytics
+It should also be possible to use the metrics for different purposes and allow a central or distributed handling. The metrics should allow a dynamic addition or deletion of network elements and must be usable in a multi-vendor environment. Latter requires a metrics framework and the ability to normalize the metrics. Conclusion is that standardization of metrics is required. Special tools enable the visualization of the metrics even if coming from different data sources.
 
 
 # Study of the Kubernetes Metrics API and Exposure Mechanism
@@ -840,6 +869,10 @@ Some existing work has explored compute-related metrics. It can be categorized a
 
 * **Other existing work at the IETF CATS WG**:
   * {{I-D.ldbc-cats-framework}} explores the collection and distribution of computing metrics. In their deployment considerations, they consider three models: distributed, centralized, and hybrid.
+
+* Standardization work regarding related work on compute metrics can also be found in standardization bodies like Broadband Forum. The modules defined there are related to the work of the standardization body. Examples can be found in {{BBF_TR-383}} describing access and interface related parameters and metrics. Edge cloud topics are also likely to become relevant in the access domain.
+
+* For monitoring and graphical visualization of metrics tools like Grafana {{GRAFANA}} are available. With such kind of tools, it is possible to create dashboards for improving the observability of the platforms. These tools can be customized providing a suitable view depending on the uses case. 
 
 #  Guiding Principles
 
